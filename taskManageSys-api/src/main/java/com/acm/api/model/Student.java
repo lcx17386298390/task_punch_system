@@ -1,8 +1,8 @@
-package com.acm.model;
+package com.acm.api.model;
 
 import java.io.Serializable;
 
-public class Admin implements Serializable {
+public class Student implements Serializable {
     private String id;
 
     private String name;
@@ -10,6 +10,10 @@ public class Admin implements Serializable {
     private String username;
 
     private String password;
+
+    private Double grade;
+
+    private String pos;
 
     public String getId() {
         return id;
@@ -41,5 +45,21 @@ public class Admin implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
+    }
+
+    public String getPos() {
+        return pos;
+    }
+
+    public void setPos(String pos) {
+        this.pos = pos;
     }
 }

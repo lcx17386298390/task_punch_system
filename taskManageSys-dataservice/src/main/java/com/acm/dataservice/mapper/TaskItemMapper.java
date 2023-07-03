@@ -14,4 +14,10 @@ public interface TaskItemMapper {
     int updateByPrimaryKeySelective(TaskItem record);
 
     int updateByPrimaryKey(TaskItem record);
+
+    int deleteByIdAndName(String id,String name);
+
+    int editTaskItemById(String id, String name, String content, Double judgefinish);
+
+    TaskItem viewTaskItemByIdAndName(String id,String name);
 }

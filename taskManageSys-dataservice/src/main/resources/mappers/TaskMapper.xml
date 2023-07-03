@@ -15,6 +15,13 @@
     from task
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+  <select id="queryTaskList" resultType="com.acm.api.model.Task">
+    select <include refid="Base_Column_List" />
+    from task
+    limit #{offset},#{pagesize}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from task
     where id = #{id,jdbcType=VARCHAR}

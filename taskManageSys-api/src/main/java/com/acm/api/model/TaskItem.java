@@ -1,4 +1,4 @@
-package com.acm.model;
+package com.acm.api.model;
 
 import java.io.Serializable;
 
