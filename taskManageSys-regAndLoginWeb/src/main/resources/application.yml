@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: taskManageSys-regAndLoginWeb
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    host: localhost
+    port: 6379
+
+dubbo:
+  registry:
+    address: zookeeper://localhost:2181
+  scan:
+    base-packages: com.acm.front
+  consumer:
+    check: false
+    timeout: 50000
+    retries: 0
+
+server:
+  port: 8000
+  servlet:
+    context-path: /tms
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+

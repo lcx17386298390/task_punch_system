@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="taskManageSys-giveTask" />
+        <module name="taskManageSys-viewTask" />
+        <module name="taskManageSys-common" />
+        <module name="taskManageSys-dataservice" />
+        <module name="ready-mybatisForSys" />
+        <module name="taskManageSys-api" />
+        <module name="taskManageSys-regAndLoginWeb" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ready-mybatisForSys" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="taskManageSys-api" options="-parameters" />
+      <module name="taskManageSys-common" options="-parameters" />
+      <module name="taskManageSys-dataservice" options="-parameters" />
+      <module name="taskManageSys-giveTask" options="-parameters" />
+      <module name="taskManageSys-parent" options="-parameters" />
+      <module name="taskManageSys-regAndLoginWeb" options="-parameters" />
+      <module name="taskManageSys-viewTask" options="-parameters" />
+    </option>
+  </component>
+</project>
