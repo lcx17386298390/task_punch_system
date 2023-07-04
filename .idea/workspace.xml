@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c5bfdf-a92e-4e21-93be-dbd21f79b350" name="Changes" comment="V0.0.1">
-      <change afterPath="$PROJECT_DIR$/start-end/src/api/httpRequest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/start-end/src/components/task.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="38c5bfdf-a92e-4e21-93be-dbd21f79b350" name="Changes" comment="V0.0.2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,10 +127,22 @@
       <workItem from="1688312788225" duration="671000" />
       <workItem from="1688313515775" duration="56000" />
     </task>
+    <task id="LOCAL-00001" summary="V0.0.2">
+      <created>1688451666641</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688451666641</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="V0.0.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="V0.0.2" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

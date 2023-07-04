@@ -1,24 +1,26 @@
 <template>
-  任务标题:<input type="text" v-model="inputTitle"><br>
-  任务简介:<input type="text" v-model="inputContent"><br>
-  <button @click="createList">新增任务</button> <br>
-  指定任务点学生姓名:<input type="text" v-model="inputStudentName"> <br>
-  指定任务点所写内容:<input type="text" v-model="inputTaskItemContent"> <br>
-  <table>
-    <tr>
-      <th>id</th>
-      <th>标题</th>
-      <th>内容</th>
-    </tr>
-    <tr v-for="viewTask of taskList" :key="viewTask.id">
-      <td>{{viewTask.id}}</td>
-      <td>{{viewTask.title}}</td>
-      <td>{{viewTask.content}}</td>
-      <td><button @click="createTaskItem(viewTask.id)">增加任务点</button></td>
-      <td><button @click="deleteList(viewTask.id,viewTask.title)">删除</button></td>
-      <td></td>
-    </tr>
-  </table>
+  <div>
+    任务标题:<input type="text" v-model="inputTitle"><br>
+    任务简介:<input type="text" v-model="inputContent"><br>
+    <button @click="createList">新增任务</button> <br>
+    指定任务点学生姓名:<input type="text" v-model="inputStudentName"> <br>
+    指定任务点所写内容:<input type="text" v-model="inputTaskItemContent"> <br>
+      <table>
+      <tr>
+        <th>id</th>
+        <th>标题</th>
+        <th>内容</th>
+      </tr>
+      <tr v-for="viewTask of taskList" :key="viewTask.id">
+        <td>{{viewTask.id}}</td>
+        <td>{{viewTask.title}}</td>
+        <td>{{viewTask.content}}</td>
+        <td><button @click="createTaskItem(viewTask.id)">增加任务点</button></td>
+        <td><button @click="deleteList(viewTask.id,viewTask.title)">删除</button></td>
+        <td></td>
+      </tr>
+      </table>
+  </div>
 </template>
 
 <script>
