@@ -3,8 +3,8 @@
     <HelloWorld msg="hhh"></HelloWorld>
     <ul>
       <li><router-link to="/a">test</router-link></li>
+      <li><router-link to="/postTask">post</router-link></li>
     </ul>
-
     <router-view></router-view>
   </div>
 </template>
