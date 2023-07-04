@@ -20,6 +20,7 @@
         <td></td>
       </tr>
     </table>
+    共{{this.pageInfo.totalPage}}页 共{{this.pageInfo.totalRecord}}个任务
   </div>
 </template>
 
@@ -39,6 +40,11 @@ export default {
         id: "",
         content: "",
         title: ""
+      }],
+      pageInfo : [{
+        pageNo: "",
+        totalRecord: "",
+        totalPage: ""
       }]
     }
   },
@@ -118,7 +124,12 @@ export default {
       if(resp){
         this.taskList = resp.data
       }
-    })
+    }),
+        doGet('http://localhost:8000/tms/task/cal').then(resp => {
+          if(resp){
+            this.pageInfo = resp.data
+          }
+        })
   }
 }
 
