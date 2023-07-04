@@ -14,15 +14,6 @@
         <module name="taskManageSys-regAndLoginWeb" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="taskManageSys-api" target="1.8" />
-      <module name="taskManageSys-common" target="1.8" />
-      <module name="taskManageSys-dataservice" target="1.8" />
-      <module name="taskManageSys-giveTask" target="1.8" />
-      <module name="taskManageSys-parent" target="1.8" />
-      <module name="taskManageSys-regAndLoginWeb" target="1.8" />
-      <module name="taskManageSys-viewTask" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

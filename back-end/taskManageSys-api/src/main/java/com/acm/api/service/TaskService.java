@@ -13,4 +13,6 @@ public interface TaskService {
     int deleteByPrimaryKey(String id);
 
     int updateByPrimaryKey(Task record);
+
+    int calCountOfTask();
 }
