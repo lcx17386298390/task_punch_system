@@ -1,10 +1,11 @@
 <template>
   <div>
-    任务标题:<input type="text" v-model="inputTitle"><br>
+    任务标题:<input type="text" v-model="inputTitle" placeholder="不得多于十个字符"><br>
     任务简介:<textarea cols="30" rows="10" v-model="inputContent"></textarea><br>
     <button @click="createList">新增任务</button> <br>
     指定任务点学生姓名:<input type="text" v-model="inputStudentName"> <br>
     指定任务点所写内容:<textarea cols="30" rows="10" v-model="inputTaskItemContent"></textarea> <br>
+    指定任务点评分:<input type="number" v-model="inputScore"> <br>
     <table>
       <tr>
         <th>id</th>
@@ -17,6 +18,7 @@
         <td>{{viewTask.content}}</td>
         <td><button @click="createTaskItem(viewTask.id)">增加任务点</button></td>
         <td><button @click="deleteList(viewTask.id,viewTask.title)">删除</button></td>
+        <td><button @click="editTaskItem(viewTask.id)">修改</button></td>
         <td></td>
       </tr>
     </table>
@@ -31,7 +33,10 @@
         <li class="totalPages"><span>共{{this.pageInfo.totalPage}}页</span></li>
       </ul>
     </div>
-    共{{this.pageInfo.totalRecord}}个任务
+    共{{this.pageInfo.totalRecord}}个任务 <br>
+    请输入你要查询学生姓名:<input type="text" v-model="queryStuName">
+    <button @click="calculateScore">查询</button> <br>
+    <h3>{{calScore}}</h3>
   </div>
 </template>
 
@@ -48,6 +53,9 @@ export default {
       inputContent: "",
       inputStudentName:"",
       inputTaskItemContent: "",
+      inputScore: "",
+      queryStuName: "",
+      calScore: 0,
       taskList : [{
         id: "",
         content: "",
@@ -130,13 +138,38 @@ export default {
         }
       })
     },
+    editTaskItem(id){
+      if(this.inputStudentName === ""){
+        alert("学生姓名不能为空！");
+        return;
+      }
+      if(this.inputTaskItemContent === ""){
+        alert("修改内容不能为空！");
+        return;
+      }
+      return axios({
+        url: 'http://localhost:8000/tms/taskitem/edit',
+        method: 'post',
+        params: {
+          id: id,
+          name: this.inputStudentName,
+          content: this.inputTaskItemContent,
+          judgefinish: this.inputScore
+        }
+      }).then(resp => {
+        if(resp){
+          alert("修改成功!");
+          location.reload();
+        }
+      })
+    },
     initPage(pageNo,pageSize) {
       doGet('http://localhost:8000/tms/task', {
         pageNo: pageNo,pageSize:pageSize})
           .then(resp => {
             if (resp) {
               this.taskList = resp.data;
-              console.log(resp.data)
+              //console.log(resp.data)
             }
           });
       this.updatePage(pageNo);
@@ -180,6 +213,16 @@ export default {
         if(resp){
           this.pageInfo = resp.data
           this.pageInfo.pageNo = pageNo
+        }
+      })
+    },
+    calculateScore(){
+      doGet('http://localhost:8001/tms/score',{
+        name: this.queryStuName
+      }).then(resp => {
+        if(resp){
+          console.log(resp.data);
+          this.calScore = Object.values(resp.data)[0]
         }
       })
     }

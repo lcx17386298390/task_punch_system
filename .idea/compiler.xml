@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="taskManageSys-giveTask" />
         <module name="taskManageSys-viewTask" />
+        <module name="taskManageSys-msgToMail" />
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
         <module name="taskManageSys-api" />
@@ -24,6 +25,7 @@
       <module name="taskManageSys-common" options="-parameters" />
       <module name="taskManageSys-dataservice" options="-parameters" />
       <module name="taskManageSys-giveTask" options="-parameters" />
+      <module name="taskManageSys-msgToMail" options="-parameters" />
       <module name="taskManageSys-parent" options="-parameters" />
       <module name="taskManageSys-regAndLoginWeb" options="-parameters" />
       <module name="taskManageSys-viewTask" options="-parameters" />

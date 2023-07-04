@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/back-end/taskManageSys-viewTask" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -11,6 +14,7 @@
         <option value="$PROJECT_DIR$/back-end/taskManageSys-viewTask/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-dataservice/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/pom.xml" />
+        <option value="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/pom.xml" />
       </list>
     </option>
   </component>
