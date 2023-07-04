@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38f2e465-42ad-4703-a68f-329b81dac501" name="变更" comment="查看">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/service/TaskItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/service/TaskItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/controller/ViewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/controller/ViewTaskController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +38,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2S5eZKnsiy9wg8afbnEC56ygifo" />
   <component name="ProjectViewState">
@@ -101,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688440923431</updated>
-      <workItem from="1688440924585" duration="5567000" />
+      <workItem from="1688440924585" duration="7968000" />
     </task>
     <task id="LOCAL-00001" summary="查看">
       <created>1688453299726</created>
@@ -124,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688453575789</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="查看">
+      <created>1688453891775</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688453891775</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
