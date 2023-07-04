@@ -20,13 +20,25 @@
         <td></td>
       </tr>
     </table>
-    共{{this.pageInfo.totalPage}}页 共{{this.pageInfo.totalRecord}}个任务
+    <!--分页-->
+    <div class="page_box">
+      <ul class="pagination">
+        <li ><a href="javascript:void(0)" @click="first">首页</a></li>
+        <li><a href="javascript:void(0)" @click="pre">上一页</a></li>
+        <li class="active"><span>{{this.pageInfo.pageNo}}</span></li>
+        <li><a href="javascript:void(0)" @click="next">下一页</a></li>
+        <li><a href="javascript:void(0)" @click="last">尾页</a></li>
+        <li class="totalPages"><span>共{{this.pageInfo.totalPage}}页</span></li>
+      </ul>
+    </div>
+    共{{this.pageInfo.totalRecord}}个任务
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import {doGet} from "@/api/httpRequest";
+import layx from "vue-layx";
 
 export default {
   name: "testTask",
@@ -42,7 +54,7 @@ export default {
         title: ""
       }],
       pageInfo : [{
-        pageNo: "",
+        pageNo: 1,
         totalRecord: "",
         totalPage: ""
       }]
@@ -117,19 +129,73 @@ export default {
           location.reload();
         }
       })
+    },
+    initPage(pageNo,pageSize) {
+      doGet('http://localhost:8000/tms/task', {
+        pageNo: pageNo,pageSize:pageSize})
+          .then(resp => {
+            if (resp) {
+              this.taskList = resp.data;
+              console.log(resp.data)
+            }
+          });
+      this.updatePage(pageNo);
+    },
+    first(){
+      if( this.pageInfo.pageNo === 1 ){
+        layx.msg('已经是第一页数据.',{dialogIcon:'warn',position:'ct'});
+      } else {
+        this.initPage(1,9);
+        this.updatePage(1);
+      }
+    },
+    last(){
+      if( this.pageInfo.pageNo === this.pageInfo.totalPage ){
+        layx.msg('已经是最后一页数据.',{dialogIcon:'warn',position:'ct'});
+      } else {
+        this.initPage(this.pageInfo.totalPage,9);
+        this.updatePage(this.pageInfo.totalPage);
+      }
+    },
+    pre(){
+      if( this.pageInfo.pageNo <= 1 ){
+        layx.msg('已经是第一页数据.',{dialogIcon:'warn',position:'ct'});
+      } else {
+        this.initPage(this.pageInfo.pageNo - 1 , 9);
+        this.updatePage(this.pageInfo.pageNo - 1);
+      }
+
+    },
+    next(){
+      if( this.pageInfo.pageNo >= this.pageInfo.totalPage ){
+        layx.msg('已经是最后一页数据.',{dialogIcon:'warn',position:'ct'});
+      } else {
+        this.initPage(this.pageInfo.pageNo + 1, 9);
+        this.updatePage(this.pageInfo.pageNo + 1);
+      }
+
+    },
+    updatePage(pageNo){
+      doGet('http://localhost:8000/tms/task/cal').then(resp => {
+        if(resp){
+          this.pageInfo = resp.data
+          this.pageInfo.pageNo = pageNo
+        }
+      })
     }
   },
   mounted() {
-    doGet('http://localhost:8000/tms/task').then(resp => {
+    /*doGet('http://localhost:8000/tms/task',{
+      pageNo: this.pageInfo.pageNo
+    }).then(resp => {
       if(resp){
         this.taskList = resp.data
       }
-    }),
-        doGet('http://localhost:8000/tms/task/cal').then(resp => {
-          if(resp){
-            this.pageInfo = resp.data
-          }
-        })
+    })*/
+
+    this.initPage(1,9)
+    this.updatePage(1)
+
   }
 }
 
