@@ -18,12 +18,7 @@ public class PageInfo {
         this.pageSize = pageSize;
         this.totalRecord = totalRecord;
 
-        //计算总页数
-        if( this.totalRecord % this.pageSize  == 0 ){
-            this.totalPage = this.totalRecord / this.pageSize;
-        } else {
-            this.totalPage = this.totalRecord / this.pageSize + 1;
-        }
+
     }
 
     public Integer getPageNo() {
