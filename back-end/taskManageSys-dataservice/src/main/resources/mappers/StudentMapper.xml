@@ -8,6 +8,119 @@
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="grade" jdbcType="DOUBLE" property="grade" />
     <result column="pos" jdbcType="VARCHAR" property="pos" />
+    <result column="mail" jdbcType="VARCHAR" property="mail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, username, password, grade, pos, mail
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from student
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.acm.api.model.Student">
+    insert into student (id, name, username, 
+      password, grade, pos, 
+      mail)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{grade,jdbcType=DOUBLE}, #{pos,jdbcType=VARCHAR}, 
+      #{mail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.acm.api.model.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="pos != null">
+        pos,
+      </if>
+      <if test="mail != null">
+        mail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=DOUBLE},
+      </if>
+      <if test="pos != null">
+        #{pos,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        #{mail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.acm.api.model.Student">
+    update student
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=DOUBLE},
+      </if>
+      <if test="pos != null">
+        pos = #{pos,jdbcType=VARCHAR},
+      </if>
+      <if test="mail != null">
+        mail = #{mail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.acm.api.model.Student">
+    update student
+    set name = #{name,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=DOUBLE},
+      pos = #{pos,jdbcType=VARCHAR},
+      mail = #{mail,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.acm.api.model.Student">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="grade" jdbcType="DOUBLE" property="grade" />
+    <result column="pos" jdbcType="VARCHAR" property="pos" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, username, password, grade, pos

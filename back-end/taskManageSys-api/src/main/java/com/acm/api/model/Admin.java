@@ -11,6 +11,8 @@ public class Admin implements Serializable {
 
     private String password;
 
+    private String mail;
+
     public String getId() {
         return id;
     }
@@ -41,5 +43,13 @@ public class Admin implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }
