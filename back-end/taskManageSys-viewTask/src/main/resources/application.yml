@@ -10,7 +10,6 @@ spring:
     username: root
     password: gt040311
 
-
 dubbo:
   registry:
     address: zookeeper://localhost:2181
