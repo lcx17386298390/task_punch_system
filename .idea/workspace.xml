@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38f2e465-42ad-4703-a68f-329b81dac501" name="变更" comment="Merge remote-tracking branch 'origin/main'">
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/task_punch_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/task_punch_system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,9 +62,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "模块",
+    "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.15234375",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.23875433",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -72,7 +75,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskManageSysViewTaskApplication">
+  <component name="RunManager" selected="应用程序.TaskManageSysViewTaskApplication">
+    <configuration name="TaskManageSysViewTaskApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.acm.TaskManageSysViewTaskApplication" />
+      <module name="task_punch_system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.acm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TaskManageSysDataserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="taskManageSys-dataservice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.dataservice.TaskManageSysDataserviceApplication" />
@@ -106,7 +122,13 @@
       <item itemvalue="Spring Boot.TaskManageSysGiveTaskApplication" />
       <item itemvalue="Spring Boot.TaskManageSysRegAndLoginWebApplication" />
       <item itemvalue="Spring Boot.TaskManageSysViewTaskApplication" />
+      <item itemvalue="应用程序.TaskManageSysViewTaskApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.TaskManageSysViewTaskApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -118,6 +140,7 @@
       <updated>1688440923431</updated>
       <workItem from="1688440924585" duration="17696000" />
       <workItem from="1688472020130" duration="354000" />
+      <workItem from="1688472382045" duration="637000" />
     </task>
     <task id="LOCAL-00001" summary="查看">
       <created>1688453299726</created>
@@ -203,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688472294791</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Merge remote-tracking branch 'origin/main'">
+      <created>1688472429417</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688472429417</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Merge remote-tracking branch 'origin/main'">
+      <created>1688472532003</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688472532003</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
