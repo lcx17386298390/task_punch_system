@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @DubboService(interfaceClass = TaskItemService.class,version = "1.0")
@@ -18,25 +19,27 @@ public class ViewTaskController {
     @Resource
     private TaskItemService taskItemService;
 
-    @RequestMapping("/hello")
-    public String hello(){
-
-        System.out.println("N吧");
-        return "Hello,Spring Boot 3!";
-    }
 
     @GetMapping("/insertTaskItem")
-    public TaskItem viewTaskItemByName(@RequestParam("name") String name) {
-        TaskItem taskItem = taskItemService.viewTaskItemByName(name);
-        if (taskItem != null) {
-            taskItem.getName();
-            taskItem.getContent();
-            taskItem.getJudgefinish();
-            taskItem.getId();
-            System.out.println("查询成功"+" ="+taskItem);
-        }else if (taskItem==null){
+    public String viewTaskItemByName(@RequestParam("name") String name) {
+        List<TaskItem> taskItems = taskItemService.viewTaskItemByName(name);
+        double totalJudgeFinish = 0;
+        if (taskItems != null && !taskItems.isEmpty()) {
+            for (TaskItem taskItem : taskItems) {
+                taskItem.getName();
+                taskItem.getContent();
+                taskItem.getJudgefinish();
+                taskItem.getId();
+                System.out.println("查询成功" + " =" + taskItem);
+                totalJudgeFinish+=taskItem.getJudgefinish();
+            }
+                double averageJudgeFinish = totalJudgeFinish / (taskItems.size()*10);
+                System.out.println("查询成功，平均 Judgefinish：" + averageJudgeFinish);
+                return "查询成功，平均 Judgefinish：" + averageJudgeFinish;
+
+        }else {
             System.out.println("查询失败！！！！");
+            return "查询失败！！！";
         }
-        return taskItem;
+        }
     }
-}
