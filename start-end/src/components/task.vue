@@ -1,11 +1,11 @@
 <template>
   <div>
     任务标题:<input type="text" v-model="inputTitle"><br>
-    任务简介:<input type="text" v-model="inputContent"><br>
+    任务简介:<textarea cols="30" rows="10" v-model="inputContent"></textarea><br>
     <button @click="createList">新增任务</button> <br>
     指定任务点学生姓名:<input type="text" v-model="inputStudentName"> <br>
-    指定任务点所写内容:<input type="text" v-model="inputTaskItemContent"> <br>
-      <table>
+    指定任务点所写内容:<textarea cols="30" rows="10" v-model="inputTaskItemContent"></textarea> <br>
+    <table>
       <tr>
         <th>id</th>
         <th>标题</th>
@@ -19,7 +19,7 @@
         <td><button @click="deleteList(viewTask.id,viewTask.title)">删除</button></td>
         <td></td>
       </tr>
-      </table>
+    </table>
   </div>
 </template>
 
