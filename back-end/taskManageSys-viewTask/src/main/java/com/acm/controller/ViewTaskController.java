@@ -18,12 +18,6 @@ public class ViewTaskController {
     @Resource
     private TaskItemService taskItemService;
 
-    @RequestMapping("/hello")
-    public String hello(){
-
-        System.out.println("N吧");
-        return "Hello,Spring Boot 3!";
-    }
 
     @GetMapping("/insertTaskItem")
     public TaskItem viewTaskItemByName(@RequestParam("name") String name) {
