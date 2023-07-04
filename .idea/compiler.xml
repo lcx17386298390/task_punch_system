@@ -7,22 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="taskManageSys-giveTask" />
+        <module name="taskManageSys-viewTask" />
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
         <module name="taskManageSys-api" />
-        <module name="taskManageSys-giveTask" />
-        <module name="taskManageSys-viewTask" />
         <module name="taskManageSys-regAndLoginWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="taskManageSys-api" target="1.8" />
-      <module name="taskManageSys-common" target="1.8" />
-      <module name="taskManageSys-dataservice" target="1.8" />
-      <module name="taskManageSys-giveTask" target="1.8" />
-      <module name="taskManageSys-parent" target="1.8" />
-      <module name="taskManageSys-regAndLoginWeb" target="1.8" />
-      <module name="taskManageSys-viewTask" target="1.8" />
+      <module name="ready-mybatisForSys" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-api/taskManageSys-api.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-api/taskManageSys-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-dataservice/taskManageSys-dataservice.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/taskManageSys-dataservice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-giveTask/taskManageSys-giveTask.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/taskManageSys-giveTask.iml" />
-      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-parent/taskManageSys-parent.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-parent/taskManageSys-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-viewTask/taskManageSys-viewTask.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/taskManageSys-viewTask.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/task_punch_system.iml" filepath="$PROJECT_DIR$/.idea/task_punch_system.iml" />
     </modules>
   </component>

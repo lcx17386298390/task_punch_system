@@ -1,21 +1,21 @@
 <template>
   <div id="app">
-    <HelloWorld msg="hhh"></HelloWorld>
-    <ul>
-      <li><router-link to="/a">test</router-link></li>
-    </ul>
+    <TopBanner></TopBanner>
+    <Login></Login>
 
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Login from './components/login.vue';
+import TopBanner from './components/TopBanner.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Login,
+    TopBanner
   }
 }
 </script> 
@@ -23,3 +23,4 @@ export default {
 <style>
 
 </style>
+

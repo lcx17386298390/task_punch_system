@@ -16,6 +16,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </select>
 
+
   <select id="queryTaskList" resultType="com.acm.api.model.Task">
     select <include refid="Base_Column_List" />
     from task
@@ -75,4 +76,7 @@
       content = #{content,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="calCountOfTask" resultType="java.lang.Integer">
+    select count(id) from task
+  </select>
 </mapper>
