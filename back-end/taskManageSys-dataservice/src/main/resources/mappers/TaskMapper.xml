@@ -16,6 +16,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </select>
 
+
   <select id="queryTaskList" resultType="com.acm.api.model.Task">
     select <include refid="Base_Column_List" />
     from task

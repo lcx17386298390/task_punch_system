@@ -15,6 +15,8 @@ public class Student implements Serializable {
 
     private String pos;
 
+    private String mail;
+
     public String getId() {
         return id;
     }
@@ -61,5 +63,13 @@ public class Student implements Serializable {
 
     public void setPos(String pos) {
         this.pos = pos;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }
