@@ -1,4 +1,4 @@
-package com.acm.front;
+package com.acm;
 
 import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.springframework.boot.SpringApplication;

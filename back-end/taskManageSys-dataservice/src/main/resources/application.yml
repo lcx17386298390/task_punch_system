@@ -2,10 +2,10 @@ spring:
   application:
     name: taskManageSys-dataservice
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/gt_test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: root
-    password: gt040311
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/acm
+      username: root
+      password: 123456
 
 mybatis:
   mapper-locations: classpath:/mappers/**/*.xml

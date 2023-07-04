@@ -1,7 +1,6 @@
 package com.acm.dataservice.mapper;
 
 import com.acm.api.model.Task;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
