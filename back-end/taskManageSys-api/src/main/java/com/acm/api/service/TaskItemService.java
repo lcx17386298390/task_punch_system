@@ -2,6 +2,8 @@ package com.acm.api.service;
 
 import com.acm.api.model.TaskItem;
 
+import java.util.List;
+
 public interface TaskItemService {
     //int deleteByPrimaryKey(String id);
 
@@ -12,4 +14,6 @@ public interface TaskItemService {
     int editTaskItemById(String id,String name,String content,Double judgefinish);
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
+
+    List<TaskItem> viewTaskItemByName(String name);
 }

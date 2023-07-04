@@ -2,6 +2,8 @@ package com.acm.dataservice.mapper;
 
 import com.acm.api.model.TaskItem;
 
+import java.util.List;
+
 public interface TaskItemMapper {
     int deleteByPrimaryKey(String id);
 
@@ -20,4 +22,7 @@ public interface TaskItemMapper {
     int editTaskItemById(String id, String name, String content, Double judgefinish);
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
+
+    List<TaskItem> viewTaskItemByName(String name);
+
 }

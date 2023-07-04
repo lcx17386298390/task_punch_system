@@ -6,6 +6,8 @@ import com.acm.dataservice.mapper.TaskItemMapper;
 import org.apache.dubbo.config.annotation.DubboService;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @DubboService(interfaceClass = TaskItemService.class,version = "1.0")
 public class taskItemServiceImpl implements TaskItemService {
     @Resource
@@ -35,5 +37,10 @@ public class taskItemServiceImpl implements TaskItemService {
     @Override
     public TaskItem viewTaskItemByIdAndName(String id, String name) {
         return taskItemMapper.viewTaskItemByIdAndName(id,name);
+    }
+
+    @Override
+    public List<TaskItem> viewTaskItemByName(String name) {
+        return taskItemMapper.viewTaskItemByName(name);
     }
 }

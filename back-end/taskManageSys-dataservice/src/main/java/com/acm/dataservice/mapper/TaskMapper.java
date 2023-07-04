@@ -21,5 +21,5 @@ public interface TaskMapper {
     List<Task> queryTaskList(@Param("offset") Integer offset,
                              @Param("pagesize") Integer pageSize);
 
-
+    int calCountOfTask();
 }

@@ -37,4 +37,9 @@ public class taskServiceImpl implements TaskService {
     public int updateByPrimaryKey(Task record) {
         return taskMapper.updateByPrimaryKey(record);
     }
+
+    @Override
+    public int calCountOfTask() {
+        return taskMapper.calCountOfTask();
+    }
 }
