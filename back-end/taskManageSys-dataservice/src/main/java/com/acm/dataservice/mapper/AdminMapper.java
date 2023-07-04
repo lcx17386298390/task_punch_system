@@ -1,17 +1,11 @@
 package com.acm.dataservice.mapper;
 
 import com.acm.api.model.Admin;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
+@Mapper
 public interface AdminMapper {
-    int deleteByPrimaryKey(String id);
-
-    int insert(Admin record);
-
-    int insertSelective(Admin record);
-
-    Admin selectByPrimaryKey(String id);
-
-    int updateByPrimaryKeySelective(Admin record);
-
-    int updateByPrimaryKey(Admin record);
+    @Select("select * from admin where username=#{username}")
+    Admin findAuthByName(String username);
 }
