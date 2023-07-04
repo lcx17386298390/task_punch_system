@@ -4,12 +4,18 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/gt_test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: gt040311
+
 
 dubbo:
   registry:
     address: zookeeper://localhost:2181
   scan:
-    base-packages: com.acm.front
+    base-packages: com.acm.front, com.acm.dataservice.service
   consumer:
     check: false
     timeout: 50000
@@ -23,4 +29,10 @@ server:
       charset: utf-8
       enabled: true
       force: true
+
+mybatis:
+  mapper-locations: classpath:/mappers/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
 

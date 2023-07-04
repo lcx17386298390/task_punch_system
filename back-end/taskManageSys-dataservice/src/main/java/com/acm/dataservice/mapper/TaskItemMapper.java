@@ -20,4 +20,7 @@ public interface TaskItemMapper {
     int editTaskItemById(String id, String name, String content, Double judgefinish);
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
+
+    TaskItem viewTaskItemByName(String name);
+
 }

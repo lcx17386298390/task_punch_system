@@ -56,6 +56,18 @@
             <type>pom</type>
             <version>2.7.8</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.acm</groupId>
+            <artifactId>taskManageSys-dataservice</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>

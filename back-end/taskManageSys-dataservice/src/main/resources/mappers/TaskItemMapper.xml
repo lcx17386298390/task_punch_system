@@ -22,6 +22,15 @@
     from taskitem
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </select>
+
+  <select id="viewTaskItemByName" resultType="com.acm.api.model.TaskItem">
+    select
+    <include refid="Base_Column_List" />
+    from taskitem
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from taskitem
     where id = #{id,jdbcType=VARCHAR}
