@@ -1,29 +1,15 @@
-package com.acm.controller;
+package com.acm.front.controller;
 
-import com.acm.Dao.TaskItemDTO;
+import com.acm.front.Dao.TaskItemDTO;
 import com.acm.api.model.TaskItem;
-import com.acm.api.service.TaskItemService;
-import org.apache.dubbo.config.annotation.DubboService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.List;
-
+@CrossOrigin
 @RestController
-@DubboService(interfaceClass = TaskItemService.class,version = "1.0")
+public class ViewTaskController extends BaseController{
 
-public class ViewTaskController {
 
-    @Resource
-    private TaskItemService taskItemService;
-
-    @RequestMapping("/6")
-    public String hello(){
-        return "index";
-    }
 
     @GetMapping("/insertItem")
     public List<TaskItem> viewTaskItemByName(@RequestParam("name") String name) {

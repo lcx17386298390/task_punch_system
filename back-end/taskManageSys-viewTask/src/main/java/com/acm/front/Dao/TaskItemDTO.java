@@ -1,6 +1,8 @@
-package com.acm.Dao;
+package com.acm.front.Dao;
 
-public class TaskItemDTO {
+import java.io.Serializable;
+
+public class TaskItemDTO implements Serializable {
     private double averageJudgeFinish;
 
     // 省略构造方法和其他属性的setter/getter方法

@@ -4,10 +4,11 @@ import com.acm.api.model.Task;
 import com.acm.api.model.TaskItem;
 import com.acm.common.constants.Contants;
 import com.acm.common.view.ReturnObject;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+@CrossOrigin
 @RestController
 public class taskItemController extends BaseController{
 

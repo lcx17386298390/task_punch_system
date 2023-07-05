@@ -14,7 +14,7 @@ export default {
 <style>
 .banner {
   width: auto;
-  height: 70px;
+  height: 100px;
    background: linear-gradient(to top, #d4ddec00, #6abddca9);
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ export default {
   margin-right: -1%;
 }
 .banner h1 {
-  font-size: 24px; 
+  font-size: 32px; 
   font-weight: bold; 
   white-space: nowrap;
   text-align: center;

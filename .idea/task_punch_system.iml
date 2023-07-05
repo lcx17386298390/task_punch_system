@@ -2,21 +2,6 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-api/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-api/src/test/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-common/src/test/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-dataservice/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-dataservice/src/test/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-giveTask/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-giveTask/src/test/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-parent/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-parent/src/test/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-regAndLoginWeb/src/test/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-viewTask/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/back-end/taskManageSys-viewTask/src/test/java" isTestSource="false" />
-    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
