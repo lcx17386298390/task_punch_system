@@ -32,4 +32,9 @@ export default {
   font-family: Arial, sans-serif; 
   color: #181a1ebf;
 }
+.banner h1:hover {
+  /* background-color: #68cfd652; */
+  color: #375f62dd;
+  cursor: pointer;
+}
 </style>

@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <div class="views">
@@ -27,7 +28,6 @@ export default {
   },
 };
 </script>
-
 <style>
 body {
   background-color: #d4ddec63;
@@ -38,7 +38,6 @@ body {
   align-items: center;
   margin-top: 20px;
 }
-
 .view {
   display: flex;
   align-items: center;
@@ -49,7 +48,6 @@ body {
   font-size: 18px;
   transition: all 0.3s ease-in-out;
 }
-
 .view::after {
   content: "";
   position: absolute;
@@ -62,12 +60,10 @@ body {
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;
 }
-
 .view:hover::after {
   visibility: visible;
   transform: scaleX(1);
 }
-
 .view i{
   font-size:30px;
 }
@@ -76,7 +72,6 @@ body {
   font-family: Arial, sans-serif; 
   font-size: 35px;
 }
-
 .view:hover {
   color: #6a7471b2;
 }
