@@ -1,21 +1,19 @@
 <template>
   <div id="app">
     <TopBanner></TopBanner>
-    <Login></Login>
-
+    <login></login>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Login from './components/login.vue';
 import TopBanner from './components/TopBanner.vue';
-
+import login from './components/login.vue';
 export default {
   name: 'App',
   components: {
-    Login,
-    TopBanner
+    TopBanner,
+    login
   }
 }
 </script> 

@@ -1,4 +1,5 @@
 <template>
+<!-- 学生post_task页面，发布个人任务 -->
 <div class="post">
     <div class="main-container">
         <h3><i class="fas fa-edit"></i>发布任务</h3>

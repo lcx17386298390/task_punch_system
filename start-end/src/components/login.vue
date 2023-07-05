@@ -5,7 +5,7 @@
       :class="{ 'selected': selectedLogin === 'user' }"
       @click="selectLogin('user')"
     >
-      <h2>普通登录</h2>
+      <h1>普通登录</h1>
       <form>
         <input type="text" placeholder="用户名" />
         <input type="password" placeholder="密码" />
@@ -17,7 +17,7 @@
       :class="{ 'selected': selectedLogin === 'admin' }"
       @click="selectLogin('admin')"
     >
-      <h2>管理员登录</h2>
+      <h1>管理员</h1>
       <form>
         <input type="text" placeholder="管理员用户名" />
         <input type="password" placeholder="管理员密码" />
@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  name:'login',
   data() {
     return {
       selectedLogin: "user"
@@ -44,45 +45,61 @@ export default {
 
 <style>
 .login-container {
+  margin-top: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family:serif;
+  font-weight: 900;
 }
 
 .card-inner {
-  width: 350px;
-  height: 400px;
+  width: 370px;
+  height: 420px;
   padding: 20px;
-  background-color: #f2f2f2;
+  background-color: rgba(119, 120, 122, 0.129);
   transition: background-color 0.5s;
+  border-radius: 15%;
+  margin-left: 10px;
 }
 
 .card-inner.selected {
-  background-color: #007bff;
+  background-color: rgba(0, 72, 255, 0.534);
   color: #fff;
 }
 
-h2 {
+h1{
+  margin-top: 50px;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 40px;
+  letter-spacing: 0.5em;
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 }
 
 input {
+  width: 80%;
+  height: 30px;
   margin-bottom: 10px;
   padding: 10px;
+  margin-bottom: 30px;
+  background-color: rgba(251, 251, 251, 0.573);
+  border: none;
 }
 
 button {
+  margin-top: 10px;
   padding: 10px;
-  background-color: #333;
+  background-color: rgb(70, 73, 79);
   color: #fff;
   border: none;
   cursor: pointer;
+  width: 50%;
 }
 </style>
