@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <TopBanner></TopBanner>
-    <h1>ceshi</h1>
     <login></login>
     <router-view></router-view>
   </div>
