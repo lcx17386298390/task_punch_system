@@ -10,7 +10,6 @@
     </parent>
 
 
-    <groupId>com.acm</groupId>
     <artifactId>taskManageSys-regAndLoginWeb</artifactId>
     <version>1.0.0</version>
     <name>taskManageSys-regAndLoginWeb</name>
@@ -19,6 +18,22 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -61,6 +76,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.acm</groupId>
+            <artifactId>taskManageSys-parent</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -78,6 +99,7 @@
             <type>pom</type>
             <version>2.7.8</version>
         </dependency>
+
         <dependency>
             <groupId>com.acm</groupId>
             <artifactId>taskManageSys-dataservice</artifactId>
