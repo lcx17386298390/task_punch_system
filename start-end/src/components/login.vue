@@ -1,59 +1,66 @@
 <template>
   <div class="login-container">
-    <div
-      class="card-inner user-login"
-      :class="{ 'selected': selectedLogin === 'user' }"
-      @click="selectLogin('user')"
-    >
-      <h1>普通登录</h1>
+    <div class="text-container">
+      <div class="span-container nav">
+        <span @click="selectColor('red')" :class="{ active: selectedColor === 'red', red: selectedColor === 'red', gray: selectedColor === 'blue' }">登录</span>
+        <span @click="selectColor('blue')" :class="{ active: selectedColor === 'blue', blue: selectedColor === 'blue', gray: selectedColor === 'red' }">蓝色</span>
+      </div>
+    </div>
+    <div>
+      <div v-if="selectedColor === 'red'" class="red card-inner">
+        <h1>普通登录</h1>
       <form>
         <input type="text" placeholder="用户名" />
         <input type="password" placeholder="密码" />
         <button type="submit">登录</button>
       </form>
     </div>
-    <div
-      class="card-inner admin-login"
-      :class="{ 'selected': selectedLogin === 'admin' }"
-      @click="selectLogin('admin')"
-    >
-      <h1>管理员</h1>
+      <div v-else class="blue card-inner">
+        <h1>管理员</h1>
       <form>
         <input type="text" placeholder="管理员用户名" />
         <input type="password" placeholder="管理员密码" />
         <button type="submit">登录</button>
       </form>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name:'login',
   data() {
     return {
-      selectedLogin: "user"
+      selectedColor: 'red'
     };
   },
   methods: {
-    selectLogin(loginType) {
-      this.selectedLogin = loginType;
+    selectColor(color) {
+      this.selectedColor = color;
     }
   }
 };
 </script>
 
-<style>
-.login-container {
+<style scoped>
+
+
+.login-container{
   margin-top: 3%;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-family:serif;
   font-weight: 900;
 }
+.text-container {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 15%;
+  width: 600px;
+  height: 40px;
+}
 
-.card-inner {
+.card-inner{
   width: 370px;
   height: 420px;
   padding: 20px;
@@ -63,10 +70,26 @@ export default {
   margin-left: 20px;
   box-shadow: 15px 20px 10px rgba(0, 0, 0, 0.182);
 }
+.span-container {
+  position: relative;
+}
 
-.card-inner.selected {
+.text-container span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.gray {
+  color: rgba(56, 57, 60, 0.155);
+}
+
+
+.red {
   background-color: rgba(0, 72, 255, 0.534);
-  color: #fff;
+}
+
+.blue {
+  background-color: rgba(0, 72, 255, 0.534);
 }
 
 h1{
