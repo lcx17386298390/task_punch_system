@@ -1,9 +1,11 @@
-package com.acm.entity;
+package com.acm.front.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Result<T> {
+public class Result<T> implements Serializable {
     private int code;
     private boolean success;
     private T msg;

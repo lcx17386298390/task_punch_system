@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.apache.curator:curator-recipes:4.0.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../environment/maven/apache-maven-3.9.0/maven-repo/org/apache/curator/curator-recipes/4.0.1/curator-recipes-4.0.1.jar!/" />
+      <root url="jar://E:/maven/maven_repository/org/apache/curator/curator-recipes/4.0.1/curator-recipes-4.0.1.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../environment/maven/apache-maven-3.9.0/maven-repo/org/apache/curator/curator-recipes/4.0.1/curator-recipes-4.0.1-javadoc.jar!/" />
+      <root url="jar://E:/maven/maven_repository/org/apache/curator/curator-recipes/4.0.1/curator-recipes-4.0.1-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../environment/maven/apache-maven-3.9.0/maven-repo/org/apache/curator/curator-recipes/4.0.1/curator-recipes-4.0.1-sources.jar!/" />
+      <root url="jar://E:/maven/maven_repository/org/apache/curator/curator-recipes/4.0.1/curator-recipes-4.0.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
