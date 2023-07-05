@@ -44,6 +44,7 @@ export default {
 
 <style>
 .login-container {
+  margin-top: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +59,7 @@ export default {
 }
 
 .card-inner.selected {
-  background-color: #007bff;
+  background-color: #3682d2c0;
   color: #fff;
 }
 

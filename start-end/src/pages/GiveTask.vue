@@ -1,4 +1,5 @@
 <template>
+<!-- 管理者发布任务界面 -->
   <div class="give_task">
     <button @click="addToArray" class="btn">submit</button><br />
     <input

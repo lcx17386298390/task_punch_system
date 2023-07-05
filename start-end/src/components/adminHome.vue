@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <TopBanner></TopBanner> -->
     <div class="views">
       <router-link to="/ViewAllTasks" class="view">
         <i class="fas fa-edit"><i>View All Tasks</i></i> 
@@ -8,21 +7,17 @@
       <router-link to="/GiveTask" class="view">
         <i class="fa fa-plus"><i>Give Task</i></i>
       </router-link>
+      <router-link to="/SendMsg" class="view">
+        <i class="fa fa-plus"><i>Send Msg</i></i>
+      </router-link>
     </div>
   </div>
 </template>
 <script>
 // // import Self from '@/components/general/Self'
-// import TopBanner from "@/components/general/TopBanner";
-// import TopBanner from './TopBanner.vue'
-// import GiveTask from "@/components/manage/GiveTask";
-// import ViewAllTasks from "@/components/manage/ViewAllTasks";
-// import ViewStatus from "@/components/manage/ViewStatus";
 export default {
   name: "Home",
   components: {
-    // Self,
-    // TopBanner,
     // GiveTask,
     // ViewAllTasks,
     // ViewStatus,
