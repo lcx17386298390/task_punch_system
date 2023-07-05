@@ -20,7 +20,7 @@
       <form>
         <input type="text" placeholder="管理员用户名" />
         <input type="password" placeholder="管理员密码" />
-        <button type="submit">登录</button>
+        <button type="submit">登录..</button>
       </form>
       </div>
     </div>
