@@ -7,15 +7,19 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/back-end/taskManageSys-parent/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-api/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-common/pom.xml" />
-        <option value="$PROJECT_DIR$/back-end/taskManageSys-parent/pom.xml" />
-        <option value="$PROJECT_DIR$/back-end/taskManageSys-giveTask/pom.xml" />
-        <option value="$PROJECT_DIR$/back-end/taskManageSys-viewTask/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-dataservice/pom.xml" />
-        <option value="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/pom.xml" />
+        <option value="$PROJECT_DIR$/back-end/taskManageSys-viewTask/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/pom.xml" />
+        <option value="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/back-end/taskManageSys-giveTask/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />

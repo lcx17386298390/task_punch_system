@@ -11,11 +11,6 @@ public class ViewTaskController extends BaseController{
 
 
 
-    @RequestMapping("/6")
-    public String hello(){
-        return "index";
-    }
-
     @GetMapping("/insertItem")
     public List<TaskItem> viewTaskItemByName(@RequestParam("name") String name) {
         List<TaskItem> taskItems = taskItemService.viewTaskItemByName(name);

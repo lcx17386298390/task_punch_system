@@ -7,9 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="taskManageSys-giveTask" />
-        <module name="taskManageSys-viewTask" />
         <module name="taskManageSys-msgToMail" />
+        <module name="taskManageSys-viewTask" />
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
         <module name="taskManageSys-api" />
@@ -18,6 +17,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ready-mybatisForSys" target="1.5" />
+      <module name="taskManageSys-giveTask" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
