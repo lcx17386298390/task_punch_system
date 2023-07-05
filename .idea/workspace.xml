@@ -4,24 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c5bfdf-a92e-4e21-93be-dbd21f79b350" name="Changes" comment="加邮箱">
-      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="38f2e465-42ad-4703-a68f-329b81dac501" name="变更" comment="实现邮箱验证码发送">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/AdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/AdminMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/Dao/TaskItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/Dao/TaskItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/TaskManageSysViewTaskApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/TaskManageSysViewTaskApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/controller/ViewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/service/Impl/AuthServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -39,13 +30,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c0ef318a-434b-47b2-b622-a3ee0c08e5e6" />
+        <option name="url" value="https://github.com/lcx17386298390/task_punch_system.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="mavenHome" value="$PROJECT_DIR$/../../environment/maven/apache-maven-3.9.0" />
         <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="E:\environment\maven\apache-maven-3.9.0\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -55,12 +61,12 @@
   <component name="ProjectId" id="2S5eZKnsiy9wg8afbnEC56ygifo" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -69,18 +75,24 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/gt/task_punch_system",
+    "last_opened_file_path": "E:/develop1/task_punch_system/back-end/taskManageSys-dataservice",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "fe02d968c640e5f12018bf3d3f3152b5",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.24482758",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "1efd9cab967a53af9e313cdb1eaab5de",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.acm" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -88,7 +100,22 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskManageSysViewTaskApplication">
+  <component name="RunManager" selected="Spring Boot.TaskManageSysRegAndLoginWebApplication">
+    <configuration name="TaskManageSysRegAndLoginWebApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="taskManageSys-regAndLoginWeb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.acm.front.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.acm.front" />
+      <option name="MAIN_CLASS_NAME" value="com.acm.front.TaskManageSysRegAndLoginWebApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TaskManageSysDataserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="taskManageSys-dataservice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.dataservice.TaskManageSysDataserviceApplication" />
@@ -103,16 +130,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TaskManageSysMsgToMailApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="taskManageSys-msgToMail" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.msgtomail.TaskManageSysMsgToMailApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TaskManageSysRegAndLoginWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="taskManageSys-regAndLoginWeb" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.front.TaskManageSysRegAndLoginWebApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.TaskManageSysRegAndLoginWebApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,24 +144,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Spring Boot.TaskManageSysMsgToMailApplication" />
-      <item itemvalue="Spring Boot.TaskManageSysDataserviceApplication" />
-      <item itemvalue="Spring Boot.TaskManageSysGiveTaskApplication" />
-      <item itemvalue="Spring Boot.TaskManageSysRegAndLoginWebApplication" />
-      <item itemvalue="Spring Boot.TaskManageSysViewTaskApplication" />
-    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TaskManageSysRegAndLoginWebApplicationTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="38c5bfdf-a92e-4e21-93be-dbd21f79b350" name="Changes" comment="加邮箱" />
+      <changelist id="38f2e465-42ad-4703-a68f-329b81dac501" name="变更" comment="" />
       <created>1688440923431</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1688440923431</updated>
-      <workItem from="1688440924585" duration="14935000" />
-      <workItem from="1688477663390" duration="6927000" />
+      <workItem from="1688440924585" duration="5567000" />
+      <workItem from="1688456201061" duration="6509000" />
+      <workItem from="1688465204180" duration="2151000" />
+      <workItem from="1688479048450" duration="287000" />
+      <workItem from="1688516053474" duration="8016000" />
+      <workItem from="1688524653368" duration="6418000" />
     </task>
     <task id="LOCAL-00001" summary="查看">
       <created>1688453299726</created>
@@ -164,19 +186,19 @@
       <option name="project" value="LOCAL" />
       <updated>1688453575789</updated>
     </task>
-    <task id="LOCAL-00004" summary="查看">
-      <created>1688453891775</created>
+    <task id="LOCAL-00004" summary="实现简单登录">
+      <created>1688466341990</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1688453891775</updated>
+      <updated>1688466341990</updated>
     </task>
-    <task id="LOCAL-00005" summary="查看">
-      <created>1688456324628</created>
+    <task id="LOCAL-00005" summary="实现邮箱验证码发送">
+      <created>1688526583152</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1688456324628</updated>
+      <updated>1688526583152</updated>
     </task>
     <option name="localTasksCounter" value="6" />
     <servers />
@@ -189,7 +211,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -197,6 +231,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="查看" />
-    <option name="LAST_COMMIT_MESSAGE" value="查看" />
+    <MESSAGE value="实现简单登录" />
+    <MESSAGE value="实现邮箱验证码发送" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现邮箱验证码发送" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
