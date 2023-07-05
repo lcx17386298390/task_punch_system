@@ -1,3 +1,4 @@
+
 <template>
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
@@ -47,7 +48,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "GiveTask",
@@ -124,14 +124,13 @@ export default {
 </script>
 
 
-
 <style>
 .give_task {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 500px;
-  height: 400px;
+  width: 501px;
+  height: 401px;
   border-radius: 4px;
   border: 1px solid #ccc;
   display: flex;
@@ -154,7 +153,6 @@ li {
   margin-bottom: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-
 .inp2 {
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -164,7 +162,6 @@ li {
   text-align: left;
   vertical-align: top;
 }
-
 .btn {
   margin-top: 10px;
   background-color: #9eb3b865;
@@ -180,13 +177,11 @@ li {
   color: #202a2be9;
   cursor: pointer;
 }
-
 .modal-container {
   text-align: center;
   opacity: 0.89;
   /* background-clip: padding-box; */
 }
-
 .show-modal {
   position: absolute;
   top: 0;
@@ -198,7 +193,6 @@ li {
   align-items: center;
   justify-content: center;
 }
-
 .modal-content {
   background-color: #fffff999;
   max-width: 600px;
@@ -207,21 +201,17 @@ li {
   margin-left: 749px;
   border: 1px solid #929c9c96;
 }
-
 .modal-header {
   display: flex;
   justify-content: flex-end;
 }
-
 .modal-body {
   margin-bottom: 200px;
 }
-
 .modal-footer {
   display: flex;
   justify-content: flex-end;
 }
-
 .glyphicon.glyphicon-remove {
   font-size: 37px;
   font-weight: bold;
@@ -230,5 +220,3 @@ li {
   cursor: pointer;
 }
 </style>
-
-
