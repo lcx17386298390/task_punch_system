@@ -10,15 +10,21 @@ import PostTask from '../pages/PostTask'
 
 const router = new VueRouter({
     routes: [
-        {path:'/',component:login   },
+        {path:'/login',component:login   },
         {path:'/adminHome',component:adminHome,children:[
-            { path: '/ViewAllTasks',component: ViewAllTasks},
-            {path: '/GiveTask',component: GiveTask},
-            {path: '/SendMsg',component: SendMsg},
+            // { path: '/ViewAllTasks',component: ViewAllTasks},
+            // {path: '/GiveTask',component: GiveTask},
+            // {path: '/SendMsg',component: SendMsg},
         ]},
+        
+        {path:'/ViewAllTasks',component:ViewAllTasks   },
+        {path:'/GiveTask',component:GiveTask   },
+        {path:'/SendMsg',component:SendMsg   },
+        {path:'/PostTask',component:PostTask   },
+
         {path:'/studentHome',component:studentHome,children:[
-            { path: '/ViewAllTasks',component: ViewAllTasks},
-            {path: '/PostTask',component: PostTask},
+            // { path: '/ViewAllTasks',component: ViewAllTasks},
+            // {path: '/PostTask',component: PostTask},
         ]},
         
     ]
