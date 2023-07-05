@@ -11,8 +11,9 @@
       type="text"
       class="inp2"
       v-model="send_content"
-      placeholder="text your content..."
+      placeholder="text yourcontent..."
     /><br />
+    <br>
   </div>
 </template>
 
