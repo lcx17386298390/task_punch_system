@@ -1,8 +1,10 @@
-package com.acm.config;
+package com.acm.front.config;
 
-import com.acm.entity.Result;
-import com.acm.service.AuthService;
+import com.acm.front.entity.Result;
+import com.acm.front.service.AuthServiceImpl;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubboConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,11 +13,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -23,11 +26,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Component
 @Configuration
 @EnableWebSecurity
 public class Security {
     @Resource
-    AuthService authService;
+    AuthServiceImpl authServiceImpl;
+    /*@DubboReference(interfaceClass = UserDetailsService.class,version = "1.0",check = false)
+    UserDetailsService userDetailsService;*/
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
@@ -53,7 +59,7 @@ public class Security {
     public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(authService)
+                .userDetailsService(authServiceImpl)
                 .and()
                 .build();
     }

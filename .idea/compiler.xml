@@ -17,7 +17,14 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ready-mybatisForSys" target="1.5" />
+      <module name="taskManageSys-api" target="1.8" />
+      <module name="taskManageSys-common" target="1.8" />
+      <module name="taskManageSys-dataservice" target="1.8" />
+      <module name="taskManageSys-giveTask" target="1.8" />
+      <module name="taskManageSys-msgToMail" target="1.8" />
+      <module name="taskManageSys-parent" target="1.8" />
+      <module name="taskManageSys-regAndLoginWeb" target="1.8" />
+      <module name="taskManageSys-viewTask" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

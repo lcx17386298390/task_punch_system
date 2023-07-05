@@ -5,16 +5,11 @@ import com.acm.api.model.TaskItem;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin
+
 @RestController
 public class ViewTaskController extends BaseController{
 
 
-
-    @RequestMapping("/6")
-    public String hello(){
-        return "index";
-    }
 
     @GetMapping("/insertItem")
     public List<TaskItem> viewTaskItemByName(@RequestParam("name") String name) {
