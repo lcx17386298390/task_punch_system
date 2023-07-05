@@ -17,7 +17,7 @@
       :class="{ 'selected': selectedLogin === 'admin' }"
       @click="selectLogin('admin')"
     >
-      <h2>管理员登录</h2>
+      <h2>如果你是管理员</h2>
       <form>
         <input type="text" placeholder="管理员用户名" />
         <input type="password" placeholder="管理员密码" />
@@ -44,6 +44,7 @@ export default {
 
 <style>
 .login-container {
+  margin-top: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +59,7 @@ export default {
 }
 
 .card-inner.selected {
-  background-color: #007bff;
+  background-color: #3682d2c0;
   color: #fff;
 }
 
