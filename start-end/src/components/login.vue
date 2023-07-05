@@ -101,5 +101,28 @@ button {
   border: none;
   cursor: pointer;
   width: 50%;
+  border-radius: 50px;
+    /* 背景渐变色 */
+    background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+    /* 背景渐变色大小 */
+    background-size: 400%;
 }
+
+
+
+    button:hover {
+      /* 动画 名称 时间 infinite 是无限次播放 */
+      animation: sun 8s infinite;
+    }
+
+    button:hover::before {
+      animation: sun 8s infinite;
+    }
+
+    @keyframes sun {
+      100% {
+        /* 背景位置 */
+        background-position: -400% 0;
+      }
+    }
 </style>

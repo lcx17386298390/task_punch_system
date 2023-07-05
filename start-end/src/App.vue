@@ -12,7 +12,7 @@ import login from './components/login.vue';
 export default {
   name: 'App',
   components: {
-    TopBanner,
+    TopBanner,    
     login
   }
 }
