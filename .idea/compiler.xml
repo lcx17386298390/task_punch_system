@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="taskManageSys-regAndLoginWeb (1)" />
         <module name="taskManageSys-giveTask" />
         <module name="taskManageSys-viewTask" />
         <module name="taskManageSys-msgToMail" />
@@ -14,6 +15,7 @@
         <module name="taskManageSys-dataservice" />
         <module name="ready-mybatisForSys" />
         <module name="taskManageSys-api" />
+        <module name="taskManageSys-regAndLoginWeb (2)" />
         <module name="taskManageSys-regAndLoginWeb" />
       </profile>
     </annotationProcessing>
@@ -26,6 +28,8 @@
       <module name="taskManageSys-msgToMail" target="1.8" />
       <module name="taskManageSys-parent" target="1.8" />
       <module name="taskManageSys-regAndLoginWeb" target="1.8" />
+      <module name="taskManageSys-regAndLoginWeb (1)" target="1.8" />
+      <module name="taskManageSys-regAndLoginWeb (2)" target="1.8" />
       <module name="taskManageSys-viewTask" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -38,6 +42,8 @@
       <module name="taskManageSys-msgToMail" options="-parameters" />
       <module name="taskManageSys-parent" options="-parameters" />
       <module name="taskManageSys-regAndLoginWeb" options="-parameters" />
+      <module name="taskManageSys-regAndLoginWeb (1)" options="-parameters" />
+      <module name="taskManageSys-regAndLoginWeb (2)" options="-parameters" />
       <module name="taskManageSys-viewTask" options="-parameters" />
     </option>
   </component>
