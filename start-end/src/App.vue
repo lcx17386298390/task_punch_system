@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <TopBanner></TopBanner>
-    <!-- <login></login> -->
-    <registration></registration>
+    <login></login>
+    <!-- <registration></registration> -->
     <!-- <router-view></router-view> -->
   </div>
 </template>

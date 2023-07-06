@@ -31,9 +31,9 @@ export default {
   data() {
     return {
       username: '',
+      password: '',
       email: '',
       verificationCode: '',
-      password: '',
       isSendingCode: false
     };
   },
