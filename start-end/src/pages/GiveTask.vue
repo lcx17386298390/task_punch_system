@@ -1,4 +1,3 @@
-
 <template>
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
@@ -8,7 +7,7 @@
       type="text"
       class="inp"
       v-model="send_title"
-      placeholder="text your title..."
+      placeholder="text your task-title..."
     /><br />
     <p v-if="contentError" class="error">Content cannot be empty</p>
     <label>Content</label>
@@ -16,7 +15,7 @@
       class="inp2"
       rows="10"
       v-model="send_content"
-      placeholder="text your content..."
+      placeholder="text your task-content..."
     ></textarea>
     <br />
     <button @click="checkInputs" class="btn">create</button>
@@ -65,6 +64,7 @@
     </div> -->
   <!-- <ViewAllTasks :data="data"></ViewAllTasks> -->
 </template>
+
 <script>
 import axios from "axios";
 // import ViewAllTasks from './ViewAllTasks.vue'
@@ -181,7 +181,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin: 55px 599px;
+  box-shadow: 2px 2px 25px rgba(89, 114, 114, 0.5);
+  padding: 66px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
 }
 ul {
   list-style-type: none;
@@ -199,6 +204,7 @@ li {
   border-radius: 4px;
   margin-bottom: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 .inp2 {
   border-radius: 4px;
@@ -211,6 +217,13 @@ li {
   font-size: 16px;
   font-family: Arial, sans-serif;
   word-wrap: break-word;
+  transition: transform 0.3s ease;
+}
+.inp:hover {
+  transform: scale(1.035);
+}
+.inp2:hover {
+  transform: scale(1.035);
 }
 .input-container input,
 .input-container textarea {
@@ -245,7 +258,6 @@ li {
   margin-bottom: 5px;
 }
 
-
 label {
   font-size: 21px;
   margin-top: -15px;
@@ -257,7 +269,7 @@ label {
   margin-bottom: 10px;
 }
 
-.t{
+.t {
   font-size: 21px;
   margin-top: -15px;
   margin-left: -350px;
@@ -276,11 +288,13 @@ label {
   color: #333;
   font-size: 16px;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 .btn:hover {
   background-color: #51b5ce94;
   color: #fff;
   cursor: pointer;
+  transform: scale(1.1);
 }
 .modal-container {
   display: flex;
@@ -298,7 +312,6 @@ label {
 .modal-container label {
   margin-left: 5px;
 }
-
 
 .modal {
   position: fixed;
@@ -370,15 +383,15 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-  .button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
 
 .button-container button {
   padding: 10px 20px;

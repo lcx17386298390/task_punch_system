@@ -7,6 +7,7 @@
       <hr />
       <div class="main">
         <input type="text" placeholder="准备做点啥~" v-model="taskTitle" />
+        <p v-if="titleError" class="error">你小子标题呢</p>
         <textarea
           name=""
           id=""
@@ -15,6 +16,8 @@
           placeholder="描述"
           v-model="taskDescription"
         ></textarea>
+        <p v-if="contentError" class="error">你小子内容呢</p>
+        <br>
         <button @click="confirmPost">发布</button>
       </div>
     </div>
@@ -36,12 +39,23 @@ export default {
     return {
       taskTitle: "",
       taskDescription: "",
+      titleError : false,
+      contentError :false,
       showOverlay: false,
     };
   },
   methods: {
     confirmPost() {
-      this.showOverlay = true;
+      if(this.taskTitle.trim() === "" || this.taskDescription.trim() === ""){
+        this.titleError = this.taskTitle.trim() === "";
+        this.contentError = this.taskDescription.trim() === "";
+        setTimeout(() => {
+          this.titleError = false ;
+          this.contentError = false ;
+        },2000);
+      }else{
+        this.showOverlay = true;
+      }
     },
     cancelPost() {
       this.showOverlay = false;
@@ -84,7 +98,7 @@ export default {
 textarea {
   outline: none;
   float: left;
-  margin-top: 10px;
+  margin-top: 25px;
   margin-left: 0;
   left: 0;
   width: 80%;
@@ -147,4 +161,21 @@ button:hover {
 .buttons button {
   margin-right: 10px;
 }
+
+label {
+  font-size: 21px;
+  margin-top: -15px;
+  margin-left: -320px;
+  text-align: left;
+  font-weight: bold;
+  color: #181a1ebf;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: rgba(255, 0, 0, 0.712);
+  margin-left: -400px;
+}
+
 </style>
