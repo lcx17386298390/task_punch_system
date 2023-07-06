@@ -1,3 +1,4 @@
+
 <template>
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
@@ -51,7 +52,6 @@
       </div>
     </div>
   </div>
-
   <!-- <div class="modal-container">
       <div v-for="name in names" :key="name">
         <input
@@ -68,7 +68,6 @@
 <script>
 import axios from "axios";
 // import ViewAllTasks from './ViewAllTasks.vue'
-
 export default {
   name: "GiveTask",
   components: {
@@ -119,7 +118,6 @@ export default {
         this.showModal = true;
       }
     },
-
     async confirmSend() {
       this.titleError = this.send_title === "";
       this.contentError = this.send_content === "";
@@ -150,7 +148,6 @@ export default {
     //   //   element.style.transform = "translateX(-50%)";
     //   // }
     // },
-
     toggleNames(nameId) {
       if (this.selectedNames.includes(nameId)) {
         this.selectedNames = this.selectedNames.filter((id) => id !== nameId);
@@ -177,7 +174,6 @@ export default {
   },
 };
 </script>
-
 
 <style>
 .give_task {
@@ -219,7 +215,6 @@ li {
   font-size: 16px;
   font-family: Arial, sans-serif;
 }
-
 .btn {
   margin-top: 10px;
   background-color: #9eb3b865;
@@ -240,7 +235,6 @@ li {
   opacity: 0.89;
   background-clip: padding-box;
 }
-
 .modal {
   position: fixed;
   top: 50%;
@@ -283,7 +277,6 @@ li {
   position: fixed;
   align-content: center;
 }
-
 .close {
   position: absolute;
   top: 10px;
@@ -315,18 +308,15 @@ h3 {
   text-align: center;
   margin-top: 10px;
 }
-
 .button-container button {
   margin: 0 10px;
 }
-
 .error {
   color: rgba(255, 0, 0, 0.712);
   margin-top: -10px;
   margin-left: -220px;
   text-align: left;
 }
-
 #l_a {
   font-size: 19px;
   margin-top: -10px;
