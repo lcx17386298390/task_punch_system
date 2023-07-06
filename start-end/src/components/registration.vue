@@ -1,6 +1,6 @@
 <template>
     <div class="login-container">
-      <div class="text-container">
+      <div >
         <span>欢迎来到注册页面</span>
     </div>
       <div class="card-inner">
@@ -37,10 +37,16 @@ export default {
 }
 span{
   display: block;
-  width: 50%;
+  width: 400px;
   height: 50px;
   line-height: 50px;
   text-align: center;
+  background-color: rgba(16, 34, 229, 0.603);
+  margin-bottom: 20px;
+  position: fixed;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .login-container{
@@ -56,15 +62,7 @@ span{
   font-weight: 900;
 }
 
-.text-container {
-  display: flex;
-  background-color: #fff;
-  box-shadow: 15%;
-  width: 400px;
-  height: 50px;
-  margin-left: 30px;
-  margin-bottom: 30px;
-}
+
 
 .card-inner{
   width: 420px;
