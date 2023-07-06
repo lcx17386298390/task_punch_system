@@ -1,6 +1,8 @@
 package com.acm.api.model;
 
-public class sendMsg {
+import java.io.Serializable;
+
+public class sendMsg implements Serializable {
     private String id;
 
     private String fromuser;

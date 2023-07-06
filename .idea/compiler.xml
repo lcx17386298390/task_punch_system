@@ -13,7 +13,6 @@
         <module name="taskManageSys-msgToMail" />
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
-        <module name="ready-mybatisForSys" />
         <module name="taskManageSys-api" />
         <module name="taskManageSys-regAndLoginWeb (2)" />
         <module name="taskManageSys-regAndLoginWeb" />

@@ -9,7 +9,7 @@ import com.acm.common.view.ReturnObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class taskController extends BaseController{
 
@@ -99,4 +99,6 @@ public class taskController extends BaseController{
         pageInfo.setTotalRecord(totalRecord);
         return pageInfo;
     }
+
+
 }

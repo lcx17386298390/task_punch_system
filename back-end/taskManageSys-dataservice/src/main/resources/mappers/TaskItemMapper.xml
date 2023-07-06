@@ -6,9 +6,10 @@
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="judgefinish" jdbcType="DOUBLE" property="judgefinish" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="publisher" jdbcType="VARCHAR" property="publisher" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, content, judgefinish, name
+    id, content, judgefinish, name, publisher
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -71,6 +72,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.acm.api.model.TaskItem">
     update taskitem
     set content = #{content,jdbcType=VARCHAR},
@@ -85,7 +87,7 @@
     insert into taskitem (id, content, judgefinish,
                           name,publisher)
     values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{judgefinish,jdbcType=DOUBLE},
-            #{name,jdbcType=VARCHAR})
+            #{name,jdbcType=VARCHAR},#{publisher,jdbcType=VARCHAR})
   </insert>
 
 
@@ -93,7 +95,8 @@
     select
     <include refid="Base_Column_List" />
     from taskitem
-    where name = #{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcTYPE=VARCHAR}
+    where name = #{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcType=VARCHAR}
+    limit #{offset},#{pagesize}
   </select>
 
   <select id="viewTaskItemByIdAndName" resultType="com.acm.api.model.TaskItem">
@@ -102,6 +105,13 @@
     from taskitem
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </select>
+  <select id="viewTaskItemForCal" resultType="com.acm.api.model.TaskItem">
+    select
+    <include refid="Base_Column_List" />
+    from taskitem
+    where publisher = #{publisher,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
+  </select>
+
 
   <update id="editTaskItemById">
     update taskitem
@@ -115,5 +125,8 @@
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </delete>
 
-
+  <select id="calCountOfTaskItem" resultType="java.lang.Integer">
+    select count(id) from taskitem
+    where name=#{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcType=VARCHAR}
+  </select>
 </mapper>

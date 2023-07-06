@@ -16,5 +16,10 @@ public interface TaskItemService {
     TaskItem viewTaskItemByIdAndName(String id,String name);
 
 
-    List<TaskItem> viewTaskItemFromStu(String name,String publisher);
+    List<TaskItem> viewTaskItemFromStu(Integer offset,
+                                       Integer pageSize,String name,String publisher);
+
+    List<TaskItem> viewTaskItemForCal(String name,String publisher);
+
+    Integer calCountOfTaskItem(String name,String publisher);
 }

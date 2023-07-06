@@ -1,6 +1,7 @@
 package com.acm.dataservice.mapper;
 
 import com.acm.api.model.TaskItem;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,6 +24,10 @@ public interface TaskItemMapper {
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
 
-    List<TaskItem> viewTaskItemFromStu(String name,String publisher);
+    List<TaskItem> viewTaskItemFromStu(@Param("offset") Integer offset,
+                                       @Param("pagesize") Integer pageSize,String name,String publisher);
 
+    List<TaskItem> viewTaskItemForCal(String name,String publisher);
+
+    Integer calCountOfTaskItem(String name, String publisher);
 }
