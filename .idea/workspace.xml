@@ -5,14 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/settings/WebMvcConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front/settings/WebMvcConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/WebMvcConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/settings/WebMvcConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/taskManageSys_viewTask_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/taskManageSys_viewTask_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_6_1_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_30.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_2_5_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_3_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_3_28.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/taskManageSys-api.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-parent/taskManageSys-parent.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/AuthService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editstarters.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_12.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_12.xml" afterDir="false" />
@@ -149,27 +166,23 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_30.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_30.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/task_punch_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/task_punch_system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/taskManageSys-api.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front/controller/msgToMailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front/controller/msgToMailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/TaskManageSysRegAndLoginWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/TaskManageSysRegAndLoginWebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/config/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/entity/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/entity/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -180,10 +193,10 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="E:\maven\maven_repository" />
-        <option name="mavenHome" value="E:/maven/apache-maven-3.8.8" />
+        <option name="localRepository" value="E:\environment\maven\apache-maven-3.9.0\maven-repo" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../environment/maven/apache-maven-3.9.0" />
         <option name="useMavenConfig" value="true" />
-        <option name="userSettingsFile" value="E:\maven\apache-maven-3.8.8\conf\settings.xml" />
+        <option name="userSettingsFile" value="E:\environment\maven\apache-maven-3.9.0\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -199,6 +212,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/code/task_punch_system/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front",
     "node.js.detected.package.eslint": "true",
@@ -210,7 +224,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "171e2ece3a1db0b24c0d3ed3148fe3fb",
+    "spring.configuration.checksum": "44ced0d0e304263cdf577995d0a009c1",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -224,7 +238,14 @@
       <recent name="com.acm.front.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskManageSysViewTaskApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.TaskManageSysRegAndLoginWebApplication (1)">
     <configuration name="TaskManageSysDataserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="taskManageSys-dataservice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.dataservice.TaskManageSysDataserviceApplication" />
@@ -242,6 +263,20 @@
     <configuration name="TaskManageSysMsgToMailApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="taskManageSys-msgToMail" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.msgtomail.TaskManageSysMsgToMailApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskManageSysRegAndLoginWebApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="taskManageSys-regAndLoginWeb (1)" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.TaskManageSysRegAndLoginWebApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TaskManageSysRegAndLoginWebApplication (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="taskManageSys-regAndLoginWeb (2)" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.regAndLogin.TaskManageSysRegAndLoginWebApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -271,6 +306,7 @@
       <updated>1688516784112</updated>
       <workItem from="1688516786684" duration="6196000" />
       <workItem from="1688523082035" duration="3633000" />
+      <workItem from="1688626277390" duration="1429000" />
     </task>
     <servers />
   </component>

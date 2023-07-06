@@ -1,7 +1,7 @@
 package com.acm.controller;
 
-import com.acm.entity.Result;
-import com.acm.service.AuthService;
+import com.acm.front.entity.Result;
+import com.acm.front.service.AuthService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -9,6 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-msgToMail/taskManageSys-msgToMail.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/taskManageSys-msgToMail.iml" />
       <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-parent/taskManageSys-parent.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-parent/taskManageSys-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb (1).iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/../taskManageSys/taskManageSys/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb (2).iml" filepath="$PROJECT_DIR$/../taskManageSys/taskManageSys/taskManageSys-regAndLoginWeb/taskManageSys-regAndLoginWeb (2).iml" />
       <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-viewTask/taskManageSys-viewTask.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/taskManageSys-viewTask.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/task_punch_system.iml" filepath="$PROJECT_DIR$/.idea/task_punch_system.iml" />
     </modules>

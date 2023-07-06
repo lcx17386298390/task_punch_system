@@ -1,7 +1,7 @@
-package com.acm.config;
+package com.acm.front.config;
 
-import com.acm.entity.Result;
-import com.acm.service.AuthService;
+import com.acm.front.entity.Result;
+import com.acm.front.service.AuthService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

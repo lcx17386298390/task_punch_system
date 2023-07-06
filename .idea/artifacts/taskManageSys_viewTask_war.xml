@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="taskManageSys-viewTask:war">
+    <output-path>$PROJECT_DIR$/back-end/taskManageSys-viewTask/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>taskManageSys-viewTask</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="taskManageSys-viewTask-1.0.0.war">
+      <element id="artifact" artifact-name="taskManageSys-viewTask:war exploded" />
+    </root>
+  </artifact>
+</component>
