@@ -27,7 +27,7 @@
         <th>内容</th>
         <th>增加任务点</th>
         <th>删除</th>
-        <th>修改</th>
+        <th>评分</th>
         </tr>
         </thead>
         <tbody>
@@ -43,7 +43,7 @@
           </td>
           <td><button class="plus" @click="showModal=true"><i class="fa fa-plus"></i></button></td>
           <td><button class="delete"><i class="fas fa-times"></i></button></td>
-          <td><button class="edit"><i class="fas fa-pencil-alt fa-fw"></i></button></td>
+          <td><button class="edit" @click="showState=true"><i class="fas fa-pencil-alt fa-fw"></i></button></td>
         </tr>
         </tbody>
         
@@ -63,23 +63,33 @@
       </div>
     </div>
 
-      <div class="box">
-        <div class="mask" v-if="showModal" @click="showModal=false"></div>
-        <div class="pop" v-if="showModal">
+  <div class="box">
+    <div class="mask" v-if="showModal" @click="showModal=false"></div>
+      <div class="pop" v-if="showModal">
           <!-- 关闭 -->
-         <div class="main-container">
-        <h3><i class="fas fa-edit"></i>指派任务点</h3>
+          <div class="main-container">
+            <h3><i class="fas fa-edit"></i>指派任务点</h3>
+            <hr>
+              <div class="main">
+                <input type="text" placeholder="指定学生姓名">
+                <textarea name="" id="" cols="30" rows="10" placeholder="任务点内容"></textarea>
+                <button @click="showModal=false">commit</button>   
+              </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="box">
+      <div class="mask" v-if="showState" @click="showState=false"></div>
+      <div class="scoreModel" v-if="showState">
+        
+        <h3><i class="fa fa-smile"></i>评分</h3>
         <hr>
-        <div class="main">
-        <input type="text" placeholder="指定学生姓名">
-        <textarea name="" id="" cols="30" rows="10" placeholder="任务点内容"></textarea>
-        <input type="text" placeholder="指定任务点评分">
-        <button>commit</button>   
-        </div>
-         
+        <input type="text" placeholder="给任务点打分">
+        <button @click="showState=false">commit</button>
+      </div>
     </div>
-        </div>
-    </div>
+    
   </div>
 </template>
 
@@ -95,6 +105,7 @@ export default {
   data() {
     return {
       showModal:false,
+      showState:false,
       checkedItems:[],
       items: [
         { id:'001',title: '1asdfasdf', content: 'Itemasdf asdf1'},
@@ -290,9 +301,24 @@ export default {
       width: 520px;
       display: flex;
       left: 50%;
-      top: 15%;
-      bottom: 15%;
+      top: 20%;
+      bottom: 30%;
       z-index: 90;
+      margin-left: -20px;
+      box-shadow: -20px 0 20px 0 rgb(0 0 0 / 10%);
+      flex-direction: column;
+      padding: 30px;
+      border-radius: 6px;
+    }
+    .scoreModel{
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.788);
+      width: 300px;
+      display: flex;
+      left: 70%;
+      top: 20%;
+      bottom: 40%;
+      z-index: 91;
       margin-left: -20px;
       box-shadow: -20px 0 20px 0 rgb(0 0 0 / 10%);
       flex-direction: column;
@@ -321,16 +347,25 @@ export default {
           margin-top:10px;
           border-radius: 4px;
         }
-        .main button:hover{
+        .main button:hover,
+        .scoreModel button:hover{
           transform:none;
         }
         .main button:active{
           background-color:rgb(56, 147, 150);
         }
 
+        .scoreModel button{
+          width: 70px;
+          margin-left:80px;
+          border-radius: 4px;
+        }
+        .scoreModel button:active{
+          background-color: #2c66e4;
+        }
 
 
-        .search input{
+        .search input, .scoreModel input{
             border: none;
             border: rgba(0, 0, 0, .2) 1px solid;
             border-radius: 4px;
@@ -341,6 +376,10 @@ export default {
             width: 30%;
             padding: 6px;
         }
+        .scoreModel input{
+          width: 80%;
+          margin: 20px;
+        }
         .search input:focus{
           background-color: #a7cad735;
         }
@@ -348,7 +387,6 @@ export default {
           margin-top: 4px;
         }
         .search button:active{
-          background-color: #2c66e4d8;
+          background-color: #d73a8b66;
         }
-
 </style>
