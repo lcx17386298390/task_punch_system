@@ -2,6 +2,7 @@
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
     <p v-if="titleError" class="error">Title cannot be empty</p>
+    <label id="l_a">title</label>
     <input
       type="text"
       class="inp"
@@ -9,6 +10,7 @@
       placeholder="text your title..."
     /><br />
     <p v-if="contentError" class="error">Content cannot be empty</p>
+    <label id="l_a">content</label>
     <input
       type="text"
       class="inp2"
@@ -16,7 +18,12 @@
       placeholder="text your content..."
     /><br />
     <button @click="checkInputs" class="btn">create</button>
-    <div class="modal" v-if="showModal" @click.self="showModal = false">
+    <div
+      class="modal"
+      v-if="showModal"
+      @click.self="showModal = false"
+      @keydown.ESC="closeModal"
+    >
       <div class="modal-content">
         <button class="close" @click="showModal = false">x</button>
         <div slot="header">
@@ -107,8 +114,9 @@ export default {
         setTimeout(() => {
           this.titleError = false;
           this.contentError = false;
-        }, 3000); // 3秒后隐藏错误提示信息
-        return;
+        }, 2000);
+      } else {
+        this.showModal = true;
       }
     },
 
@@ -142,6 +150,7 @@ export default {
     //   //   element.style.transform = "translateX(-50%)";
     //   // }
     // },
+
     toggleNames(nameId) {
       if (this.selectedNames.includes(nameId)) {
         this.selectedNames = this.selectedNames.filter((id) => id !== nameId);
@@ -154,18 +163,18 @@ export default {
     //     console.log(this.selectedNames);
     //   }
     // },
-    // handleKeyDown(event) {
-    //   if (event.key === "Escape") {
-    //     this.hideModal();
-    //   }
-    // },
+    handleKeyDown(event) {
+      if (event.key === "Escape") {
+        this.showModal =  false;
+      }
+    },
   },
-  // mounted() {
-  //   document.addEventListener("keydown", this.handleKeyDown);
-  // },
-  // beforeDestroy() {
-  //   document.removeEventListener("keydown", this.handleKeyDown);
-  // },
+  mounted() {
+    window.addEventListener("keydown", this.handleKeyDown);
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.handleKeyDown);
+  },
 };
 </script>
 
@@ -196,18 +205,21 @@ li {
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 .inp2 {
   border-radius: 4px;
   border: 1px solid #ccc;
   width: 100%;
-  height: 200px;
+  height: 212px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   text-align: left;
-  vertical-align: top;
+  resize: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
 }
+
 .btn {
   margin-top: 10px;
   background-color: #9eb3b865;
@@ -310,9 +322,19 @@ h3 {
 
 .error {
   color: rgba(255, 0, 0, 0.712);
-  margin-top: 5px;
+  margin-top: -10px;
+  margin-left: -220px;
+  text-align: left;
 }
 
+#l_a {
+  font-size: 19px;
+  margin-top: -10px;
+  margin-left: -450px;
+  text-align: left;
+  font-weight: bold;
+  color: #181a1ebf;
+}
 /* .glyphicon.glyphicon-remove {
   font-size: 37px;
   font-weight: bold;
