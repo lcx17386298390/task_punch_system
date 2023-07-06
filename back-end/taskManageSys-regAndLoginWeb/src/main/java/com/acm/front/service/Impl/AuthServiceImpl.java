@@ -55,6 +55,7 @@ public class AuthServiceImpl implements AuthService {
         int code= random.nextInt(800000)+100000;
         SimpleMailMessage simpleMailMessage=new SimpleMailMessage();
         simpleMailMessage.setFrom(from);
+        simpleMailMessage.setTo(email);
         simpleMailMessage.setSubject("验证邮件");
         simpleMailMessage.setText("验证码为:"+code);
         try{
