@@ -12,11 +12,13 @@
         <module name="taskManageSys-msgToMail" />
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
+        <module name="ready-mybatisForSys" />
         <module name="taskManageSys-api" />
         <module name="taskManageSys-regAndLoginWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ready-mybatisForSys" target="1.5" />
       <module name="taskManageSys-api" target="1.8" />
       <module name="taskManageSys-common" target="1.8" />
       <module name="taskManageSys-dataservice" target="1.8" />

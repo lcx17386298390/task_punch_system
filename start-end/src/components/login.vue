@@ -47,6 +47,7 @@ export default {
 
 .login-container{
   margin-top: 3%;
+  display: flex;
   justify-content: center;
   align-items: center;
   font-family:serif;

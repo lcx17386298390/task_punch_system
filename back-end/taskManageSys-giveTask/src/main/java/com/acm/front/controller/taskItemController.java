@@ -1,13 +1,14 @@
 package com.acm.front.controller;
 
-import com.acm.api.model.Task;
 import com.acm.api.model.TaskItem;
 import com.acm.common.constants.Contants;
+import com.acm.common.util.UUIDUtils;
 import com.acm.common.view.ReturnObject;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.math.BigDecimal;
 
 @RestController
 public class taskItemController extends BaseController{
@@ -18,8 +19,9 @@ public class taskItemController extends BaseController{
         ReturnObject returnObject = new ReturnObject();
         taskItem.setContent(content);
         taskItem.setId(id);
-        taskItem.setJudgefinish(0.0);
+        taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
         taskItem.setName(name);
+        taskItem.setPublisher(Contants.SESSION_ADMIN);
         int cnt = taskItemService.insert(taskItem);
         if(cnt > 0){
             returnObject.setMessage("创建成功");
@@ -51,7 +53,7 @@ public class taskItemController extends BaseController{
         TaskItem taskItem = new TaskItem();
         taskItem.setName(name);
         taskItem.setContent(content);
-        taskItem.setJudgefinish(judgefinish);
+        taskItem.setJudgefinish(BigDecimal.valueOf(judgefinish));
         ReturnObject returnObject = new ReturnObject();
         int cnt = taskItemService.editTaskItemById(id,name,content,judgefinish);
         if(cnt > 0){
@@ -75,6 +77,33 @@ public class taskItemController extends BaseController{
             return returnObject;
         }
         returnObject.setMessage("查找失败！请稍后再试");
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        return returnObject;
+    }
+
+    /**
+     * 创建自己的任务
+     * @param content
+     * @param name
+     * @return
+     */
+    @RequestMapping("/taskitem/createSelfTaskItem")
+    public @ResponseBody Object createSelfTaskItem(String content,String  name){
+        TaskItem taskItem = new TaskItem();
+        taskItem.setContent(content);
+        taskItem.setName(name);
+        taskItem.setId(UUIDUtils.getUUID());
+        taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
+        taskItem.setPublisher(Contants.SESSION_STUDENT);
+        ReturnObject returnObject = new ReturnObject();
+        int cnt = taskItemService.insert(taskItem);
+        if(cnt > 0){
+            returnObject.setMessage("创建成功");
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setRetData(taskItem);
+            return returnObject;
+        }
+        returnObject.setMessage("创建失败！请稍后再试");
         returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
         return returnObject;
     }
