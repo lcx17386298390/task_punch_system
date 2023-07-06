@@ -101,22 +101,15 @@ export default {
     //   this.showModal = false;
     // },
     checkInputs() {
-      if (this.send_title.trim() === "") {
-        this.titleError = true;
+      if (this.send_title.trim() === "" || this.send_content.trim() === "") {
+        this.titleError = this.send_title.trim() === "";
+        this.contentError = this.send_content.trim() === "";
         setTimeout(() => {
           this.titleError = false;
-        }, 3000); // 3秒后隐藏错误提示信息
-        return;
-      }
-
-      if (this.send_content.trim() === "") {
-        this.contentError = true;
-        setTimeout(() => {
           this.contentError = false;
         }, 3000); // 3秒后隐藏错误提示信息
         return;
       }
-      this.showModal = true;
     },
 
     async confirmSend() {
