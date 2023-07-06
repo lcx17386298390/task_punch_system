@@ -12,12 +12,13 @@
     /><br />
     <p v-if="contentError" class="error">Content cannot be empty</p>
     <label id="l_a">content</label>
-    <input
-      type="text"
+    <textarea
       class="inp2"
+      rows="10"
       v-model="send_content"
       placeholder="text your content..."
-    /><br />
+    ></textarea>
+    <br />
     <button @click="checkInputs" class="btn">create</button>
     <div
       class="modal"
@@ -162,7 +163,7 @@ export default {
     // },
     handleKeyDown(event) {
       if (event.key === "Escape") {
-        this.showModal =  false;
+        this.showModal = false;
       }
     },
   },
@@ -214,6 +215,7 @@ li {
   resize: none;
   font-size: 16px;
   font-family: Arial, sans-serif;
+  word-wrap: break-word;
 }
 .btn {
   margin-top: 10px;
@@ -271,7 +273,7 @@ li {
   width: 430px;
   height: 300px;
   margin-right: -20px;
-  background: rgb(204, 204, 204);
+  background: rgba(186, 190, 191, 0.877);
   padding: 40px;
   border-radius: 5px;
   position: fixed;
