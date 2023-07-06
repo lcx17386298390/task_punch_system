@@ -7,6 +7,7 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.ibatis.annotations.Param;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.List;
 
 @DubboService(interfaceClass = TaskItemService.class,version = "1.0")
@@ -56,5 +57,20 @@ public class taskItemServiceImpl implements TaskItemService {
     @Override
     public Integer calCountOfTaskItem(String name, String publisher) {
         return taskItemMapper.calCountOfTaskItem(name,publisher);
+    }
+
+    @Override
+    public List<TaskItem> viewAllTaskItemFromStu(Integer offset, Integer pageSize, String publisher) {
+        return taskItemMapper.viewAllTaskItemFromStu(offset,pageSize,publisher);
+    }
+
+    @Override
+    public int calCountOfAllTaskItem(String publisher) {
+        return taskItemMapper.calCountOfAllTaskItem(publisher);
+    }
+
+    @Override
+    public int giveMark(String name, BigDecimal judgefinish, String id) {
+        return taskItemMapper.giveMark(name,judgefinish,id);
     }
 }

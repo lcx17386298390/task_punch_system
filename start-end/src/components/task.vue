@@ -217,7 +217,7 @@ export default {
       })
     },
     calculateScore(){
-      doGet('http://localhost:8001/tms/score',{
+      doGet('http://localhost:8001/tms/taskitem/score',{
         name: this.queryStuName
       }).then(resp => {
         if(resp){
