@@ -5,7 +5,7 @@ import com.acm.api.model.TaskItem;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin
+
 @RestController
 public class ViewTaskController extends BaseController{
 

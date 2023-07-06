@@ -5,7 +5,7 @@ import com.acm.api.service.TaskService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-@CrossOrigin
+
 public class BaseController {
     @DubboReference(interfaceClass = TaskService.class,version = "1.0",check = false)
     protected TaskService taskService;
