@@ -3,7 +3,7 @@
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
     <p v-if="titleError" class="error">Title cannot be empty</p>
-    <label id="l_a">title</label>
+    <p class="t">Title</p>
     <input
       type="text"
       class="inp"
@@ -11,7 +11,7 @@
       placeholder="text your title..."
     /><br />
     <p v-if="contentError" class="error">Content cannot be empty</p>
-    <label id="l_a">content</label>
+    <label>Content</label>
     <textarea
       class="inp2"
       rows="10"
@@ -27,7 +27,6 @@
       @keydown.ESC="closeModal"
     >
       <div class="modal-content">
-        <button class="close" @click="showModal = false">x</button>
         <div slot="header">
           <h3>Select students</h3>
         </div>
@@ -178,28 +177,24 @@ export default {
 
 <style>
 .give_task {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 501px;
-  height: 401px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  transform: translate(-50%, -50%);
-  /* transition: transform 0.5s ease-in-out; */
+  justify-content: center;
+  margin-top: 50px;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 li {
-  list-style: none;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 .inp {
   height: 35px;
-  width: 100%;
+  width: 400px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 15px;
@@ -208,7 +203,7 @@ li {
 .inp2 {
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 100%;
+  width: 400px;
   height: 212px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   text-align: left;
@@ -216,6 +211,61 @@ li {
   font-size: 16px;
   font-family: Arial, sans-serif;
   word-wrap: break-word;
+}
+.input-container input,
+.input-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+label {
+  font-size: 21px;
+  margin-top: -15px;
+  margin-left: -320px;
+  text-align: left;
+  font-weight: bold;
+  color: #181a1ebf;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.t{
+  font-size: 21px;
+  margin-top: -15px;
+  margin-left: -350px;
+  text-align: left;
+  font-weight: bold;
+  color: #181a1ebf;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 .btn {
   margin-top: 10px;
@@ -228,38 +278,54 @@ li {
   cursor: pointer;
 }
 .btn:hover {
-  background-color: rgba(40, 75, 78, 0.374);
-  color: #202a2be9;
+  background-color: #51b5ce94;
+  color: #fff;
   cursor: pointer;
 }
 .modal-container {
-  text-align: center;
-  opacity: 0.89;
-  background-clip: padding-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
 }
+
+.modal-container div {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.modal-container label {
+  margin-left: 5px;
+}
+
+
 .modal {
   position: fixed;
-  top: 50%;
+  top: 0;
   left: 0;
-  width: auto;
-  height: auto;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.577);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
-.show-modal {
+body {
+  background-color: #e4e0e067;
+  font-family: Arial, sans-serif;
+}
+/* .show-modal {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 /*侧边显示 
 .modal-content {
   background-color: #fffff999;
@@ -269,25 +335,30 @@ li {
   margin-left: 749px;
   border: 1px solid #929c9c96;
 } */
+
 .modal-content {
-  width: 430px;
-  height: 300px;
-  margin-right: -20px;
-  background: rgba(186, 190, 191, 0.877);
-  padding: 40px;
+  background-color: white;
+  padding: 20px;
   border-radius: 5px;
-  position: fixed;
-  align-content: center;
 }
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
+.modal-content h3 {
+  margin: 0;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 20px;
+  font-weight: bold;
+}
+.modal-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.modal-content li {
+  margin-bottom: 10px;
   cursor: pointer;
 }
+
 .modal-header {
   display: flex;
   justify-content: flex-end;
@@ -299,34 +370,45 @@ li {
   display: flex;
   justify-content: flex-end;
 }
-h3 {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 20px;
-  font-weight: bold;
-}
-.button-container {
-  text-align: center;
-  margin-top: 10px;
-}
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
 .button-container button {
-  margin: 0 10px;
+  padding: 10px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #99a0a9e1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #51b5ce94;
+  color: #fff;
+  cursor: pointer;
+}
+.button-container button:hover {
+  border: none;
+
+  background-color: #51b5ce94;
+  color: #fff;
+  cursor: pointer;
 }
 .error {
   color: rgba(255, 0, 0, 0.712);
   margin-top: -10px;
-  margin-left: -220px;
   text-align: left;
 }
-#l_a {
-  font-size: 19px;
-  margin-top: -10px;
-  margin-left: -450px;
-  text-align: left;
-  font-weight: bold;
-  color: #181a1ebf;
-}
+
 /* .glyphicon.glyphicon-remove {
   font-size: 37px;
   font-weight: bold;

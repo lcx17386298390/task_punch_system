@@ -20,7 +20,7 @@ const router = new VueRouter({
         {path:'/ViewAllTasks',component:ViewAllTasks   },
         {path:'/GiveTask',component:GiveTask   },
         {path:'/SendMsg',component:SendMsg   },
-        {path:'/PostTask',component:PostTask   },
+        {path:'/GiveTask',component:PostTask   },
 
         {path:'/studentHome',component:studentHome,children:[
             // { path: '/ViewAllTasks',component: ViewAllTasks},

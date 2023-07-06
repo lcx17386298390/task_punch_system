@@ -21,7 +21,7 @@
     <div class="overlay" v-if="showOverlay">
       <div class="popup">
         <h3>确认提交任务？</h3>
-        <div class="buttons">
+        <div class="buttons"> 
           <button @click="cancelPost">取消</button>
           <button @click="submitPost">确认</button>
         </div>
