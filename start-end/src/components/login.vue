@@ -11,7 +11,7 @@
         <input type="text" placeholder="用户名" />
         <input type="password" placeholder="密码" />
         <button type="submit">登录</button>
-        <button class="re">or &nbsp;&nbsp;注册</button>
+        <button @click="goToRegistration" class="re">or &nbsp;&nbsp;注册</button>
       </form>
     </div>
       <div v-else class="blue card-inner">
@@ -20,7 +20,7 @@
         <input type="text" placeholder="管理员用户名" />
         <input type="password" placeholder="管理员密码" />
         <button type="submit">登录</button>
-        <button class="re">or &nbsp;&nbsp;注册</button>
+        <button @click="goToRegistration" class="re" >or &nbsp;&nbsp;注册</button>
       </form>
       </div>
     </div>
@@ -38,6 +38,9 @@ export default {
     selectColor(color) {
       this.selectedColor = color;
     },
+    goToRegistration(){
+      this.$router.push('/registration')
+    }
   },
 };
 </script>

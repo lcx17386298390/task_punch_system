@@ -6,27 +6,33 @@ import ViewAllTasks from '../pages/ViewAllTasks'
 import SendMsg from '../pages/SendMsg'
 import studentHome from '../components/studentHome'
 import PostTask from '../pages/PostTask'
+import registration from '../components/registration'
 // import { component } from 'vue/types/umd's
 
 const router = new VueRouter({
     routes: [
-        {path:'/login',component:login   },
-        {path:'/',component:adminHome,children:[
-            // { path: '/ViewAllTasks',component: ViewAllTasks},
-            // {path: '/GiveTask',component: GiveTask},
-            // {path: '/SendMsg',component: SendMsg},
-        ]},
-        
-        {path:'/ViewAllTasks',component:ViewAllTasks   },
-        {path:'/GiveTask',component:GiveTask   },
-        {path:'/SendMsg',component:SendMsg   },
-        {path:'/PostTask',component:PostTask   },
+        { path: '/registration', component: registration },
+        { path: '/login', component: login },
+        {
+            path: '/', component: adminHome, children: [
+                // { path: '/ViewAllTasks',component: ViewAllTasks},
+                // {path: '/GiveTask',component: GiveTask},
+                // {path: '/SendMsg',component: SendMsg},
+            ]
+        },
 
-        {path:'/studentHome',component:studentHome,children:[
-            // { path: '/ViewAllTasks',component: ViewAllTasks},
-            // {path: '/PostTask',component: PostTask},
-        ]},
-        
+        { path: '/ViewAllTasks', component: ViewAllTasks },
+        { path: '/GiveTask', component: GiveTask },
+        { path: '/SendMsg', component: SendMsg },
+        { path: '/PostTask', component: PostTask },
+
+        {
+            path: '/studentHome', component: studentHome, children: [
+                // { path: '/ViewAllTasks',component: ViewAllTasks},
+                // {path: '/PostTask',component: PostTask},
+            ]
+        },
+
     ]
 })
 
