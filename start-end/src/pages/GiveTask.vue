@@ -1,7 +1,9 @@
+
 <template>
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
     <p v-if="titleError" class="error">Title cannot be empty</p>
+    <label id="l_a">title</label>
     <input
       type="text"
       class="inp"
@@ -9,6 +11,7 @@
       placeholder="text your title..."
     /><br />
     <p v-if="contentError" class="error">Content cannot be empty</p>
+    <label id="l_a">content</label>
     <input
       type="text"
       class="inp2"
@@ -16,7 +19,12 @@
       placeholder="text your content..."
     /><br />
     <button @click="checkInputs" class="btn">create</button>
-    <div class="modal" v-if="showModal" @click.self="showModal = false">
+    <div
+      class="modal"
+      v-if="showModal"
+      @click.self="showModal = false"
+      @keydown.ESC="closeModal"
+    >
       <div class="modal-content">
         <button class="close" @click="showModal = false">x</button>
         <div slot="header">
@@ -44,7 +52,6 @@
       </div>
     </div>
   </div>
-
   <!-- <div class="modal-container">
       <div v-for="name in names" :key="name">
         <input
@@ -61,7 +68,6 @@
 <script>
 import axios from "axios";
 // import ViewAllTasks from './ViewAllTasks.vue'
-
 export default {
   name: "GiveTask",
   components: {
@@ -101,24 +107,17 @@ export default {
     //   this.showModal = false;
     // },
     checkInputs() {
-      if (this.send_title.trim() === "") {
-        this.titleError = true;
+      if (this.send_title.trim() === "" || this.send_content.trim() === "") {
+        this.titleError = this.send_title.trim() === "";
+        this.contentError = this.send_content.trim() === "";
         setTimeout(() => {
           this.titleError = false;
-        }, 3000); // 3秒后隐藏错误提示信息
-        return;
-      }
-
-      if (this.send_content.trim() === "") {
-        this.contentError = true;
-        setTimeout(() => {
           this.contentError = false;
-        }, 3000); // 3秒后隐藏错误提示信息
-        return;
+        }, 2000);
+      } else {
+        this.showModal = true;
       }
-      this.showModal = true;
     },
-
     async confirmSend() {
       this.titleError = this.send_title === "";
       this.contentError = this.send_content === "";
@@ -161,21 +160,20 @@ export default {
     //     console.log(this.selectedNames);
     //   }
     // },
-    // handleKeyDown(event) {
-    //   if (event.key === "Escape") {
-    //     this.hideModal();
-    //   }
-    // },
+    handleKeyDown(event) {
+      if (event.key === "Escape") {
+        this.showModal =  false;
+      }
+    },
   },
-  // mounted() {
-  //   document.addEventListener("keydown", this.handleKeyDown);
-  // },
-  // beforeDestroy() {
-  //   document.removeEventListener("keydown", this.handleKeyDown);
-  // },
+  mounted() {
+    window.addEventListener("keydown", this.handleKeyDown);
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.handleKeyDown);
+  },
 };
 </script>
-
 
 <style>
 .give_task {
@@ -203,17 +201,19 @@ li {
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 .inp2 {
   border-radius: 4px;
   border: 1px solid #ccc;
   width: 100%;
-  height: 200px;
+  height: 212px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   text-align: left;
-  vertical-align: top;
+  resize: none;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
 }
 .btn {
   margin-top: 10px;
@@ -235,7 +235,6 @@ li {
   opacity: 0.89;
   background-clip: padding-box;
 }
-
 .modal {
   position: fixed;
   top: 50%;
@@ -278,7 +277,6 @@ li {
   position: fixed;
   align-content: center;
 }
-
 .close {
   position: absolute;
   top: 10px;
@@ -310,16 +308,23 @@ h3 {
   text-align: center;
   margin-top: 10px;
 }
-
 .button-container button {
   margin: 0 10px;
 }
-
 .error {
   color: rgba(255, 0, 0, 0.712);
-  margin-top: 5px;
+  margin-top: -10px;
+  margin-left: -220px;
+  text-align: left;
 }
-
+#l_a {
+  font-size: 19px;
+  margin-top: -10px;
+  margin-left: -450px;
+  text-align: left;
+  font-weight: bold;
+  color: #181a1ebf;
+}
 /* .glyphicon.glyphicon-remove {
   font-size: 37px;
   font-weight: bold;
