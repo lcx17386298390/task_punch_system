@@ -1,14 +1,15 @@
 <template>
   <div class="viewtasks">
-    <!-- <ul>
-      <li v-for="(item, index) in items" :key="index">
-        <input type="checkbox" :id="index" :value="item.title" v-model="checkedItems">
-        <label :for="index">{{ item.title }}</label>
-        <p>{{ item.content }}</p>
-      </li>
+   <!-- <div>
+    <ul v-for="(item, index) in data" :key="index">
+      <li>{{ item.title }}</li>
+      <li>{{ item.content }}</li>
+      <li>{{ item.names.join(', ') }}</li>
+      <button @click="edit(index)">Edit</button>
+      <button @click="remove(index)">Remove</button>
     </ul>
-    <p>send_title: {{ send_title }}</p>
-    <p>send_context : {{ send_content }}</p> -->
+  </div> -->
+    
 
     <div class="container">
       <table>

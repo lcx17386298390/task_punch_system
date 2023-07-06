@@ -2,22 +2,42 @@
 <template>
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
-    <button @click="addToArray" class="btn">create</button><br />
+    <!-- <button @click="addToArray" class="btn">create</button><br /> -->
     <input
       type="text"
       class="inp"
       v-model="send_title"
       placeholder="text your title..."
     /><br />
+    <p v-if="titleError" class="error">Title cannot be empty</p>
     <input
       type="text"
       class="inp2"
       v-model="send_content"
       placeholder="text your content..."
     /><br />
+    <p v-if="contentError" class="error">Content cannot be empty</p>
+    <button @click="showModal = ture" class="btn">create</button>
+    <modal v-if="showModal" @close="showModal = false">
     <div class="modal-container">
-      <button @click="showModal" class="btn">create</button>
-      <div v-if="modalVisible" class="show-modal">
+      <div v-for="name in names" :key="name">
+        <input
+          type="checkbox"
+          :id="name"
+          :value="name"
+          v-model="selectedNames"
+        />
+        <label :for="name">{{ name }}</label>
+      </div>
+    </div>
+    <div slot="footer">
+        <button @click="confirmSend">Confirm</button>
+        <button @click="cancelSend">Cancel</button>
+      </div>
+    </modal>
+    <ViewAllTasks :data="data"></ViewAllTasks>
+
+    <!-- <div v-if="modalVisible" class="show-modal">
         <div class="modal-content">
           <div class="modal-header">
             <span class="glyphicon glyphicon-remove" @click="hideModal">
@@ -44,75 +64,99 @@
             <button @click="giveTasks" class="btn">Confirm</button>
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
   </div>
 </template>
 <script>
+import axios from "axios";
+import Modal from "./Modal.vue";
+// import ViewAllTasks from './ViewAllTasks.vue'
+
 export default {
   name: "GiveTask",
   components: {
-    // TopBanner,
+    Modal,
+    // ViewAllTasks,
   },
   data() {
     return {
-      modalVisible: false,
+      // modalVisible: false,
       send_title: "",
       send_content: "",
-      names: [
-        { id: 1, name: "cyj" },
-        { id: 2, name: "gt" },
-        { id: 3, name: "xxj" },
-        { id: 4, name: "dc" },
-      ],
+      titleError : false,
+      contrentError : false ,
+      showModal :false,
+      names: [],
       selectedNames: [],
+      date:[],
     };
   },
   methods: {
-    addToArray() {
-      this.$router.push({
-        path: "/ViewAllTasks",
-        query: {
-          send_title: this.send_title,
-          send_content: this.send_content,
-        },
+    async create() {
+      this.titleError = this.send_title === "";
+      this.contentError = this.send_content === "";
+      if (!this.titleError && !this.contentError) {
+        const response = await axios.get("/task/create");
+        this.names = response.data;
+        this.showModal = true;
+      }
+    },
+    async confirmSend() {
+      const response = await axios.post("/api/data", {
+        send_title: this.send_title,
+        send_content: this.send_content,
+        names: this.selectedNames,
       });
+      this.data = response.data;
+      this.showModal = false;
     },
-    showModal() {
-      this.modalVisible = true;
-      document.body.style.overflow = "hidden";
-      // var moving = document.getElementsByClassName("give_task");
-      // for (var i = 0; i < moving.length; i++) {
-      //   var element = moving[i];
-      //   element.style.transform = "translateX(0)";
-      // }
+    cancelSend() {
+      this.showModal = false;
     },
-    hideModal() {
-      this.modalVisible = false;
-      document.body.style.overflow = "auto";
-      // var moving = document.getElementsByClassName("give_task");
-      // for (var i = 0; i < moving.length; i++) {
-      //   var element = moving[i];
-      //   element.style.transform = "translateX(-50%)";
-      // }
-    },
-    toggleNames(nameId) {
-      if (this.selectedNames.includes(nameId)) {
-        this.selectedNames = this.selectedNames.filter((id) => id !== nameId);
-      } else {
-        this.selectedNames.push(nameId);
-      }
-    },
-    giveTasks() {
-      if (confirm("Confirm Publish?")) {
-        console.log(this.selectedNames);
-      }
-    },
-    handleKeyDown(event) {
-      if (event.key === "Escape") {
-        this.hideModal();
-      }
-    },
+    // addToArray() {
+    //   this.$router.push({
+    //     path: "/ViewAllTasks",
+    //     query: {
+    //       send_title: this.send_title,
+    //       send_content: this.send_content,
+    //     },
+    //   });
+    // },
+    // showModal() {
+    //   this.modalVisible = true;
+    //   document.body.style.overflow = "hidden";
+    //   // var moving = document.getElementsByClassName("give_task");
+    //   // for (var i = 0; i < moving.length; i++) {
+    //   //   var element = moving[i];
+    //   //   element.style.transform = "translateX(0)";
+    //   // }
+    // },
+    // hideModal() {
+    //   this.modalVisible = false;
+    //   document.body.style.overflow = "auto";
+    //   // var moving = document.getElementsByClassName("give_task");
+    //   // for (var i = 0; i < moving.length; i++) {
+    //   //   var element = moving[i];
+    //   //   element.style.transform = "translateX(-50%)";
+    //   // }
+    // },
+    // toggleNames(nameId) {
+    //   if (this.selectedNames.includes(nameId)) {
+    //     this.selectedNames = this.selectedNames.filter((id) => id !== nameId);
+    //   } else {
+    //     this.selectedNames.push(nameId);
+    //   }
+    // },
+    // giveTasks() {
+    //   if (confirm("Confirm Publish?")) {
+    //     console.log(this.selectedNames);
+    //   }
+    // },
+    // handleKeyDown(event) {
+    //   if (event.key === "Escape") {
+    //     this.hideModal();
+    //   }
+    // },
   },
   mounted() {
     document.addEventListener("keydown", this.handleKeyDown);
