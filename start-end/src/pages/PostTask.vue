@@ -1,3 +1,4 @@
+
 <template>
   <!-- 学生post_task页面，发布个人任务 -->
   <div class="post">
@@ -28,7 +29,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "PostTask",
@@ -55,7 +55,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 * {
   padding: 0;
@@ -104,7 +103,6 @@ textarea {
   border: none;
   border-bottom: solid 1px;
 }
-
 .h_container {
   text-align: center;
   font-size: 20px;
@@ -146,7 +144,6 @@ button:hover {
 .buttons {
   margin-top: 20px;
 }
-
 .buttons button {
   margin-right: 10px;
 }
