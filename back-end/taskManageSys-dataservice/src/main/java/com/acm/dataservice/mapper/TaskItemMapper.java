@@ -23,6 +23,6 @@ public interface TaskItemMapper {
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
 
-    List<TaskItem> viewTaskItemByName(String name);
+    List<TaskItem> viewTaskItemFromStu(String name,String publisher);
 
 }

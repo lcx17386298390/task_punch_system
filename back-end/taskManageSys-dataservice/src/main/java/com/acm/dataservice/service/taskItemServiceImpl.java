@@ -39,8 +39,11 @@ public class taskItemServiceImpl implements TaskItemService {
         return taskItemMapper.viewTaskItemByIdAndName(id,name);
     }
 
+
     @Override
-    public List<TaskItem> viewTaskItemByName(String name) {
-        return taskItemMapper.viewTaskItemByName(name);
+    public List<TaskItem> viewTaskItemFromStu(String name, String publisher) {
+        return taskItemMapper.viewTaskItemFromStu(name,publisher);
     }
+
+
 }

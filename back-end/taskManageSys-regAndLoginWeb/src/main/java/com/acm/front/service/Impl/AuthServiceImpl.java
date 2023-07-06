@@ -2,7 +2,7 @@ package com.acm.front.service.Impl;
 
 import com.acm.api.model.Admin;
 import com.acm.dataservice.mapper.AdminMapper;
-import com.acm.service.AuthService;
+import com.acm.front.service.AuthService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.MailException;
@@ -55,6 +55,7 @@ public class AuthServiceImpl implements AuthService {
         int code= random.nextInt(800000)+100000;
         SimpleMailMessage simpleMailMessage=new SimpleMailMessage();
         simpleMailMessage.setFrom(from);
+        simpleMailMessage.setTo(email);
         simpleMailMessage.setSubject("验证邮件");
         simpleMailMessage.setText("验证码为:"+code);
         try{

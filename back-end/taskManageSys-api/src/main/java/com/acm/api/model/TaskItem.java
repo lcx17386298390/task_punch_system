@@ -1,16 +1,17 @@
 package com.acm.api.model;
 
-import java.io.Serializable;
+import java.math.BigDecimal;
 
-public class TaskItem implements Serializable {
+public class TaskItem {
     private String id;
 
     private String content;
 
-    private Double judgefinish;
+    private BigDecimal judgefinish;
 
     private String name;
 
+    private String publisher;
 
     public String getId() {
         return id;
@@ -28,11 +29,11 @@ public class TaskItem implements Serializable {
         this.content = content;
     }
 
-    public Double getJudgefinish() {
+    public BigDecimal getJudgefinish() {
         return judgefinish;
     }
 
-    public void setJudgefinish(Double judgefinish) {
+    public void setJudgefinish(BigDecimal judgefinish) {
         this.judgefinish = judgefinish;
     }
 
@@ -42,5 +43,13 @@ public class TaskItem implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 }
