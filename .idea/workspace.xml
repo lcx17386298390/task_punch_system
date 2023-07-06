@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="给自己任务">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_acm_taskManageSys_parent_1_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_rabbitmq_amqp_client_5_14_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_amqp_2_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_rabbit_2_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_amqp_2_7_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_3_28.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_spring_spring_context_support_1_0_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_spring_spring_context_support_1_0_8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/sendMsgMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/sendMsgMapper.xml" afterDir="false" />
+    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="站内消息">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/TaskItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/model/sendMsg.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/service/TaskItemService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/service/TaskService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/target/classes/com/acm/api/service/sendMsgService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/sendMsgMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/sendMsgMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front/controller/msgToMailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front/controller/msgToMailController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -82,6 +81,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.TaskManageSysViewTaskApplication">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="taskManageSys-viewTask" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="taskManageSys-viewTask" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TaskManageSysDataserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="taskManageSys-dataservice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.dataservice.TaskManageSysDataserviceApplication" />
@@ -179,7 +191,28 @@
       <option name="project" value="LOCAL" />
       <updated>1688634652489</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="站内消息">
+      <created>1688647878986</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688647878986</updated>
+    </task>
+    <task id="LOCAL-00008" summary="站内消息">
+      <created>1688647923070</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688647923070</updated>
+    </task>
+    <task id="LOCAL-00009" summary="站内消息">
+      <created>1688648001885</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688648001885</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +233,7 @@
     <MESSAGE value="跨域链接" />
     <MESSAGE value="发消息库mybatis逆向工程" />
     <MESSAGE value="给自己任务" />
-    <option name="LAST_COMMIT_MESSAGE" value="给自己任务" />
+    <MESSAGE value="站内消息" />
+    <option name="LAST_COMMIT_MESSAGE" value="站内消息" />
   </component>
 </project>

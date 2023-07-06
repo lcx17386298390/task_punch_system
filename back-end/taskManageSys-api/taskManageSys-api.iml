@@ -20,11 +20,5 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.28" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.28" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.28" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.28" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.28" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.28" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.28" level="project" />
   </component>
 </module>

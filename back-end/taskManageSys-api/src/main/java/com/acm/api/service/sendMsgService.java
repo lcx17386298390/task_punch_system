@@ -1,8 +1,10 @@
-package com.acm.dataservice.mapper;
+package com.acm.api.service;
 
 import com.acm.api.model.sendMsg;
 
-public interface sendMsgMapper {
+
+public interface sendMsgService {
+
     int deleteByPrimaryKey(String id);
 
     int insert(sendMsg record);
@@ -15,6 +17,6 @@ public interface sendMsgMapper {
 
     int updateByPrimaryKey(sendMsg record);
 
-    int insertMsgBytouser(sendMsg sendMsg);
+    int insertMsgBytouser(String fromuser,String touser,String msg);
 
 }

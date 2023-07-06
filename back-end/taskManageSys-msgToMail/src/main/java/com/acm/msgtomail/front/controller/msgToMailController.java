@@ -1,6 +1,6 @@
 package com.acm.msgtomail.front.controller;
 
-import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +23,7 @@ public class msgToMailController extends BaseController{
             return "发送失败！";
         }
     }
+
 
 
 
