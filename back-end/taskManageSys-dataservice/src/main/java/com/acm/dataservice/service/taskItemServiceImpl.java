@@ -4,6 +4,7 @@ import com.acm.api.model.TaskItem;
 import com.acm.api.service.TaskItemService;
 import com.acm.dataservice.mapper.TaskItemMapper;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.ibatis.annotations.Param;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,8 +40,21 @@ public class taskItemServiceImpl implements TaskItemService {
         return taskItemMapper.viewTaskItemByIdAndName(id,name);
     }
 
+
     @Override
-    public List<TaskItem> viewTaskItemByName(String name) {
-        return taskItemMapper.viewTaskItemByName(name);
+    public List<TaskItem> viewTaskItemFromStu(Integer offset,
+                                              Integer pageSize,String name, String publisher) {
+        return taskItemMapper.viewTaskItemFromStu(
+                offset,pageSize,name,publisher);
+    }
+
+    @Override
+    public List<TaskItem> viewTaskItemForCal(String name, String publisher) {
+        return taskItemMapper.viewTaskItemForCal(name, publisher);
+    }
+
+    @Override
+    public Integer calCountOfTaskItem(String name, String publisher) {
+        return taskItemMapper.calCountOfTaskItem(name,publisher);
     }
 }

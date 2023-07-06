@@ -14,7 +14,6 @@
         <option value="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-dataservice/pom.xml" />
         <option value="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/pom.xml" />
-        <option value="$PROJECT_DIR$/../taskManageSys/taskManageSys/taskManageSys-regAndLoginWeb/pom.xml" />
       </list>
     </option>
   </component>

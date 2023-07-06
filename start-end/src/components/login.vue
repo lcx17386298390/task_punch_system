@@ -59,8 +59,10 @@ export default {
 </script>
 
 <style scoped>
-.login-container {
-  display: flex;
+
+
+.login-container{
+  margin-top: 3%;
   justify-content: center;
   align-items: center;
   margin-top: 3%;

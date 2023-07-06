@@ -6,9 +6,10 @@
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="judgefinish" jdbcType="DOUBLE" property="judgefinish" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="publisher" jdbcType="VARCHAR" property="publisher" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, content, judgefinish, name
+    id, content, judgefinish, name, publisher
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -16,19 +17,7 @@
     from taskitem
     where id = #{id,jdbcType=VARCHAR}
   </select>
-  <select id="viewTaskItemByIdAndName" resultType="com.acm.api.model.TaskItem">
-    select
-    <include refid="Base_Column_List" />
-    from taskitem
-    where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
-  </select>
 
-  <select id="viewTaskItemByName" resultType="com.acm.api.model.TaskItem">
-    select
-    <include refid="Base_Column_List" />
-    from taskitem
-    where name = #{name,jdbcType=VARCHAR}
-  </select>
 
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
@@ -36,17 +25,7 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
 
-    <delete id="deleteByIdAndName">
-      delete from taskitem
-      where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
-    </delete>
 
-    <insert id="insert" parameterType="com.acm.api.model.TaskItem">
-    insert into taskitem (id, content, judgefinish, 
-      name)
-    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{judgefinish,jdbcType=DOUBLE}, 
-      #{name,jdbcType=VARCHAR})
-  </insert>
   <insert id="insertSelective" parameterType="com.acm.api.model.TaskItem">
     insert into taskitem
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -93,6 +72,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.acm.api.model.TaskItem">
     update taskitem
     set content = #{content,jdbcType=VARCHAR},
@@ -101,10 +81,52 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
 
+
+
+  <insert id="insert" parameterType="com.acm.api.model.TaskItem">
+    insert into taskitem (id, content, judgefinish,
+                          name,publisher)
+    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{judgefinish,jdbcType=DOUBLE},
+            #{name,jdbcType=VARCHAR},#{publisher,jdbcType=VARCHAR})
+  </insert>
+
+
+  <select id="viewTaskItemFromStu" resultType="com.acm.api.model.TaskItem">
+    select
+    <include refid="Base_Column_List" />
+    from taskitem
+    where name = #{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcType=VARCHAR}
+    limit #{offset},#{pagesize}
+  </select>
+
+  <select id="viewTaskItemByIdAndName" resultType="com.acm.api.model.TaskItem">
+    select
+    <include refid="Base_Column_List" />
+    from taskitem
+    where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
+  </select>
+  <select id="viewTaskItemForCal" resultType="com.acm.api.model.TaskItem">
+    select
+    <include refid="Base_Column_List" />
+    from taskitem
+    where publisher = #{publisher,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
+  </select>
+
+
   <update id="editTaskItemById">
     update taskitem
     set content = #{content,jdbcType=VARCHAR},
         judgefinish = #{judgefinish,jdbcType=DOUBLE}
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </update>
+
+  <delete id="deleteByIdAndName">
+    delete from taskitem
+    where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="calCountOfTaskItem" resultType="java.lang.Integer">
+    select count(id) from taskitem
+    where name=#{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcType=VARCHAR}
+  </select>
 </mapper>

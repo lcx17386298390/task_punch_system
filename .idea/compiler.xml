@@ -19,6 +19,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ready-mybatisForSys" target="1.5" />
       <module name="taskManageSys-api" target="1.8" />
       <module name="taskManageSys-common" target="1.8" />
       <module name="taskManageSys-dataservice" target="1.8" />

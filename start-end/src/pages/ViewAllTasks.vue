@@ -9,9 +9,16 @@
       <button @click="remove(index)">Remove</button>
     </ul>
   </div> -->
-    
+  
 
     <div class="container">
+      <div class="search">
+        <input type="text" placeholder="查询学生姓名">
+        <button>
+          <i class="fa fa-search">
+          </i>
+        </button>
+      </div>
       <table>
         <thead>
         <tr>
@@ -20,7 +27,7 @@
         <th>内容</th>
         <th>增加任务点</th>
         <th>删除</th>
-        <th>修改</th>
+        <th>评分</th>
         </tr>
         </thead>
         <tbody>
@@ -31,12 +38,12 @@
             <input v-show="item.editState" ref="inputDesc" type="text" :value="item.title" @blur="updateDesc(item,$event)">
           </td>
           <td>
-            <span >{{ item.content }}</span>
-            <input type="text" :value="item.content">
+            <span v-show="!item.editState1" class="desc" @click="enterEdit1(item)">{{ item.content }}</span>
+            <input v-show="item.editState1" ref="inputDesc1" type="text" :value="item.content" @blur="updateDesc1(item,$event)">
           </td>
-          <td><button class="plus"><i class="fa fa-plus"></i></button></td>
+          <td><button class="plus" @click="showModal=true"><i class="fa fa-plus"></i></button></td>
           <td><button class="delete"><i class="fas fa-times"></i></button></td>
-          <td><button class="edit"><i class="fas fa-pencil-alt fa-fw"></i></button></td>
+          <td><button class="edit" @click="showState=true"><i class="fas fa-pencil-alt fa-fw"></i></button></td>
         </tr>
         </tbody>
         
@@ -49,9 +56,40 @@
           <li>1</li>
           <li class="down"><a href="javascript:;">下一页</a></li>
           <li class="down"><a href="javascript:;">尾页</a></li>
+          <br>
+          <li class="li1">共1页</li>
+          <li>共6个任务</li>
         </ul>
       </div>
     </div>
+
+  <div class="box">
+    <div class="mask" v-if="showModal" @click="showModal=false"></div>
+      <div class="pop" v-if="showModal">
+          <!-- 关闭 -->
+          <div class="main-container">
+            <h3><i class="fas fa-edit"></i>指派任务点</h3>
+            <hr>
+              <div class="main">
+                <input type="text" placeholder="指定学生姓名">
+                <textarea name="" id="" cols="30" rows="10" placeholder="任务点内容"></textarea>
+                <button @click="showModal=false">commit</button>   
+              </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="box">
+      <div class="mask" v-if="showState" @click="showState=false"></div>
+      <div class="scoreModel" v-if="showState">
+        
+        <h3><i class="fa fa-smile"></i>评分</h3>
+        <hr>
+        <input type="text" placeholder="给任务点打分">
+        <button @click="showState=false">commit</button>
+      </div>
+    </div>
+    
   </div>
 </template>
 
@@ -66,6 +104,8 @@ export default {
   },
   data() {
     return {
+      showModal:false,
+      showState:false,
       checkedItems:[],
       items: [
         { id:'001',title: '1asdfasdf', content: 'Itemasdf asdf1'},
@@ -109,9 +149,31 @@ export default {
         });
       })
     },
+    enterEdit1(item){
+      if(item.hasOwnProperty('editState1')){
+        item.editState1=true
+      }else{
+        this.$set(item,'editState1',true)
+      }
+      this.$nextTick(()=>{
+        this.items.forEach((item,index) => {
+          this.$refs.inputDesc1[index].focus()
+        });
+      })
+    },
     updateDesc(item,e){
-      item.title=e.target.value
+      if(e.target.value=='')return
+      else{
+        item.title=e.target.value
       item.editState=false
+      }
+    },
+    updateDesc1(item,e){
+      if(e.target.value=='')return
+      else{
+        item.content=e.target.value
+      item.editState1=false
+      }
     }
   }
 };
@@ -166,6 +228,7 @@ export default {
       background-color:#a7cad7a9;
       border-radius: 50%;
       padding: 4px;
+      border: none;
     }
     button:hover{
       background-color: rgba(0, 0, 0, .2);
@@ -201,6 +264,9 @@ export default {
       padding: 0 6px;
       padding-top: 20px;
     }
+    .page .li1{
+      margin-left: 40px;
+    }
     .page .up:hover{
       transform: translateX(-3px);
     }
@@ -211,4 +277,116 @@ export default {
     .desc{
       cursor: pointer;
     }
+
+
+/* 弹窗 */
+.box{
+  display: flex;
+  flex-direction: column;
+}
+  .mask {
+      background:#55585d;
+      opacity: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .pop {
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.788);
+      width: 520px;
+      display: flex;
+      left: 50%;
+      top: 20%;
+      bottom: 30%;
+      z-index: 90;
+      margin-left: -20px;
+      box-shadow: -20px 0 20px 0 rgb(0 0 0 / 10%);
+      flex-direction: column;
+      padding: 30px;
+      border-radius: 6px;
+    }
+    .scoreModel{
+      position: fixed;
+      background-color: rgba(255, 255, 255, 0.788);
+      width: 300px;
+      display: flex;
+      left: 70%;
+      top: 20%;
+      bottom: 40%;
+      z-index: 91;
+      margin-left: -20px;
+      box-shadow: -20px 0 20px 0 rgb(0 0 0 / 10%);
+      flex-direction: column;
+      padding: 30px;
+      border-radius: 6px;
+    }
+        .main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main input,textarea{
+            outline: none;
+            float: left;
+            margin-top: 10px;
+            margin-left: 0;
+            left: 0;
+            width: 80%;
+        }
+        .main input{
+            border: none;
+            border-bottom: solid 1px ;
+        }
+        .main button{
+          width: 100px;
+          margin-top:10px;
+          border-radius: 4px;
+        }
+        .main button:hover,
+        .scoreModel button:hover{
+          transform:none;
+        }
+        .main button:active{
+          background-color:rgb(56, 147, 150);
+        }
+
+        .scoreModel button{
+          width: 70px;
+          margin-left:80px;
+          border-radius: 4px;
+        }
+        .scoreModel button:active{
+          background-color: #2c66e4;
+        }
+
+
+        .search input, .scoreModel input{
+            border: none;
+            border: rgba(0, 0, 0, .2) 1px solid;
+            border-radius: 4px;
+            outline: none;
+            float: left;
+            margin-right: 4px;
+            left: 0;
+            width: 30%;
+            padding: 6px;
+        }
+        .scoreModel input{
+          width: 80%;
+          margin: 20px;
+        }
+        .search input:focus{
+          background-color: #a7cad735;
+        }
+        .search button{
+          margin-top: 4px;
+        }
+        .search button:active{
+          background-color: #d73a8b66;
+        }
 </style>

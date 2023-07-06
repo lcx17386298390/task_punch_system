@@ -1,25 +1,32 @@
 package com.acm.front.controller;
 
-import com.acm.api.model.Task;
 import com.acm.api.model.TaskItem;
 import com.acm.common.constants.Contants;
+import com.acm.common.util.UUIDUtils;
+import com.acm.common.view.PageInfo;
 import com.acm.common.view.ReturnObject;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+@CrossOrigin
 @RestController
 public class taskItemController extends BaseController{
-
+    /**
+     * 管理者创建
+     * @param id
+     * @param content
+     * @param name
+     * @return
+     */
     @RequestMapping("/taskitem/create")
     public @ResponseBody Object createTaskItem(String id,String content,String  name){
         TaskItem taskItem = new TaskItem();
         ReturnObject returnObject = new ReturnObject();
         taskItem.setContent(content);
         taskItem.setId(id);
-        taskItem.setJudgefinish(0.0);
+        taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
         taskItem.setName(name);
+        taskItem.setPublisher(Contants.SESSION_ADMIN);
         int cnt = taskItemService.insert(taskItem);
         if(cnt > 0){
             returnObject.setMessage("创建成功");
@@ -51,7 +58,7 @@ public class taskItemController extends BaseController{
         TaskItem taskItem = new TaskItem();
         taskItem.setName(name);
         taskItem.setContent(content);
-        taskItem.setJudgefinish(judgefinish);
+        taskItem.setJudgefinish(BigDecimal.valueOf(judgefinish));
         ReturnObject returnObject = new ReturnObject();
         int cnt = taskItemService.editTaskItemById(id,name,content,judgefinish);
         if(cnt > 0){
@@ -77,5 +84,50 @@ public class taskItemController extends BaseController{
         returnObject.setMessage("查找失败！请稍后再试");
         returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
         return returnObject;
+    }
+
+    /**
+     * 创建自己的任务
+     * @param content
+     * @param name
+     * @return
+     */
+    @RequestMapping("/taskitem/createSelfTaskItem")
+    public @ResponseBody Object createSelfTaskItem(String content,String name){
+        TaskItem taskItem = new TaskItem();
+        taskItem.setContent(content);
+        taskItem.setName(name);
+        taskItem.setId(UUIDUtils.getUUID());
+        taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
+        taskItem.setPublisher(Contants.SESSION_STUDENT);
+        ReturnObject returnObject = new ReturnObject();
+        int cnt = taskItemService.insert(taskItem);
+        if(cnt > 0){
+            returnObject.setMessage("创建成功");
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setRetData(taskItem);
+            return returnObject;
+        }
+        returnObject.setMessage("创建失败！请稍后再试");
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        return returnObject;
+    }
+
+    @RequestMapping("/taskitem/cal")
+    public @ResponseBody Object calCountOfTask( @RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
+                                                @RequestParam(value = "pageSize",required = false,defaultValue = "9") Integer pageSize,String name){
+        int totalRecord = taskItemService.calCountOfTaskItem(name,Contants.SESSION_STUDENT);
+        PageInfo pageInfo = new PageInfo();
+        Integer totalPage = 0;
+        //计算总页数
+        if( totalRecord % pageSize  == 0 ){
+            totalPage = totalRecord / pageSize;
+        } else {
+            totalPage = totalRecord / pageSize + 1;
+        }
+        pageInfo.setPageNo(pageNo);
+        pageInfo.setTotalPage(totalPage);
+        pageInfo.setTotalRecord(totalRecord);
+        return pageInfo;
     }
 }
