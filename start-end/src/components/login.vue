@@ -31,14 +31,14 @@
 export default {
   data() {
     return {
-      selectedColor: 'red'
+      selectedColor: "red",
     };
   },
   methods: {
     selectColor(color) {
       this.selectedColor = color;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -66,9 +66,11 @@ span{
   margin-top: 3%;
   justify-content: center;
   align-items: center;
-  font-family:serif;
+  margin-top: 3%;
+  font-family: serif;
   font-weight: 900;
 }
+
 .text-container {
   display: flex;
   background-color: #fff;
@@ -92,12 +94,17 @@ span{
 .text-container span {
   margin-right: 10px;
   cursor: pointer;
+  background-color: d4ddec63;
+  transition: transform 0.5s;
+}
+
+.text-container span:hover {
+  transform: scale(1.2);
 }
 
 .gray {
   color: rgba(56, 57, 60, 0.155);
 }
-
 
 .red {
   background-color: rgba(0, 72, 255, 0.534);
@@ -109,7 +116,7 @@ span{
   border-radius: 20%;
 }
 
-h1{
+h1 {
   margin-top: 50px;
   text-align: center;
   margin-bottom: 20px;
@@ -147,20 +154,18 @@ button {
   background-size: 400%;
 }
 
+button:hover {
+  animation: sun 8s infinite;
+}
 
+button:hover::before {
+  animation: sun 8s infinite;
+}
 
-    button:hover {
-      animation: sun 8s infinite;
-    }
-
-    button:hover::before {
-      animation: sun 8s infinite;
-    }
-
-    @keyframes sun {
-      100% {
-        /* 背景位置 */
-        background-position: -400% 0;
-      }
-    }
+@keyframes sun {
+  100% {
+    /* 背景位置 */
+    background-position: -400% 0;
+  }
+}
 </style>

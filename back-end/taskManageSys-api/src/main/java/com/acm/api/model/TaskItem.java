@@ -1,8 +1,9 @@
 package com.acm.api.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TaskItem {
+public class TaskItem implements Serializable {
     private String id;
 
     private String content;
