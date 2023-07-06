@@ -1,17 +1,21 @@
 <template>
   <div id="app">
     <TopBanner></TopBanner>
-    <h1>ceshi</h1>
+    <SendMsg></SendMsg>
     <router-view></router-view>
+
   </div>
 </template>
 
 <script>
 import TopBanner from './components/TopBanner.vue';
+import SendMsg from './pages/SendMsg.vue';
+
 export default {
   name: 'App',
   components: {
     TopBanner,
+    SendMsg
   }
 }
 </script> 
