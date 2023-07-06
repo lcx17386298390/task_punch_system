@@ -43,9 +43,8 @@ public class AuthServiceImpl implements AuthService {
                 .roles("user")
                 .build();
     }
-
     @Override
-    public String  sendEmail(String email,String sessionId) {
+    public String sendEmail(String email,String sessionId) {
         String key="email:"+sessionId+":"+email;
         if(Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))){
             Long expire= Optional.ofNullable(stringRedisTemplate.getExpire(key,TimeUnit.SECONDS)).orElse(0L);
@@ -67,7 +66,6 @@ public class AuthServiceImpl implements AuthService {
             return "邮件发送失败";
         }
     }
-
     @Override
     public String testRegister(String username, String password, String email, String code,String sessionId) {
         String key = "email:" + sessionId + ":" + email;
