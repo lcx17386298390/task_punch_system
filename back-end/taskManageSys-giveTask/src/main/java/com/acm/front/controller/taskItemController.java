@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 @RestController
 public class taskItemController extends BaseController{
     /**
-     * 管理者创建
+     * 管理者创建任务点
      * @param id
      * @param content
      * @param name
@@ -39,6 +39,14 @@ public class taskItemController extends BaseController{
         return returnObject;
     }
 
+
+    /**
+     * 管理者/学生可删除自己布置的任务点
+     * @param id
+     * @param name
+     * @return
+     */
+
     @RequestMapping("/taskitem/delete")
     public @ResponseBody Object deleteTaskItem(String id,String name){
         ReturnObject returnObject = new ReturnObject();
@@ -53,6 +61,14 @@ public class taskItemController extends BaseController{
         return returnObject;
     }
 
+    /**
+     * 管理者可修改自己的任务点
+     * @param id
+     * @param name
+     * @param content
+     * @param judgefinish
+     * @return
+     */
     @RequestMapping("/taskitem/edit")
     public @ResponseBody Object editTaskItemById(String id,String name,String content,Double judgefinish){
         TaskItem taskItem = new TaskItem();
@@ -71,6 +87,13 @@ public class taskItemController extends BaseController{
         return returnObject;
     }
 
+    /**
+     * 管理者可通过学生姓名的切换以查看给学生布置的任务点
+     * @param name
+     * @param id
+     * @return
+     */
+
     @RequestMapping("/taskitem/view")
     public @ResponseBody Object viewTaskItemByIdAndName(String name,String id){
         ReturnObject returnObject = new ReturnObject();
@@ -87,7 +110,7 @@ public class taskItemController extends BaseController{
     }
 
     /**
-     * 创建自己的任务
+     * 学生创建自己的任务
      * @param content
      * @param name
      * @return
@@ -113,6 +136,13 @@ public class taskItemController extends BaseController{
         return returnObject;
     }
 
+    /**
+     * 查看当前学生的所有给自己布置任务的页码信息
+     * @param pageNo
+     * @param pageSize
+     * @param name
+     * @return
+     */
     @RequestMapping("/taskitem/cal")
     public @ResponseBody Object calCountOfTask( @RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
                                                 @RequestParam(value = "pageSize",required = false,defaultValue = "9") Integer pageSize,String name){
@@ -129,5 +159,26 @@ public class taskItemController extends BaseController{
         pageInfo.setTotalPage(totalPage);
         pageInfo.setTotalRecord(totalRecord);
         return pageInfo;
+    }
+
+    /**
+     * 管理者给学生任务点评分
+     * @param name
+     * @param judgefinish
+     * @param id
+     * @return
+     */
+    @RequestMapping("/taskitem/givemark")
+    public @ResponseBody Object giveMark(String name,BigDecimal judgefinish,String id){
+        ReturnObject returnObject = new ReturnObject();
+        int cnt = taskItemService.giveMark(name,judgefinish,id);
+        if(cnt > 0){
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("评分成功");
+            return returnObject;
+        }
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        returnObject.setMessage("评分失败！请稍后再试");
+        return returnObject;
     }
 }

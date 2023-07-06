@@ -2,6 +2,7 @@ package com.acm.api.service;
 
 import com.acm.api.model.TaskItem;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface TaskItemService {
@@ -22,4 +23,10 @@ public interface TaskItemService {
     List<TaskItem> viewTaskItemForCal(String name,String publisher);
 
     Integer calCountOfTaskItem(String name,String publisher);
+
+    List<TaskItem> viewAllTaskItemFromStu(Integer offset, Integer pageSize, String publisher);
+
+    int calCountOfAllTaskItem(String publisher);
+
+    int giveMark(String name, BigDecimal judgefinish, String id);
 }
