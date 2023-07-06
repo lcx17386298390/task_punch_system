@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TopBanner></TopBanner>
-    <login></login>
+    <!-- <login></login> -->
     <router-view></router-view>
   </div>
 </template>
