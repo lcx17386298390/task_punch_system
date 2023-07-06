@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="给自己任务">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/TaskItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/TaskItemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/components/task.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/components/task.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_acm_taskManageSys_parent_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_rabbitmq_amqp_client_5_14_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_amqp_2_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_rabbit_2_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_amqp_2_7_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_3_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_3_28.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_spring_spring_context_support_1_0_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_spring_spring_context_support_1_0_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/sendMsgMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/sendMsgMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front/controller/msgToMailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/java/com/acm/msgtomail/front/controller/msgToMailController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
