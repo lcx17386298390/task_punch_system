@@ -13,7 +13,7 @@ import ViewYourTasks from '../pages/ViewYourTasks'
 const router = new VueRouter({
     routes: [
         {
-            path: '/login', component: login
+            path: '/', component: login
         },
         {
             path: '/registration', component: registration
@@ -32,7 +32,7 @@ const router = new VueRouter({
         { path: '/PostTask', component: PostTask },
         { path: '/ViewYourTasks', component: ViewYourTasks },
         {
-            path: '/', component: studentHome, children: [
+            path: '/studentHome', component: studentHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/PostTask',component: PostTask},
             ]
