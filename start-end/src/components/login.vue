@@ -20,7 +20,6 @@
         >管理员登录</span
       >
     </div>
-<<<<<<< HEAD
     <div
       class="card-inner admin-login"
       :class="{ 'selected': selectedLogin === 'admin' }"
@@ -32,55 +31,6 @@
         <input type="password" placeholder="管理员密码" />
         <button type="submit">登录.</button>
       </form>
-=======
-    <div class="buding">
-      <div v-if="selectedColor === 'red'" class="red card-inner">
-        <h1>普通登录</h1>
-        <form>
-          <input
-            type="text"
-            class="inp"
-            v-model="username"
-            placeholder="用户名"
-          />
-          <p v-if="usernameError" class="error">username cannot be empty</p>
-          <input
-            type="password"
-            class="inp"
-            v-model="password"
-            placeholder="密码"
-          />
-          <p v-if="passwordError" class="error">password cannot be empty</p>
-          <button @click="checkInputs" type="submit">登录</button>
-          <button @click="goToRegistration" class="re">
-            or &nbsp;&nbsp;注册
-          </button>
-        </form>
-      </div>
-      <div v-else class="blue card-inner">
-        <h1>管理员</h1>
-        <form>
-          <input
-            type="text"
-            class="inp"
-            v-model="username"
-            placeholder="管理员用户名"
-          />
-          <p v-if="usernameError" class="error">username cannot be empty</p>
-          <input
-            type="password"
-            class="inp"
-            v-model="password"
-            placeholder="管理员密码"
-          />
-          <p v-if="passwordError" class="error">password cannot be empty</p>
-          <button @click="checkInputs" type="submit">登录</button>
-          <button @click="goToRegistration" class="re">
-            or &nbsp;&nbsp;注册
-          </button>
-        </form>
-      </div>
->>>>>>> 3e2e33e7af8677a44e0d91a11c52f6a9ba39c588
     </div>
   </div>
 </template>
