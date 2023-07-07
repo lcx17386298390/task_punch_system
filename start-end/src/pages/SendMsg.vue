@@ -31,7 +31,7 @@ export default {
         { id: 5, name: '反倒是' },
         { id: 6, name: '附件是' },
         { id: 7, name: '十分恼' },
-        { id: 8, name: '十分恼' },
+        { id: 8, name: '十分' },
         { id: 9, name: '返回' }
       ],
       selectedPeople:[],
