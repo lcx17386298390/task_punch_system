@@ -1,6 +1,6 @@
 <template>
   <div class="send_msg">
-    <h2>SendMsg</h2>
+      <h2>SendMsg</h2>
 
     <div class="checkbox">
       <label v-for="person in people" :key="person.id">
@@ -12,8 +12,9 @@
       <textarea v-model="message" class="text" cols="29" rows="8" placeholder="Edit your message..."></textarea>
     <button  @click="sendMsg" class="btn">send</button>
     </div>
-
+    
     </div>
+
 </template>
 
 <script>
@@ -49,6 +50,7 @@ export default {
       //   .catch(error => {
       //     console.error('发送消息时出错', error);
       //   });
+      
   }
   }
   
@@ -90,14 +92,15 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 35px 35px 35px;
-  margin: 0px 0px 0px 650px;
+  margin: 0px 0px 0px 640px;
 }
 
 .send_msg h2 {
-  margin: 50px 0px 30px;
+  margin: 50px 0px 40px;
   color: #181a1ebf;
   font-size: 2em;
   font-weight:bold;
 
 }
+
 </style>
