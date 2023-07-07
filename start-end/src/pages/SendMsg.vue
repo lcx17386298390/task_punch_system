@@ -88,8 +88,9 @@ export default {
 .checkbox {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  margin: 0px 0px 25px;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 35px 35px 35px;
+  margin: 0px 0px 0px 650px;
 }
 
 .send_msg h2 {

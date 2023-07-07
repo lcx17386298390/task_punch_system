@@ -12,7 +12,7 @@ import registration from '../components/registration'
 const router = new VueRouter({
     routes: [
         {
-            path: '/', component: login
+            path: '/login', component: login
         },
         {
             path: '/registration', component: registration
@@ -27,7 +27,7 @@ const router = new VueRouter({
 
         { path: '/ViewAllTasks', component: ViewAllTasks },
         { path: '/GiveTask', component: GiveTask },
-        { path: '/SendMsg', component: SendMsg },
+        { path: '/', component: SendMsg },
         { path: '/PostTask', component: PostTask },
 
         {
