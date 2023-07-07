@@ -3,23 +3,30 @@
     <br>
     <a href="/adminHome" class="back">back</a>
       <h2>SendMsg</h2>
+      <!-- 多选选人 -->
     <div class="checkbox">
       <label v-for="person in people" :key="person.id">
       <input type="checkbox" :value="person.name" v-model="selectedPeople"> {{ person.name }}
     </label>
     </div>
 
+    <!-- 编写消息 发送 -->
     <div>
       <textarea v-model="message" class="text" cols="29" rows="8" placeholder="Edit your message..."></textarea>
     <button  @click="sendMsg" class="_btn">send</button>
     </div>
 
+    <!-- 呈现消息 -->
     <div class="content">
+      <!-- 查找 -->
+      &nbsp;&nbsp;&nbsp;sender:<input type="text">recipient:<input type="text">
+      <button class="_btn_">search</button>
+      <hr>
       <ul>
         <li v-for="msg in sentMessages" :key="msg.id">
           <span>{{ msg.sender }}</span> send a message to <span>{{ msg.recipient }}</span> :
           <p>{{ msg.content }}</p>
-          {{currentDate}}
+          <!-- {{currentDate}} -->
           <hr>
         </li>
       </ul>
@@ -49,7 +56,7 @@ export default {
       selectedPeople:[],
       sentMessages: [],
       message: '',
-      currentDate: new Date()
+      // currentDate: new Date()
     }
   },
   methods:{
@@ -145,5 +152,25 @@ export default {
 }
 .content ul li {
   margin: 30px 30px 0 30px;
+}
+.content input {
+  border-radius: 4px;
+  margin-inline-end: 4px;
+  padding: 6px;
+  margin: 30px 30px 0 30px;
+}
+._btn_ {
+ background-color: rgb(210, 210, 210);
+  margin-block-start: 10px;
+  font-weight: 700;
+  border: 5px;
+  border-radius: 4px;
+  padding: 7px 20px;
+  transform: scale(1.035);
+  transition: transform 0.3s ease;
+}
+._btn_:hover {
+  background-color: #6abddca9;
+  transform: scale(1.035);
 }
 </style>
