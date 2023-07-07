@@ -27,14 +27,14 @@
           <input
             type="text"
             class="inp"
-            v-model="send_username"
+            v-model="username"
             placeholder="用户名"
           />
           <p v-if="usernameError" class="error">username cannot be empty</p>
           <input
             type="password"
             class="inp"
-            v-model="send_password"
+            v-model="password"
             placeholder="密码"
           />
           <p v-if="passwordError" class="error">password cannot be empty</p>
@@ -50,16 +50,18 @@
           <input
             type="text"
             class="inp"
-            v-model="send_username"
+            v-model="username"
             placeholder="管理员用户名"
           />
+          <p v-if="usernameError" class="error">username cannot be empty</p>
           <input
             type="password"
             class="inp"
-            v-model="send_password"
+            v-model="password"
             placeholder="管理员密码"
           />
-          <button type="submit">登录</button>
+          <p v-if="passwordError" class="error">password cannot be empty</p>
+          <button @click="checkInputs" type="submit">登录</button>
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
           </button>
@@ -73,8 +75,8 @@
 export default {
   data() {
     return {
-      send_username: "",
-      send_password: "",
+      username: "",
+      password: "",
       usernameError: false,
       passwordError: false,
       selectedColor: "red",
@@ -88,9 +90,9 @@ export default {
       this.$router.push("/registration");
     },
     checkInputs() {
-      if (this.send_username.trim() === "" || this.send_password.trim() === "") {
-        this.usernameError = this.send_username.trim() === "";
-        this.passwordError = this.send_password.trim() === "";
+      if (this.username.trim() === "" || this.password.trim() === "") {
+        this.usernameError = this.username.trim() === "";
+        this.passwordError = this.password.trim() === "";
         setTimeout(() => {
           this.usernameError = false;
           this.passwordError = false;

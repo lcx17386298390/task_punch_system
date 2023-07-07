@@ -5,11 +5,11 @@
     </div>
       <div class="card-inner">
       <form>
-        <input type="text" placeholder="用户名" />
-        <input type="password" placeholder="密码" />
-        <input type="Email" placeholder="注册邮箱">
-        <div style="display: flex;">
-          <input type="identifying code" placeholder="验证码">
+        <input v-model="name" type="text" placeholder="用户名" />
+        <input v-model="password" type="password" placeholder="密码" />
+        <input v-model="email" type="email" placeholder="注册邮箱">
+        <div   style="display: flex;">
+          <input type="number" placeholder="验证码">
           <button class="f">发送验证码</button>
         </div>
         <button type="submit">注册</button>
