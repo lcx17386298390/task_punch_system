@@ -7,7 +7,7 @@ public interface sendMsgService {
 
     int deleteByPrimaryKey(String id);
 
-    int insert(sendMsg record);
+    int insert(sendMsg sendMsg);
 
     int insertSelective(sendMsg record);
 
@@ -17,6 +17,5 @@ public interface sendMsgService {
 
     int updateByPrimaryKey(sendMsg record);
 
-    int insertMsgBytouser(String fromuser,String touser,String msg);
 
 }

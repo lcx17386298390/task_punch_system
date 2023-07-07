@@ -27,11 +27,6 @@
       #{msg,jdbcType=VARCHAR})
   </insert>
 
-  <insert id="insertMsgBytouser" parameterType="com.acm.api.model.sendMsg">
-    insert into sendmsg(fromuser,touser,msg)
-    values (#{fromuser,jdbcType=VARCHAR},#{touser,jdbcType=VARCHAR},#{msg,jdbcType=VARCHAR})
-
-  </insert>
 
   <insert id="insertSelective" parameterType="com.acm.api.model.sendMsg">
     insert into sendmsg
