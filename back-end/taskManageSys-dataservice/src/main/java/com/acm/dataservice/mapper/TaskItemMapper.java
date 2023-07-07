@@ -21,7 +21,7 @@ public interface TaskItemMapper {
 
     int deleteByIdAndName(String id,String name);
 
-    int editTaskItemById(String id, String name, String content, Double judgefinish);
+    int editTaskItemById(String id, String name, String content, BigDecimal judgefinish);
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
 

@@ -44,10 +44,13 @@ public class ViewTaskController extends BaseController{
         BigDecimal totalJudgeFinish = BigDecimal.valueOf(0.0);
         if(taskItems!=null&&!taskItems.isEmpty()){
             for(TaskItem t:taskItems){
-                t.getJudgefinish();
+                //System.out.println(t.getJudgefinish());
                 totalJudgeFinish = totalJudgeFinish.add(t.getJudgefinish());
             }
-            taskItemDTO.setAverageJudgeFinish(totalJudgeFinish.subtract(BigDecimal.valueOf(taskItems.size())));
+            //System.out.println(totalJudgeFinish);
+            //System.out.println(BigDecimal.valueOf(taskItems.size()));
+            BigDecimal temp = taskItemDTO.setAverageJudgeFinish((totalJudgeFinish.divide(BigDecimal.valueOf(taskItems.size()),2)));
+            //System.out.println(temp);
         }else {
             System.out.println("统计错误！！");
         }

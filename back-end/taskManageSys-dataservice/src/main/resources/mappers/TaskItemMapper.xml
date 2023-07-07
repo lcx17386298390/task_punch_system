@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.acm.api.model.TaskItem">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="judgefinish" jdbcType="DOUBLE" property="judgefinish" />
+    <result column="judgefinish" jdbcType="DECIMAL" property="judgefinish" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="publisher" jdbcType="VARCHAR" property="publisher" />
   </resultMap>
@@ -50,7 +50,7 @@
         #{content,jdbcType=VARCHAR},
       </if>
       <if test="judgefinish != null">
-        #{judgefinish,jdbcType=DOUBLE},
+        #{judgefinish,jdbcType=DECIMAL},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -64,7 +64,7 @@
         content = #{content,jdbcType=VARCHAR},
       </if>
       <if test="judgefinish != null">
-        judgefinish = #{judgefinish,jdbcType=DOUBLE},
+        judgefinish = #{judgefinish,jdbcType=DECIMAL},
       </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -76,7 +76,7 @@
   <update id="updateByPrimaryKey" parameterType="com.acm.api.model.TaskItem">
     update taskitem
     set content = #{content,jdbcType=VARCHAR},
-      judgefinish = #{judgefinish,jdbcType=DOUBLE},
+      judgefinish = #{judgefinish,jdbcType=DECIMAL},
       name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -86,7 +86,7 @@
   <insert id="insert" parameterType="com.acm.api.model.TaskItem">
     insert into taskitem (id, content, judgefinish,
                           name,publisher)
-    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{judgefinish,jdbcType=DOUBLE},
+    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{judgefinish,jdbcType=DECIMAL},
             #{name,jdbcType=VARCHAR},#{publisher,jdbcType=VARCHAR})
   </insert>
 
@@ -116,13 +116,13 @@
   <update id="editTaskItemById">
     update taskitem
     set content = #{content,jdbcType=VARCHAR},
-        judgefinish = #{judgefinish,jdbcType=DOUBLE}
+        judgefinish = #{judgefinish,jdbcType=DECIMAL}
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </update>
 
   <update id="giveMark">
     update taskitem
-    set judgefinish = #{judgefinish,jdbcType=VARCHAR}
+    set judgefinish = #{judgefinish,jdbcType=DECIMAL}
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </update>
 
@@ -135,12 +135,14 @@
     select count(id) from taskitem
     where name=#{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcType=VARCHAR}
   </select>
+
     <select id="viewAllTaskItemFromStu" resultType="com.acm.api.model.TaskItem">
       select <include refid="Base_Column_List" />
       from taskitem
       where publisher = #{publisher,jdbcType=VARCHAR}
         limit #{offset},#{pagesize}
     </select>
+
   <select id="calCountOfAllTaskItem" resultType="java.lang.Integer">
     select count(id) from taskitem
     where publisher=#{publisher,jdbcType=VARCHAR}
