@@ -33,6 +33,8 @@
   </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
   name: "PostTask",
   data() {
@@ -42,6 +44,7 @@ export default {
       titleError : false,
       contentError :false,
       showOverlay: false,
+      StuName: "chh"
     };
   },
   methods: {
@@ -64,7 +67,20 @@ export default {
       // 发送请求给后端传递参数
       // ...
       // 刷新页面
-      location.reload();
+      return axios({
+        url: 'http://localhost:8000/tms/taskitem/createSelfTaskItem',
+        method: 'post',
+        params: {
+          name: this.StuName,
+          content: this.taskDescription,
+          title: this.taskTitle
+        }
+      }).then(resp => {
+        if(resp){
+          console.log(resp.data);
+          location.reload()
+        }
+      })
     },
   },
 };

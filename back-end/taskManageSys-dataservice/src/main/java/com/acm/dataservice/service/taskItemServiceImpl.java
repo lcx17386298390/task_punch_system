@@ -32,8 +32,8 @@ public class taskItemServiceImpl implements TaskItemService {
     }
 
     @Override
-    public int editTaskItemById(String id, String name, String content, BigDecimal judgefinish) {
-        return taskItemMapper.editTaskItemById(id, name, content, judgefinish);
+    public int editTaskItemById(String id, String name, String content, BigDecimal judgefinish,String title) {
+        return taskItemMapper.editTaskItemById(id, name, content, judgefinish,title);
     }
 
     @Override
