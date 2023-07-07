@@ -2,6 +2,8 @@ package com.acm.dataservice.mapper;
 
 import com.acm.api.model.sendMsg;
 
+import java.util.List;
+
 public interface sendMsgMapper {
     int deleteByPrimaryKey(String id);
 
@@ -15,7 +17,6 @@ public interface sendMsgMapper {
 
     int updateByPrimaryKey(sendMsg record);
 
-
-
+     List<sendMsg> selectByFromUserAndToUser(String fromuser, String touser);
 
 }

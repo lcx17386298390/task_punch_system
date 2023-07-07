@@ -2,6 +2,8 @@ package com.acm.api.service;
 
 import com.acm.api.model.sendMsg;
 
+import java.util.List;
+
 
 public interface sendMsgService {
 
@@ -17,5 +19,6 @@ public interface sendMsgService {
 
     int updateByPrimaryKey(sendMsg record);
 
+    List<sendMsg> selectByFromUserAndToUser(String fromuser, String touser);
 
 }

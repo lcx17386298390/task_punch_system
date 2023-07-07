@@ -5,15 +5,15 @@ import com.acm.api.model.TaskItem;
 import com.acm.api.model.sendMsg;
 import com.acm.common.constants.Contants;
 import com.acm.common.view.ReturnObject;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.List;
 
 
 @RestController
+@CrossOrigin
 public class msgToMailController extends BaseController{
 
     @RequestMapping("/sendmessage")
@@ -32,11 +32,16 @@ public class msgToMailController extends BaseController{
             returnObject.setMessage("发送成功");
             return sendMsg;
         }
-        returnObject.setMessage("创建失败！请稍后再试");
+        returnObject.setMessage("发送失败");
         return sendMsg;
     }
 
+    @RequestMapping("/querymsg")
+    public List<sendMsg> selectMsg(@RequestParam("fromuser")String fromuser,
+                             @RequestParam("touser") String touser){
 
+
+    }
 
 
 }

@@ -16,6 +16,12 @@
     from sendmsg
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+  <!-- 根据 fromuser 和 touser 查询数据 -->
+  <select id="selectByFromUserAndToUser" parameterType="com.acm.api.model.sendMsg" resultType="com.acm.api.model.sendMsg">
+    select * from sendmsg where fromuser = #{fromuser,jdbcType=VARCHAR} and touser = #{touser,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from sendmsg
     where id = #{id,jdbcType=VARCHAR}

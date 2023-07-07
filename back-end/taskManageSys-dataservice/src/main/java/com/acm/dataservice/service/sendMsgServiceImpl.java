@@ -6,6 +6,8 @@ import com.acm.api.service.sendMsgService;
 import org.apache.dubbo.config.annotation.DubboService;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @DubboService(interfaceClass = sendMsgService.class,version = "1.0")
 public class sendMsgServiceImpl implements sendMsgService {
 
@@ -44,5 +46,9 @@ public class sendMsgServiceImpl implements sendMsgService {
         return sendMsgMapper.updateByPrimaryKey(record);
     }
 
+    @Override
+    public List<sendMsg> selectByFromUserAndToUser(String fromuser, String touser) {
+        return sendMsgMapper.selectByFromUserAndToUser(fromuser,touser);
+    }
 
 }
