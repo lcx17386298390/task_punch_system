@@ -4,7 +4,7 @@
 
     <div class="checkbox">
       <label v-for="person in people" :key="person.id">
-      <input type="checkbox" :value="person.id" v-model="selectedPeople"> {{ person.name }}
+      <input type="checkbox" :value="person.name" v-model="selectedPeople"> {{ person.name }}
     </label>
     </div>
 
@@ -12,14 +12,25 @@
       <textarea v-model="message" class="text" cols="29" rows="8" placeholder="Edit your message..."></textarea>
     <button  @click="sendMsg" class="btn">send</button>
     </div>
+
+    <div class="content">
+      <ul>
+        <li v-for="msg in sentMessages" :key="msg.id">
+          <span>{{ msg.sender }}</span> send a message to <span>{{ msg.recipient }}</span> :
+          <p>{{ msg.content }}</p>
+          {{currentDate}}
+          <hr>
+        </li>
+      </ul>
+      
+    </div>
     
     </div>
-
 </template>
 
 <script>
 export default {
-  neme:'SendMsg',
+  name:'SendMsg',
   data(){
     return{
         text:'',
@@ -35,14 +46,14 @@ export default {
         { id: 9, name: '返回' }
       ],
       selectedPeople:[],
-      message: ''
+      sentMessages: [],
+      message: '',
+      currentDate: new Date()
     }
   },
   methods:{
     sendMsg() {
-      const selectedPeople = this.selectedPeople;
-      const message = this.message;
-
+      
       // axios.post('/api/send_msg', { selectedPeople, message })
       //   .then(response => {
       //     console.log('消息已发送');
@@ -50,6 +61,19 @@ export default {
       //   .catch(error => {
       //     console.error('发送消息时出错', error);
       //   });
+
+      if (this.selectedPeople.length > 0 && this.message !== '') {
+        for (let person of this.selectedPeople) {
+          this.sentMessages.push({
+            id: Date.now(),
+            sender: 'You',
+            recipient:this.selectedPeople[0],
+            content: this.message
+          });
+        }
+        this.selectedPeople = [];
+        this.message = '';
+      }
       
   }
   }
@@ -94,7 +118,6 @@ export default {
   grid-template-rows: 35px 35px 35px;
   margin: 0px 0px 0px 640px;
 }
-
 .send_msg h2 {
   margin: 50px 0px 40px;
   color: #181a1ebf;
@@ -102,5 +125,18 @@ export default {
   font-weight:bold;
 
 }
-
+.content {
+  position: absolute;
+  inline-size: 800px;
+  block-size: 530px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #9cadb3a9;
+  margin: 0 0 0 1300px;
+  overflow: auto;
+  overflow-wrap: break-word; 
+  line-height: 1.5;
+}
+.content ul li {
+  margin: 30px 30px 0 30px;
+}
 </style>
