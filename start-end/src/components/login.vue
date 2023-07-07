@@ -20,6 +20,19 @@
         >管理员登录</span
       >
     </div>
+<<<<<<< HEAD
+    <div
+      class="card-inner admin-login"
+      :class="{ 'selected': selectedLogin === 'admin' }"
+      @click="selectLogin('admin')"
+    >
+      <h2>如果你是管理员</h2>
+      <form>
+        <input type="text" placeholder="管理员用户名" />
+        <input type="password" placeholder="管理员密码" />
+        <button type="submit">登录.</button>
+      </form>
+=======
     <div class="buding">
       <div v-if="selectedColor === 'red'" class="red card-inner">
         <h1>普通登录</h1>
@@ -67,6 +80,7 @@
           </button>
         </form>
       </div>
+>>>>>>> 3e2e33e7af8677a44e0d91a11c52f6a9ba39c588
     </div>
   </div>
 </template>
