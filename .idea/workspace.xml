@@ -6,14 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="suibiangaigai">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/TaskItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/TaskItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/TaskItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/TaskItemMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/pages/GiveTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/pages/GiveTask.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/pages/PostTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/pages/PostTask.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start-end/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start-end/src/pages/ViewAllTasks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/pages/ViewAllTasks.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,29 +49,29 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "92a6c553a86171d30816ca9ba5590971",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;92a6c553a86171d30816ca9ba5590971&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\code\task_punch_system\back-end\taskManageSys-dataservice\src\main\resources\mappers" />
@@ -83,7 +85,7 @@
       <recent name="com.acm.front.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskManageSysGiveTaskApplication">
+  <component name="RunManager" selected="Spring Boot.TaskManageSysViewTaskApplication">
     <configuration name="TaskManageSysDataserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="taskManageSys-dataservice" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.acm.dataservice.TaskManageSysDataserviceApplication" />
@@ -139,7 +141,8 @@
       <workItem from="1688614808783" duration="11773000" />
       <workItem from="1688643523702" duration="1487000" />
       <workItem from="1688690956686" duration="3624000" />
-      <workItem from="1688694790310" duration="22025000" />
+      <workItem from="1688694790310" duration="28706000" />
+      <workItem from="1688736499819" duration="2943000" />
     </task>
     <task id="LOCAL-00001" summary="跨域链接">
       <created>1688542871361</created>
@@ -190,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688710207686</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="suibiangaigai">
+      <created>1688727828699</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688727828699</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

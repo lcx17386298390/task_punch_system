@@ -73,4 +73,20 @@ public class taskItemServiceImpl implements TaskItemService {
     public int giveMark(String name, BigDecimal judgefinish, String id) {
         return taskItemMapper.giveMark(name,judgefinish,id);
     }
+
+
+    @Override
+    public List<TaskItem> viewAdminTaskItem(String publisher,Integer offset, Integer pageSize) {
+        return taskItemMapper.viewAdminTaskItem(publisher,offset,pageSize);
+    }
+
+    @Override
+    public int calAdminTaskItem(String publisher) {
+        return taskItemMapper.calAdminTaskItem(publisher);
+    }
+
+    @Override
+    public int editAdminTaskItemTitleVal(String name, String id, String publisher,String title) {
+        return taskItemMapper.editAdminTaskItemTitleVal(name,id,publisher,title);
+    }
 }

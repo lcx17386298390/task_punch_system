@@ -3,6 +3,7 @@ package com.acm.front.controller;
 import com.acm.api.model.Task;
 import com.acm.api.model.TaskItem;
 import com.acm.common.constants.Contants;
+import com.acm.common.util.CommonUtil;
 import com.acm.common.util.UUIDUtils;
 import com.acm.common.view.PageInfo;
 import com.acm.common.view.ReturnObject;
@@ -161,7 +162,7 @@ public class taskItemController extends BaseController{
      */
     @RequestMapping("/taskitem/cal")
     public @ResponseBody Object calCountOfTask( @RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
-                                                @RequestParam(value = "pageSize",required = false,defaultValue = "9") Integer pageSize,String name){
+                                                @RequestParam(value = "pageSize",required = false,defaultValue = "6") Integer pageSize,String name){
         int totalRecord = taskItemService.calCountOfTaskItem(name,Contants.SESSION_STUDENT);
         PageInfo pageInfo = new PageInfo();
         Integer totalPage = 0;
@@ -197,4 +198,74 @@ public class taskItemController extends BaseController{
         returnObject.setMessage("评分失败！请稍后再试");
         return returnObject;
     }
+
+    /**
+     * 管理者查看自己所布置的所有任务点
+     * @return
+     */
+    @RequestMapping("/taskitem/viewAdminTaskItem")
+    public @ResponseBody Object viewAdminTaskItem(@RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
+                                                  @RequestParam(value = "pageSize",required = false,defaultValue = "6") Integer pageSize){
+        ReturnObject returnObject = new ReturnObject();
+        pageNo = CommonUtil.defaultPageNo(pageNo);
+        pageSize = CommonUtil.defaultPageSize(pageSize);
+        Integer offset = (pageNo - 1) * pageSize;
+        String publisher = Contants.SESSION_ADMIN;
+        List<TaskItem> taskItemList = taskItemService.viewAdminTaskItem(publisher,offset,pageSize);
+        if(taskItemList!= null){
+            returnObject.setRetData(taskItemList);
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("查找成功");
+            return returnObject;
+        }
+        returnObject.setMessage("查找失败！请稍后再试");
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        return returnObject;
+    }
+
+    /**
+     * 管理者查看所有自己所布置的任务页面信息
+     * @return
+     */
+    @RequestMapping("/taskitem/calAdminTaskItem")
+    public @ResponseBody Object calAdminTaskItem(@RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
+                                                 @RequestParam(value = "pageSize",required = false,defaultValue = "6") Integer pageSize){
+        String publisher = Contants.SESSION_ADMIN;
+        int totalRecord = taskItemService.calAdminTaskItem(publisher);
+        PageInfo pageInfo = new PageInfo();
+        Integer totalPage = 0;
+        //计算总页数
+        if( totalRecord % pageSize  == 0 ){
+            totalPage = totalRecord / pageSize;
+        } else {
+            totalPage = totalRecord / pageSize + 1;
+        }
+        pageInfo.setPageNo(pageNo);
+        pageInfo.setTotalPage(totalPage);
+        pageInfo.setTotalRecord(totalRecord);
+        return pageInfo;
+    }
+
+    /**
+     * 管理者修改任务点标题
+     * @param name
+     * @param id
+     * @param title
+     * @return
+     */
+    @RequestMapping("/taskitem/editAdminTaskItemTitleVal")
+    public @ResponseBody Object editAdminTaskItemVal(String name,String id,String title){
+          String publisher = Contants.SESSION_ADMIN;
+          ReturnObject returnObject = new ReturnObject();
+          int cnt = taskItemService.editAdminTaskItemTitleVal(name,id,publisher,title);
+          if(cnt > 0){
+              returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+              returnObject.setMessage("修改成功");
+              return returnObject;
+          }
+          returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+          returnObject.setMessage("修改失败！请稍后再试");
+          return returnObject;
+    }
+
 }

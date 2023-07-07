@@ -10,7 +10,7 @@
     <result column="title" jdbcType="VARCHAR" property="title" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, content, judgefinish, name, publisher
+    id, content, judgefinish, name, publisher,title
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -127,6 +127,11 @@
     set judgefinish = #{judgefinish,jdbcType=DECIMAL}
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </update>
+  <update id="editAdminTaskItemTitleVal">
+    update taskitem
+    set title = #{title,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcType=VARCHAR}
+  </update>
 
   <delete id="deleteByIdAndName">
     delete from taskitem
@@ -148,5 +153,15 @@
   <select id="calCountOfAllTaskItem" resultType="java.lang.Integer">
     select count(id) from taskitem
     where publisher=#{publisher,jdbcType=VARCHAR}
+  </select>
+  <select id="viewAdminTaskItem" resultType="com.acm.api.model.TaskItem">
+    select <include refid="Base_Column_List" />
+    from taskitem
+    where publisher = #{publisher,jdbcType=VARCHAR}
+    limit #{offset},#{pageSize}
+  </select>
+  <select id="calAdminTaskItem" resultType="java.lang.Integer">
+    select count(id) from taskitem
+    where publisher = #{publisher,jdbcType=VARCHAR}
   </select>
 </mapper>

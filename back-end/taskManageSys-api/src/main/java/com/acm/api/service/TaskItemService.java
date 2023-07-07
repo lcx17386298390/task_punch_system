@@ -31,4 +31,10 @@ public interface TaskItemService {
     int calCountOfAllTaskItem(String publisher);
 
     int giveMark(String name, BigDecimal judgefinish, String id);
+
+    List<TaskItem> viewAdminTaskItem(String publisher, Integer offset, Integer pageSize);
+
+    int calAdminTaskItem(String publisher);
+
+    int editAdminTaskItemTitleVal(String name, String id, String publisher,String title);
 }

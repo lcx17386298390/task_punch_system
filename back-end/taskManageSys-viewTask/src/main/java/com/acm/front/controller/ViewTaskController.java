@@ -63,7 +63,7 @@ public class ViewTaskController extends BaseController{
      * @param pageSize
      * @return
      */
-    @RequestMapping("/taskitem/viewAllTask")
+    @RequestMapping("/taskitem/viewStuTaskItem")
     public List<TaskItem> viewAllSelfTaskItem(
                                            @RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
                                            @RequestParam(value = "pageSize",required = false,defaultValue = "9") Integer pageSize) {
