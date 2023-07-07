@@ -11,10 +11,14 @@ import registration from '../components/registration'
 
 const router = new VueRouter({
     routes: [
-        { path: '/registration', component: registration },
-        { path: '/login', component: login },
         {
-            path: '/', component: adminHome, children: [
+            path: '/', component: login
+        },
+        {
+            path: '/registration', component: registration
+        },
+        {
+            path: '/adminHome', component: adminHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/GiveTask',component: GiveTask},
                 // {path: '/SendMsg',component: SendMsg},
