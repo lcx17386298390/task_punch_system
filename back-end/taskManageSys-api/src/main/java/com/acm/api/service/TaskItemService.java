@@ -1,5 +1,7 @@
 package com.acm.api.service;
 
+//import com.acm.api.model.TaskItem;
+
 import com.acm.api.model.TaskItem;
 
 import java.math.BigDecimal;
@@ -12,7 +14,7 @@ public interface TaskItemService {
 
     int deleteByIdAndName(String id,String name);
 
-    int editTaskItemById(String id,String name,String content,Double judgefinish);
+    int editTaskItemById(String id,String name,String content,BigDecimal judgefinish);
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
 

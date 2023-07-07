@@ -70,11 +70,11 @@ public class taskItemController extends BaseController{
      * @return
      */
     @RequestMapping("/taskitem/edit")
-    public @ResponseBody Object editTaskItemById(String id,String name,String content,Double judgefinish){
+    public @ResponseBody Object editTaskItemById(String id,String name,String content,BigDecimal judgefinish){
         TaskItem taskItem = new TaskItem();
         taskItem.setName(name);
         taskItem.setContent(content);
-        taskItem.setJudgefinish(BigDecimal.valueOf(judgefinish));
+        taskItem.setJudgefinish(judgefinish);
         ReturnObject returnObject = new ReturnObject();
         int cnt = taskItemService.editTaskItemById(id,name,content,judgefinish);
         if(cnt > 0){

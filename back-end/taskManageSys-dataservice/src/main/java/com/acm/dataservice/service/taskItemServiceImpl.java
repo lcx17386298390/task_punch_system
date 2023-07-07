@@ -32,7 +32,7 @@ public class taskItemServiceImpl implements TaskItemService {
     }
 
     @Override
-    public int editTaskItemById(String id, String name, String content, Double judgefinish) {
+    public int editTaskItemById(String id, String name, String content, BigDecimal judgefinish) {
         return taskItemMapper.editTaskItemById(id, name, content, judgefinish);
     }
 
@@ -55,7 +55,7 @@ public class taskItemServiceImpl implements TaskItemService {
     }
 
     @Override
-    public Integer calCountOfTaskItem(String name, String publisher) {
+    public Integer calCountOfTaskItem(String name,String publisher) {
         return taskItemMapper.calCountOfTaskItem(name,publisher);
     }
 

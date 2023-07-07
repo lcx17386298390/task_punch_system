@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 @Data
 public class Student implements Serializable {
-    private String id;
+    private int id;
 
     private String email;
 
