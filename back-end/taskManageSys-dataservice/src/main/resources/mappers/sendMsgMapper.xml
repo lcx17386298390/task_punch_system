@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.acm.dataservice.mapper.sendMsgMapper">
-  <resultMap id="BaseResultMap" type="com.acm.api.model.sendMsg">
+  <resultMap id="BaseResultMap" type="com.acm.api.model.SendMsg">
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="fromuser" jdbcType="VARCHAR" property="fromuser" />
     <result column="touser" jdbcType="VARCHAR" property="touser" />
@@ -16,24 +16,30 @@
     from sendmsg
     where id = #{id,jdbcType=VARCHAR}
   </select>
+
+  <!-- 根据 fromuser 和 touser 查询数据 -->
+  <select id="selectByFromUserAndToUser" parameterType="com.acm.api.model.SendMsg" resultType="com.acm.api.model.SendMsg">
+    select * from sendmsg where fromuser = #{fromuser,jdbcType=VARCHAR} and touser = #{touser,jdbcType=VARCHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from sendmsg
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.acm.api.model.sendMsg">
+  <insert id="insert" parameterType="com.acm.api.model.SendMsg">
     insert into sendmsg (id, fromuser, touser, 
       msg)
     values (#{id,jdbcType=VARCHAR}, #{fromuser,jdbcType=VARCHAR}, #{touser,jdbcType=VARCHAR}, 
       #{msg,jdbcType=VARCHAR})
   </insert>
 
-  <insert id="insertMsgBytouser" parameterType="com.acm.api.model.sendMsg">
+  <insert id="insertMsgBytouser" parameterType="com.acm.api.model.SendMsg">
     insert into sendmsg(fromuser,touser,msg)
     values (#{fromuser,jdbcType=VARCHAR},#{touser,jdbcType=VARCHAR},#{msg,jdbcType=VARCHAR})
 
   </insert>
 
-  <insert id="insertSelective" parameterType="com.acm.api.model.sendMsg">
+  <insert id="insertSelective" parameterType="com.acm.api.model.SendMsg">
     insert into sendmsg
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -64,7 +70,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.acm.api.model.sendMsg">
+  <update id="updateByPrimaryKeySelective" parameterType="com.acm.api.model.SendMsg">
     update sendmsg
     <set>
       <if test="fromuser != null">
@@ -79,7 +85,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.acm.api.model.sendMsg">
+  <update id="updateByPrimaryKey" parameterType="com.acm.api.model.SendMsg">
     update sendmsg
     set fromuser = #{fromuser,jdbcType=VARCHAR},
       touser = #{touser,jdbcType=VARCHAR},

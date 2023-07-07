@@ -1,11 +1,13 @@
 package com.acm.dataservice.service;
 import com.acm.dataservice.mapper.sendMsgMapper;
 
-import com.acm.api.model.sendMsg;
+import com.acm.api.model.SendMsg;
 import com.acm.api.service.sendMsgService;
 import org.apache.dubbo.config.annotation.DubboService;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @DubboService(interfaceClass = sendMsgService.class,version = "1.0")
 public class sendMsgServiceImpl implements sendMsgService {
 
@@ -20,36 +22,33 @@ public class sendMsgServiceImpl implements sendMsgService {
     }
 
     @Override
-    public int insert(sendMsg record) {
-        return sendMsgMapper.insert(record);
+    public int insert(SendMsg sendMsg) {
+        return sendMsgMapper.insert(sendMsg);
     }
 
     @Override
-    public int insertSelective(sendMsg record) {
+    public int insertSelective(SendMsg record) {
         return sendMsgMapper.insertSelective(record);
     }
 
     @Override
-    public sendMsg selectByPrimaryKey(String id) {
+    public SendMsg selectByPrimaryKey(String id) {
         return sendMsgMapper.selectByPrimaryKey(id);
     }
 
     @Override
-    public int updateByPrimaryKeySelective(sendMsg record) {
+    public int updateByPrimaryKeySelective(SendMsg record) {
         return sendMsgMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
-    public int updateByPrimaryKey(sendMsg record) {
+    public int updateByPrimaryKey(SendMsg record) {
         return sendMsgMapper.updateByPrimaryKey(record);
     }
 
     @Override
-    public int insertMsgBytouser(String fromuser, String touser, String msg) {
-        sendMsg sendMsg=new sendMsg();
-        sendMsg.setFromuser(fromuser);
-        sendMsg.setMsg(msg);
-        sendMsg.setTouser(touser);
-        return sendMsgMapper.insert(sendMsg);
+    public List<SendMsg> selectByFromUserAndToUser(String fromuser, String touser) {
+        return  sendMsgMapper.selectByFromUserAndToUser(fromuser,touser);
     }
+
 }
