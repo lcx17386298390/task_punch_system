@@ -1,7 +1,9 @@
 package com.acm.dataservice.mapper;
 
 import com.acm.api.model.TaskItem;
+import org.apache.ibatis.annotations.Param;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface TaskItemMapper {
@@ -23,6 +25,16 @@ public interface TaskItemMapper {
 
     TaskItem viewTaskItemByIdAndName(String id,String name);
 
-    List<TaskItem> viewTaskItemByName(String name);
+    List<TaskItem> viewTaskItemFromStu(@Param("offset") Integer offset,
+                                       @Param("pagesize") Integer pageSize,String name,String publisher);
 
+    List<TaskItem> viewTaskItemForCal(String name,String publisher);
+
+    Integer calCountOfTaskItem(String name, String publisher);
+
+    List<TaskItem> viewAllTaskItemFromStu(Integer offset, Integer pageSize, String publisher);
+
+    int calCountOfAllTaskItem(String publisher);
+
+    int giveMark(String name, BigDecimal judgefinish, String id);
 }

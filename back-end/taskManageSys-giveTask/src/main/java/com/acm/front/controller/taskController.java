@@ -12,6 +12,12 @@ import java.util.List;
 @CrossOrigin
 @RestController
 public class taskController extends BaseController{
+    /**
+     * 管理者创建任务并提供标题和简介
+     * @param title
+     * @param content
+     * @return
+     */
 
     @RequestMapping("/task/create")
     public @ResponseBody Object createTask(String title, String content){
@@ -36,7 +42,12 @@ public class taskController extends BaseController{
         return returnObject;
     }
 
-
+    /**
+     * 管理者查看自己所有布置任务的列表
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
     @RequestMapping("/task")
     public @ResponseBody Object queryTaskList(@RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
                                     @RequestParam(value = "pageSize",required = false,defaultValue = "9") Integer pageSize){
@@ -47,6 +58,11 @@ public class taskController extends BaseController{
         return taskList;
     }
 
+    /**
+     * 管理者可删除自己布置的任务
+     * @param id
+     * @return
+     */
     @RequestMapping("/task/delete")
     public @ResponseBody Object deleteTaskById(String id){
         /**
@@ -64,6 +80,13 @@ public class taskController extends BaseController{
         return returnObject;
     }
 
+    /**
+     * 管理者编辑自己的任务
+     * @param id
+     * @param title
+     * @param content
+     * @return
+     */
     @RequestMapping("/task/edit")
     public @ResponseBody Object editTaskById(String id,String title,String content){
         Task task = new Task();
@@ -82,6 +105,12 @@ public class taskController extends BaseController{
         return returnObject;
     }
 
+    /**
+     * 管理者所布置任务的总和并返回页面信息
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
     @RequestMapping("/task/cal")
     public @ResponseBody Object calCountOfTask( @RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
                                                 @RequestParam(value = "pageSize",required = false,defaultValue = "9") Integer pageSize){
@@ -99,4 +128,6 @@ public class taskController extends BaseController{
         pageInfo.setTotalRecord(totalRecord);
         return pageInfo;
     }
+
+
 }
