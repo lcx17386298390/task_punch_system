@@ -34,11 +34,11 @@
           <input
             type="password"
             class="inp"
-            v-model="password"
+            v-model="userpassword"
             placeholder="密码"
           />
           <p v-if="passwordError" class="error">password cannot be empty</p>
-          <button @click="checkInputs" type="submit">登录</button>
+          <button @click="checkInputs,uloge" type="submit">登录</button>
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
           </button>
@@ -50,18 +50,18 @@
           <input
             type="text"
             class="inp"
-            v-model="username"
+            v-model="aname"
             placeholder="管理员用户名"
           />
-          <p v-if="usernameError" class="error">username cannot be empty</p>
+          <p v-if="ausernameError" class="error">username cannot be empty</p>
           <input
             type="password"
             class="inp"
-            v-model="password"
+            v-model="apassword"
             placeholder="管理员密码"
           />
-          <p v-if="passwordError" class="error">password cannot be empty</p>
-          <button @click="checkInputs" type="submit">登录</button>
+          <p v-if="apasswordError" class="error">password cannot be empty</p>
+          <button @click="acheckInputs" type="submit">登录</button>
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
           </button>
@@ -76,9 +76,13 @@ export default {
   data() {
     return {
       username: "",
-      password: "",
+      userpassword: "",
+      aname:"",
+      apassword:"",
       usernameError: false,
       passwordError: false,
+      ausernameError: false,
+      apasswordError: false,
       selectedColor: "red",
     };
   },
@@ -90,15 +94,26 @@ export default {
       this.$router.push("/registration");
     },
     checkInputs() {
-      if (this.username.trim() === "" || this.password.trim() === "") {
+      if (this.username.trim() === "" || this.userpassword.trim() === "") {
         this.usernameError = this.username.trim() === "";
-        this.passwordError = this.password.trim() === "";
+        this.passwordError = this.userpassword.trim() === "";
         setTimeout(() => {
           this.usernameError = false;
           this.passwordError = false;
         }, 2000);
       }
     },
+    acheckInputs() {
+      if (this.aname.trim() === "" || this.apassword.trim() === "") {
+        this.ausernameError = this.aname.trim() === "";
+        this.apasswordError = this.apassword.trim() === "";
+        setTimeout(() => {
+          this.ausernameError = false;
+          this.apasswordError = false;
+        }, 2000);
+      }
+    },
+    
   },
 };
 </script>
