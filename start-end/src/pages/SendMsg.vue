@@ -10,7 +10,7 @@
 
     <div>
       <textarea v-model="message" class="text" cols="29" rows="8" placeholder="Edit your message..."></textarea>
-    <button  @click="sendMsg" class="btn">send</button>
+    <button  @click="sendMsg" class="_btn">send</button>
     </div>
 
     <div class="content">
@@ -102,14 +102,19 @@ export default {
   margin: 0px 0px 10px;
   padding:10px;
 }
-.btn {
+._btn {
   margin-block-start: 10px;
   font-weight: 700;
   inline-size: 100%;
+  border: 5px;
+  border-radius: 4px;
+  padding: 10px 20px;
+  transform: scale(1.035);
+  transition: transform 0.3s ease;
 }
-.btn:hover {
+._btn:hover {
   background-color: #6abddca9;
-  border:none;
+  transform: scale(1.035);
 }
 .checkbox {
   display: grid;
