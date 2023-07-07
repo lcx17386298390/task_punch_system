@@ -1,37 +1,52 @@
 package com.acm.front.controller;
 
+import com.acm.api.model.Task;
 import com.acm.api.model.TaskItem;
 import com.acm.common.constants.Contants;
 import com.acm.common.util.UUIDUtils;
 import com.acm.common.view.PageInfo;
 import com.acm.common.view.ReturnObject;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.util.*;
+
 @CrossOrigin
 @RestController
 public class taskItemController extends BaseController{
     /**
      * 管理者创建任务点
-     * @param id
      * @param content
      * @param name
      * @return
      */
     @RequestMapping("/taskitem/create")
-    public @ResponseBody Object createTaskItem(String id,String content,String  name){
-        TaskItem taskItem = new TaskItem();
+    public @ResponseBody Object createTaskItem(String content,@RequestParam("name") String name, String title){
+
+        int cnt  = 0;
+        name = name.replace("name=","");
+        System.out.println(name);
+        List<TaskItem> taskItemList = new ArrayList<>();
+        for(String n : name.split("%2C")){
+            System.out.println(n + " ");
+            TaskItem taskItem = new TaskItem();
+            taskItem.setContent(content);
+            taskItem.setId(UUIDUtils.getUUID());
+            taskItem.setName(n);
+            taskItem.setTitle(title);
+            taskItem.setPublisher(Contants.SESSION_ADMIN);
+            taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
+            cnt += taskItemService.insert(taskItem);
+            taskItemList.add(taskItem);
+        }
         ReturnObject returnObject = new ReturnObject();
-        taskItem.setContent(content);
-        taskItem.setId(id);
-        taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
-        taskItem.setName(name);
-        taskItem.setPublisher(Contants.SESSION_ADMIN);
-        int cnt = taskItemService.insert(taskItem);
         if(cnt > 0){
             returnObject.setMessage("创建成功");
             returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
-            returnObject.setRetData(taskItem);
+            returnObject.setRetData(taskItemList);
             return returnObject;
         }
         returnObject.setMessage("创建失败！请稍后再试");
@@ -70,13 +85,13 @@ public class taskItemController extends BaseController{
      * @return
      */
     @RequestMapping("/taskitem/edit")
-    public @ResponseBody Object editTaskItemById(String id,String name,String content,BigDecimal judgefinish){
+    public @ResponseBody Object editTaskItemById(String id,String name,String content,BigDecimal judgefinish,String title){
         TaskItem taskItem = new TaskItem();
         taskItem.setName(name);
         taskItem.setContent(content);
         taskItem.setJudgefinish(judgefinish);
         ReturnObject returnObject = new ReturnObject();
-        int cnt = taskItemService.editTaskItemById(id,name,content,judgefinish);
+        int cnt = taskItemService.editTaskItemById(id,name,content,judgefinish,title);
         if(cnt > 0){
             returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
             returnObject.setMessage("修改成功");
@@ -116,10 +131,11 @@ public class taskItemController extends BaseController{
      * @return
      */
     @RequestMapping("/taskitem/createSelfTaskItem")
-    public @ResponseBody Object createSelfTaskItem(String content,String name){
+    public @ResponseBody Object createSelfTaskItem(String content,String name,String title){
         TaskItem taskItem = new TaskItem();
         taskItem.setContent(content);
         taskItem.setName(name);
+        taskItem.setTitle(title);
         taskItem.setId(UUIDUtils.getUUID());
         taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
         taskItem.setPublisher(Contants.SESSION_STUDENT);

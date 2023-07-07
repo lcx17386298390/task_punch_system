@@ -20,8 +20,8 @@ public class sendMsgServiceImpl implements sendMsgService {
     }
 
     @Override
-    public int insert(sendMsg sendMsg) {
-        return sendMsgMapper.insert(sendMsg);
+    public int insert(sendMsg record) {
+        return sendMsgMapper.insert(record);
     }
 
     @Override
@@ -44,5 +44,12 @@ public class sendMsgServiceImpl implements sendMsgService {
         return sendMsgMapper.updateByPrimaryKey(record);
     }
 
-
+    @Override
+    public int insertMsgBytouser(String fromuser, String touser, String msg) {
+        sendMsg sendMsg=new sendMsg();
+        sendMsg.setFromuser(fromuser);
+        sendMsg.setMsg(msg);
+        sendMsg.setTouser(touser);
+        return sendMsgMapper.insert(sendMsg);
+    }
 }

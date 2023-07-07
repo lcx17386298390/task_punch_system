@@ -5,7 +5,7 @@ import com.acm.api.model.sendMsg;
 public interface sendMsgMapper {
     int deleteByPrimaryKey(String id);
 
-    int insert(sendMsg sendMsg);
+    int insert(sendMsg record);
 
     int insertSelective(sendMsg record);
 
@@ -15,7 +15,6 @@ public interface sendMsgMapper {
 
     int updateByPrimaryKey(sendMsg record);
 
-
-
+    int insertMsgBytouser(sendMsg sendMsg);
 
 }

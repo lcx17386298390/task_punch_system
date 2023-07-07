@@ -1,42 +1,43 @@
 <template>
-  <div class="login-container">
-    <div>
-      <span>欢迎来到注册页面</span>
+    <div class="login-container">
+      <div >
+        <span>欢迎来到注册页面</span>
     </div>
-    <div class="card-inner">
+      <div class="card-inner">
+      <a href="/login" class="back_">back</a>
       <form>
         <input v-model="name" type="text" placeholder="用户名" />
         <input v-model="password" type="password" placeholder="密码" />
         <input v-model="email" type="email" placeholder="注册邮箱">
-        <div style="display: flex;">
-          <input v-model="code" placeholder="验证码">
-          <button @click="sendRequest" :disabled="loading" class="f">{{ loading ? '加载中...' : '发送验证码' }}</button>
+        <div   style="display: flex;">
+          <input  v-model="code" placeholder="验证码">
+          <button @click="sendRequest" class="f">发送验证码</button>
         </div>
         <p v-if="showError" class="error">错误:输入必须为6位整数.</p>
         <button @click="checkInput, compareCode">注册</button>
       </form>
-    </div>
   </div>
+    </div>
 </template>
 
 <script>
 import axios from 'axios'
 
 export default {
-  name: 'registration',
+  name:'registration',
   data() {
     return {
       selectedColor: "red",
-      name: '',
-      password: '',
-      email: '',
+      name:'',
+      password:'',
+      email:'',
       code: '',
-      showError: false,
-      loading: false
+      showError: false
     };
   },
-  methods: {
+  methods:{
     checkInput() {
+      // 检测验证码形式
       const value = this.code;
       if (!/^\d{6}$/.test(value)) {
         this.showError = true;
@@ -47,37 +48,32 @@ export default {
         this.showError = false;
       }
     },
-    sendRequest() {
-      this.loading = true;
-      axios.post('/api/testEmail', { email: this.email })
-        .then(response => {
-          this.code = response.data.code;
-          this.loading = false;
-        })
-        .catch(error => {
-          console.error(error);
-          this.loading = false;
-        });
-    },
-    compareCode() {
-      if (this.code === this.$data.code) {
-        axios.post('/api/register', {
-          name: this.name,
-          password: this.password,
-          email: this.email
-        })
-          .then(response => {
-            console.log(response.data);
-          })
-          .catch(error => {
-            console.error(error);
-          })
-      }
+   sendRequest(){
+    axios.get('/api/testEmail').then(response=>{
+      this.code=response.data.code;
+    })
+    .catch(error=>{
+      console.error(error);
+    })
+   },
+   compareCode(){
+    if(this.code===this.$data.code){
+      axios.post('/api/register',{
+        name:this.name,
+        password:this.password,
+        email:this.email
+      })
+      .then(response=>{
+        console.log(response.data);
+      })
+      .catch(error=>{
+        console.error(error);
+      })
     }
+   }
   }
 };
 </script>
-
 
 <style scoped>
 .error {
@@ -122,7 +118,7 @@ span{
 
 .card-inner{
   width: 420px;
-  height: 420px;
+  height: 440px;
   padding: 20px;
   background-color: rgba(119, 120, 122, 0.129);
   transition: background-color 0.5s;
@@ -155,7 +151,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 26px;
 }
 
 input {
@@ -194,5 +190,31 @@ button:hover::before {
     /* 背景位置 */
     background-position: -400% 0;
   }
+}
+.back_ {
+  padding-top: 2%;
+  display: flex;
+  margin-left: 185px;
+  text-decoration: none;
+  color: #4f6e6c;
+  position: relative;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.back_::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 45px;
+  height: 2px;
+  background-color: #000000;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+.back_:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
 }
 </style>
