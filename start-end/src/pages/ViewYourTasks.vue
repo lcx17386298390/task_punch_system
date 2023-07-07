@@ -9,7 +9,7 @@
         <button @click="remove(index)">Remove</button>
       </ul>
     </div> -->
-    <a href="/adminHome" class="back">back</a>
+    <a href="/studentHome" class="back">back</a>
     <div class="container">
       <span style="letter-spacing: 2px">My Tasks</span>
       <hr />

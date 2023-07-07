@@ -19,7 +19,7 @@ const router = new VueRouter({
             path: '/registration', component: registration
         },
         {
-            path: '/', component: adminHome, children: [
+            path: '/adminHome', component: adminHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/GiveTask',component: GiveTask},
                 // {path: '/SendMsg',component: SendMsg},
@@ -32,7 +32,7 @@ const router = new VueRouter({
         { path: '/PostTask', component: PostTask },
         { path: '/ViewYourTasks', component: ViewYourTasks },
         {
-            path: '/studentHome', component: studentHome, children: [
+            path: '/', component: studentHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/PostTask',component: PostTask},
             ]
