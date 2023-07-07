@@ -8,15 +8,19 @@ import studentHome from '../components/studentHome'
 import PostTask from '../pages/PostTask'
 import registration from '../components/registration'
 import ViewYourTasks from '../pages/ViewYourTasks'
+import self from '../components/self.vue'
 // import { component } from 'vue/types/umd's
 
 const router = new VueRouter({
     routes: [
         {
-            path: '/', component: login
+            path: '/login', component: login
         },
         {
             path: '/registration', component: registration
+        },
+        {
+            path: '/', component: self
         },
         {
             path: '/adminHome', component: adminHome, children: [
