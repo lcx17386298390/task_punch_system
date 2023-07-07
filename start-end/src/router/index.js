@@ -13,13 +13,13 @@ import ViewYourTasks from '../pages/ViewYourTasks'
 const router = new VueRouter({
     routes: [
         {
-            path: 'login', component: login
+            path: '/', component: login
         },
         {
             path: '/registration', component: registration
         },
         {
-            path: '/', component: adminHome, children: [
+            path: '/adminHome', component: adminHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/GiveTask',component: GiveTask},
                 // {path: '/SendMsg',component: SendMsg},
