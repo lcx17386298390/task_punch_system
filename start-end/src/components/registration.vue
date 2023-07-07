@@ -12,7 +12,7 @@
           <input v-model="code" placeholder="验证码">
           <button @click="sendRequest" :disabled="loading" class="f">{{ loading ? '加载中...' : '发送验证码' }}</button>
         </div>
-        <p v-if="showError" class="error">错误:输入必须为6位整数</p>
+        <p v-if="showError" class="error">错误:输入必须为6位整数.</p>
         <button @click="checkInput, compareCode">注册</button>
       </form>
     </div>
