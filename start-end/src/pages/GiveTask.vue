@@ -35,11 +35,11 @@
             <li
               v-for="name in names"
               :key="name.id"
-              @click="toggleNames(name.id)"
+              @click="toggleNames(name.name)"
             >
               <input
                 type="checkbox"
-                :checked="selectedNames.includes(name.id)"
+                :checked="selectedNames.includes(name.name)"
               />
               {{ name.name }}
             </li>
@@ -68,6 +68,7 @@
 
 <script>
 import axios from "axios";
+import qs from "qs";
 // import ViewAllTasks from './ViewAllTasks.vue'
 export default {
   name: "GiveTask",
@@ -82,8 +83,43 @@ export default {
       titleError: false,
       contentError: false,
       showModal: false,
-      names: [],
-      selectedNames: [],
+      names: [{
+          id: 1,
+          name: "chh",
+        },
+        {
+          id:2,
+          name:"dc"
+        },
+        {
+          id:3,
+          name:"yq"
+        },
+        {
+          id:4,
+          name:"cyj"
+        },
+        {
+          id:5,
+          name:"gt"
+        },
+        {
+          id:6,
+          name:"xxj"
+        },
+        {
+          id:7,
+          name:"wqw"
+        },
+        {
+          id:8,
+          name:"wy"
+        }
+      ],
+      selectedNames: [
+
+      ]
+      ,
       // date:[],
     };
   },
@@ -120,12 +156,30 @@ export default {
       }
     },
     async confirmSend() {
+      console.log(typeof(this.selectedNames));
       this.titleError = this.send_title === "";
       this.contentError = this.send_content === "";
       if (!this.titleError && !this.contentError) {
-        const response = await axios.get("/task/create");
-        this.names = response.data;
-        this.showModal = true;
+        // eslint-disable-next-line no-undef,no-unused-vars
+        const data = qs.stringify({name: this.selectedNames},{
+          arrayFormat: 'comma'
+        });
+        console.log(data);
+        return axios({
+          url: 'http://localhost:8000/tms/taskitem/create',
+          method: 'post',
+          params: {
+            title:this.send_title,content:this.send_content,
+            name:data
+          },
+        }).then(resp => {
+          if(resp){
+            console.log("创建任务成功!");
+            //this.taskList = resp.data.taskList;
+            //document.location('http://localhost:8000/tms/task/create')
+            location.reload()
+          }
+        })
       }
     },
     cancelSend() {
@@ -149,11 +203,11 @@ export default {
     //   //   element.style.transform = "translateX(-50%)";
     //   // }
     // },
-    toggleNames(nameId) {
-      if (this.selectedNames.includes(nameId)) {
-        this.selectedNames = this.selectedNames.filter((id) => id !== nameId);
+    toggleNames(name) {
+      if (this.selectedNames.includes(name)) {
+        this.selectedNames = this.selectedNames.filter((name) => name !== name);
       } else {
-        this.selectedNames.push(nameId);
+        this.selectedNames.push(name);
       }
     },
     // giveTasks() {

@@ -7,12 +7,13 @@
     <result column="judgefinish" jdbcType="DECIMAL" property="judgefinish" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="publisher" jdbcType="VARCHAR" property="publisher" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
   </resultMap>
   <sql id="Base_Column_List">
     id, content, judgefinish, name, publisher
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from taskitem
     where id = #{id,jdbcType=VARCHAR}
@@ -85,9 +86,9 @@
 
   <insert id="insert" parameterType="com.acm.api.model.TaskItem">
     insert into taskitem (id, content, judgefinish,
-                          name,publisher)
+                          name,publisher,title)
     values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{judgefinish,jdbcType=DECIMAL},
-            #{name,jdbcType=VARCHAR},#{publisher,jdbcType=VARCHAR})
+            #{name,jdbcType=VARCHAR},#{publisher,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR})
   </insert>
 
 
@@ -116,7 +117,8 @@
   <update id="editTaskItemById">
     update taskitem
     set content = #{content,jdbcType=VARCHAR},
-        judgefinish = #{judgefinish,jdbcType=DECIMAL}
+        judgefinish = #{judgefinish,jdbcType=DECIMAL},
+        title = #{title,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </update>
 
