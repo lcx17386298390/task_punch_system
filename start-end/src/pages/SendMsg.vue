@@ -1,7 +1,8 @@
 <template>
   <div class="send_msg">
+    <br>
+    <a href="/adminHome" class="back">back</a>
       <h2>SendMsg</h2>
-
     <div class="checkbox">
       <label v-for="person in people" :key="person.id">
       <input type="checkbox" :value="person.name" v-model="selectedPeople"> {{ person.name }}
@@ -103,6 +104,7 @@ export default {
   padding:10px;
 }
 ._btn {
+  background-color: rgb(210, 210, 210);
   margin-block-start: 10px;
   font-weight: 700;
   inline-size: 100%;
@@ -124,7 +126,7 @@ export default {
   margin: 0px 0px 0px 640px;
 }
 .send_msg h2 {
-  margin: 50px 0px 40px;
+  margin: 0 0px 40px;
   color: #181a1ebf;
   font-size: 2em;
   font-weight:bold;
