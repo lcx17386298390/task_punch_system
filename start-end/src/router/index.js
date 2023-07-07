@@ -7,6 +7,7 @@ import SendMsg from '../pages/SendMsg'
 import studentHome from '../components/studentHome'
 import PostTask from '../pages/PostTask'
 import registration from '../components/registration'
+import ViewYourTasks from '../pages/ViewYourTasks'
 // import { component } from 'vue/types/umd's
 
 const router = new VueRouter({
@@ -29,7 +30,7 @@ const router = new VueRouter({
         { path: '/GiveTask', component: GiveTask },
         { path: '/SendMsg', component: SendMsg },
         { path: '/PostTask', component: PostTask },
-
+        { path: '/ViewYourTasks', component: ViewYourTasks },
         {
             path: '/studentHome', component: studentHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
