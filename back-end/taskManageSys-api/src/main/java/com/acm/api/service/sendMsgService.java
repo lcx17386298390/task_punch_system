@@ -1,6 +1,6 @@
 package com.acm.api.service;
 
-import com.acm.api.model.sendMsg;
+import com.acm.api.model.SendMsg;
 
 import java.util.List;
 
@@ -9,16 +9,16 @@ public interface sendMsgService {
 
     int deleteByPrimaryKey(String id);
 
-    int insert(sendMsg sendMsg);
+    int insert(SendMsg sendMsg);
 
-    int insertSelective(sendMsg record);
+    int insertSelective(SendMsg record);
 
-    sendMsg selectByPrimaryKey(String id);
+    SendMsg selectByPrimaryKey(String id);
 
-    int updateByPrimaryKeySelective(sendMsg record);
+    int updateByPrimaryKeySelective(SendMsg record);
 
-    int updateByPrimaryKey(sendMsg record);
+    int updateByPrimaryKey(SendMsg record);
 
-    List<sendMsg> selectByFromUserAndToUser(String fromuser, String touser);
+    List<SendMsg> selectByFromUserAndToUser(String fromuser, String touser);
 
 }

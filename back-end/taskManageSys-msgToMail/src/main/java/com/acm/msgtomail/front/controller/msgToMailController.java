@@ -1,14 +1,9 @@
 package com.acm.msgtomail.front.controller;
 
-
-import com.acm.api.model.TaskItem;
-import com.acm.api.model.sendMsg;
-import com.acm.common.constants.Contants;
+import com.acm.api.model.SendMsg;
 import com.acm.common.view.ReturnObject;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -17,11 +12,11 @@ import java.util.List;
 public class msgToMailController extends BaseController{
 
     @RequestMapping("/sendmessage")
-    public sendMsg  intsendMsg(@RequestParam("id") String id,
-                               @RequestParam("fromuser") String fromuser,
-                               @RequestParam("toname") String  toname,
-                               @RequestParam("msg")String msg){
-        sendMsg sendMsg=new sendMsg();
+    public SendMsg intsendMsg(@RequestParam("id") String id,
+                              @RequestParam("fromuser") String fromuser,
+                              @RequestParam("toname") String  toname,
+                              @RequestParam("msg")String msg){
+        SendMsg sendMsg=new SendMsg();
         ReturnObject returnObject = new ReturnObject();
         sendMsg.setId(id);
         sendMsg.setFromuser(fromuser);
@@ -37,9 +32,21 @@ public class msgToMailController extends BaseController{
     }
 
     @RequestMapping("/querymsg")
-    public List<sendMsg> selectMsg(@RequestParam("fromuser")String fromuser,
-                             @RequestParam("touser") String touser){
-
+    public List<SendMsg> selectMsg(@RequestParam("fromuser")String fromuser,
+                                   @RequestParam("touser") String touser){
+        List<SendMsg> sendMsgs =sendMsgService.selectByFromUserAndToUser(fromuser,touser);
+        if (sendMsgs != null && !sendMsgs.isEmpty()) {
+            for(SendMsg sendMsg:sendMsgs){
+                sendMsg.getFromuser();
+                sendMsg.getMsg();
+                sendMsg.getTouser();
+                sendMsg.getId();
+                System.out.println("成功" + " =" + sendMsg);
+            }
+        }else {
+            System.out.println("失败");
+        }
+        return sendMsgs;
 
     }
 
