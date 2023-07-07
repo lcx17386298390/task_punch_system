@@ -4,6 +4,7 @@
         <span>欢迎来到注册页面</span>
     </div>
       <div class="card-inner">
+      <a href="/login" class="back_">back</a>
       <form>
         <input v-model="name" type="text" placeholder="用户名" />
         <input v-model="password" type="password" placeholder="密码" />
@@ -13,7 +14,7 @@
           <button @click="sendRequest" class="f">发送验证码</button>
         </div>
         <p v-if="showError" class="error">错误:输入必须为6位整数</p>
-        <button @click="checkInput,compareCode" >注册</button>
+        <button @click="checkInput(),compareCode()" >注册</button>
       </form>
   </div>
     </div>
@@ -102,7 +103,7 @@ span{
 
 .login-container{
   position: fixed;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 3%;
@@ -117,7 +118,7 @@ span{
 
 .card-inner{
   width: 420px;
-  height: 420px;
+  height: 440px;
   padding: 20px;
   background-color: rgba(119, 120, 122, 0.129);
   transition: background-color 0.5s;
@@ -150,7 +151,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 26px;
 }
 
 input {
@@ -189,5 +190,31 @@ button:hover::before {
     /* 背景位置 */
     background-position: -400% 0;
   }
+}
+.back_ {
+  padding-top: 2%;
+  display: flex;
+  margin-left: 185px;
+  text-decoration: none;
+  color: #4f6e6c;
+  position: relative;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.back_::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 45px;
+  height: 2px;
+  background-color: #000000;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+.back_:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
 }
 </style>
