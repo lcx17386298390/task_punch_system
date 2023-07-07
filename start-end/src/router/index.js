@@ -20,10 +20,10 @@ const router = new VueRouter({
             path: '/registration', component: registration
         },
         {
-            path: '/', component: self
+            path: '/self', component: self
         },
         {
-            path: '/adminHome', component: adminHome, children: [
+            path: '/', component: adminHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/GiveTask',component: GiveTask},
                 // {path: '/SendMsg',component: SendMsg},

@@ -13,13 +13,10 @@
 
     <div class="container">
       <div class="search">
-        <input type="text" placeholder="查询学生姓名">
-        <button>
-          <i class="fa fa-search">
-          </i>
-        </button>
+        管理员<input type="radio" name="aaa" @click="adminShow=true" checked>
+        学生<input type="radio" name="aaa" @click="adminShow=false">
       </div>
-      <table>
+      <table v-if="adminShow">
         <thead>
         <tr>
         <th>姓名</th>
@@ -49,6 +46,25 @@
         
       </table>
 
+      <table v-if="!adminShow">
+        <thead>
+        <tr>
+        <th>姓名</th>
+        <th>标题</th>
+        <th>查看</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr v-for="task of taskList" :key="task.id" class="line">
+          <td>{{ task.name }}</td>
+          <td>
+            <span class="desc">{{ task.title }}</span>
+          </td>
+          <td><button class="plus" @click="viewTaskItemContent(task.name,task.id)"><i class="fa fa-plus"></i></button></td>
+        </tr>
+        </tbody>
+        
+      </table>
       <div class="page">
         <ul>
           <li class="up"><a href="javascript:;" @click="first">首页</a></li>
@@ -94,7 +110,7 @@
 // import TopBanner from "@/components/general/TopBanner";
 
 import {doGet} from "@/api/httpRequest";
-import layx from "vue-layx";
+// import layx from "vue-layx";
 
 export default {
   name: "ViewAllTasks",
@@ -106,6 +122,7 @@ export default {
     return {
       showModal:false,
       showState:false,
+      adminShow:true,
       checkedItems:[],
       inputTitle: "",
       inputContent: "",
@@ -489,7 +506,7 @@ export default {
         }
 
 
-        .search input, .scoreModel input{
+         .scoreModel input{
             border: none;
             border: rgba(0, 0, 0, .2) 1px solid;
             border-radius: 4px;
@@ -504,7 +521,7 @@ export default {
           width: 80%;
           margin: 20px;
         }
-        .search input:focus{
+        /* .search input:focus{
           background-color: #a7cad735;
         }
         .search button{
@@ -512,5 +529,5 @@ export default {
         }
         .search button:active{
           background-color: #d73a8b66;
-        }
+        } */
 </style>
