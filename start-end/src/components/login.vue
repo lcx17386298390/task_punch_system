@@ -121,7 +121,7 @@ span {
 
 .login-container {
   position: fixed;
-  top: 50%;
+  top: 43%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 3%;
