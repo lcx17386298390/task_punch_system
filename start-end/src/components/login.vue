@@ -1,27 +1,71 @@
 <template>
   <div class="login-container">
     <div class="text-container">
-        <span @click="selectColor('red')" :class="{ active: selectedColor === 'red', red: selectedColor === 'red', gray: selectedColor === 'blue' }">普通登录</span>
-        <span @click="selectColor('blue')" :class="{ active: selectedColor === 'blue', blue: selectedColor === 'blue', gray: selectedColor === 'red' }">管理员登录</span>
+      <span
+        @click="selectColor('red')"
+        :class="{
+          active: selectedColor === 'red',
+          red: selectedColor === 'red',
+          gray: selectedColor === 'blue',
+        }"
+        >普通登录</span
+      >
+      <span
+        @click="selectColor('blue')"
+        :class="{
+          active: selectedColor === 'blue',
+          blue: selectedColor === 'blue',
+          gray: selectedColor === 'red',
+        }"
+        >管理员登录</span
+      >
     </div>
     <div class="buding">
       <div v-if="selectedColor === 'red'" class="red card-inner">
         <h1>普通登录</h1>
-      <form>
-        <input type="text" placeholder="用户名" />
-        <input type="password" placeholder="密码" />
-        <button type="submit">登录</button>
-        <button @click="goToRegistration" class="re">or &nbsp;&nbsp;注册</button>
-      </form>
-    </div>
+        <form>
+          <input
+            type="text"
+            class="inp"
+            v-model="username"
+            placeholder="用户名"
+          />
+          <p v-if="usernameError" class="error">username cannot be empty</p>
+          <input
+            type="password"
+            class="inp"
+            v-model="password"
+            placeholder="密码"
+          />
+          <p v-if="passwordError" class="error">password cannot be empty</p>
+          <button @click="checkInputs" type="submit">登录</button>
+          <button @click="goToRegistration" class="re">
+            or &nbsp;&nbsp;注册
+          </button>
+        </form>
+      </div>
       <div v-else class="blue card-inner">
         <h1>管理员</h1>
-      <form>
-        <input type="text" placeholder="管理员用户名" />
-        <input type="password" placeholder="管理员密码" />
-        <button type="submit">登录</button>
-        <button @click="goToRegistration" class="re" >or &nbsp;&nbsp;注册</button>
-      </form>
+        <form>
+          <input
+            type="text"
+            class="inp"
+            v-model="username"
+            placeholder="管理员用户名"
+          />
+          <p v-if="usernameError" class="error">username cannot be empty</p>
+          <input
+            type="password"
+            class="inp"
+            v-model="password"
+            placeholder="管理员密码"
+          />
+          <p v-if="passwordError" class="error">password cannot be empty</p>
+          <button @click="checkInputs" type="submit">登录</button>
+          <button @click="goToRegistration" class="re">
+            or &nbsp;&nbsp;注册
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -31,6 +75,10 @@
 export default {
   data() {
     return {
+      username: "",
+      password: "",
+      usernameError: false,
+      passwordError: false,
       selectedColor: "red",
     };
   },
@@ -38,22 +86,32 @@ export default {
     selectColor(color) {
       this.selectedColor = color;
     },
-    goToRegistration(){
-      this.$router.push('/registration')
-    }
+    goToRegistration() {
+      this.$router.push("/registration");
+    },
+    checkInputs() {
+      if (this.username.trim() === "" || this.password.trim() === "") {
+        this.usernameError = this.username.trim() === "";
+        this.passwordError = this.password.trim() === "";
+        setTimeout(() => {
+          this.usernameError = false;
+          this.passwordError = false;
+        }, 2000);
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
-.re{
+.re {
   margin-top: 20px;
   margin-left: 300px;
   width: 80px;
   height: 50px;
 }
 
-span{
+span {
   display: block;
   width: 50%;
   height: 50px;
@@ -61,7 +119,7 @@ span{
   text-align: center;
 }
 
-.login-container{
+.login-container {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -84,7 +142,7 @@ span{
   margin-bottom: 30px;
 }
 
-.card-inner{
+.card-inner {
   width: 420px;
   height: 420px;
   padding: 20px;
@@ -153,7 +211,13 @@ button {
   cursor: pointer;
   width: 50%;
   border-radius: 50px;
-  background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+  background-image: linear-gradient(
+    to right,
+    #03a9f4,
+    #f441a5,
+    #ffeb3b,
+    #09a8f4
+  );
   background-size: 400%;
 }
 
@@ -163,6 +227,12 @@ button:hover {
 
 button:hover::before {
   animation: sun 8s infinite;
+}
+
+.error {
+  margin-top: -24px;
+  color: rgba(255, 0, 0, 0.712);
+  margin-left: -150px;
 }
 
 @keyframes sun {
