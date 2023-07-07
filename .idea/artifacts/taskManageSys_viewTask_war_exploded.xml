@@ -50,6 +50,7 @@
             <element id="module-output" name="taskManageSys-api" />
           </element>
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.28" />
+          <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.33" />
           <element id="archive" name="taskManageSys-common-1.0.0.jar">
             <element id="module-output" name="taskManageSys-common" />
           </element>
