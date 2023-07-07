@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../ready-mybatisForSys/ready-mybatisForSys.iml" filepath="$PROJECT_DIR$/../ready-mybatisForSys/ready-mybatisForSys.iml" />
       <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-api/taskManageSys-api.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-api/taskManageSys-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/back-end/taskManageSys-dataservice/taskManageSys-dataservice.iml" filepath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/taskManageSys-dataservice.iml" />
