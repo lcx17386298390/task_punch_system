@@ -38,7 +38,7 @@
             placeholder="密码"
           />
           <p v-if="passwordError" class="error">password cannot be empty</p>
-          <button @click="checkInputs,uloge" type="submit">登录</button>
+          <button @click="checkInputsulogin" type="submit">登录</button>
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
           </button>
@@ -113,7 +113,13 @@ export default {
         }, 2000);
       }
     },
-    
+    ulogin(){
+      
+    },
+    checkInputsulogin(){
+      this.checkInputs();
+    this.ulogin();
+    }
   },
 };
 </script>
