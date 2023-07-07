@@ -1,6 +1,7 @@
 <template>
   <!-- 管理者发布任务界面 -->
   <div class="give_task">
+    <a href="/adminHome" class="back">back</a>
     <p v-if="titleError" class="error">Title cannot be empty</p>
     <p class="t">Title</p>
     <input
@@ -475,7 +476,32 @@ body {
   margin-top: -10px;
   text-align: left;
 }
-
+.back {
+  display: flex;
+  align-items: top;
+  margin-bottom: 25px;
+  text-decoration: none;
+  color: #4f6e6c;
+  position: relative;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.back::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+.back:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
 /* .glyphicon.glyphicon-remove {
   font-size: 37px;
   font-weight: bold;

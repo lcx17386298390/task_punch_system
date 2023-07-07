@@ -1,8 +1,10 @@
 
 <template>
   <!-- 学生post_task页面，发布个人任务 -->
+
   <div class="post">
     <div class="main-container">
+      <a href="/adminHome" class="back_">back</a>
       <h3 class="h_container"><i class="fas fa-edit"></i>发布任务</h3>
       <hr />
       <div class="main">
@@ -17,14 +19,14 @@
           v-model="taskDescription"
         ></textarea>
         <p v-if="contentError" class="error">你小子内容呢</p>
-        <br>
+        <br />
         <button @click="confirmPost">发布</button>
       </div>
     </div>
     <div class="overlay" v-if="showOverlay">
       <div class="popup">
         <h3>确认提交任务？</h3>
-        <div class="buttons"> 
+        <div class="buttons">
           <button @click="cancelPost">取消</button>
           <button @click="submitPost">确认</button>
         </div>
@@ -41,22 +43,22 @@ export default {
     return {
       taskTitle: "",
       taskDescription: "",
-      titleError : false,
-      contentError :false,
+      titleError: false,
+      contentError: false,
       showOverlay: false,
       StuName: "chh"
     };
   },
   methods: {
     confirmPost() {
-      if(this.taskTitle.trim() === "" || this.taskDescription.trim() === ""){
+      if (this.taskTitle.trim() === "" || this.taskDescription.trim() === "") {
         this.titleError = this.taskTitle.trim() === "";
         this.contentError = this.taskDescription.trim() === "";
         setTimeout(() => {
-          this.titleError = false ;
-          this.contentError = false ;
-        },2000);
-      }else{
+          this.titleError = false;
+          this.contentError = false;
+        }, 2000);
+      } else {
         this.showOverlay = true;
       }
     },
@@ -92,18 +94,18 @@ export default {
   box-sizing: border-box;
 }
 .post {
-  margin-top: 5%;
+  margin-top: 3%;
   display: flex;
   justify-content: center;
   /* align-items: center; */
   height: 100vh;
 }
 .main-container {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.752);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   width: 600px;
-  height: 500px;
-  padding: 30px;
+  height: 530px;
+  padding: 40px;
 }
 .main {
   display: flex;
@@ -193,5 +195,30 @@ label {
   color: rgba(255, 0, 0, 0.712);
   margin-left: -400px;
 }
-
+.back_ {
+  display: flex;
+  margin-bottom: 10px;
+  margin-left: 237px;
+  text-decoration: none;
+  color: #4f6e6c;
+  position: relative;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.back_::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 45px;
+  height: 2px;
+  background-color: #000000;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+.back_:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
 </style>

@@ -10,27 +10,33 @@
         <input v-model="email" type="email" placeholder="注册邮箱">
         <div   style="display: flex;">
           <input  v-model="code" placeholder="验证码">
-          <button class="f">发送验证码</button>
+          <button @click="sendRequest" class="f">发送验证码</button>
         </div>
         <p v-if="showError" class="error">错误:输入必须为6位整数</p>
-        <button @click="checkInput" >注册</button>
+        <button @click="checkInput,compareCode" >注册</button>
       </form>
   </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name:'registration',
   data() {
     return {
       selectedColor: "red",
+      name:'',
+      password:'',
+      email:'',
       code: '',
       showError: false
     };
   },
   methods:{
     checkInput() {
+      // 检测验证码形式
       const value = this.code;
       if (!/^\d{6}$/.test(value)) {
         this.showError = true;
@@ -39,12 +45,32 @@ export default {
         }, 1000);
       } else {
         this.showError = false;
-        // 执行其他操作，输入符合条件时的逻辑
       }
+    },
+   sendRequest(){
+    axios.get('/api/testEmail').then(response=>{
+      this.code=response.data.code;
+    })
+    .catch(error=>{
+      console.error(error);
+    })
+   },
+   compareCode(){
+    if(this.code===this.$data.code){
+      axios.post('/api/register',{
+        name:this.name,
+        password:this.password,
+        email:this.email
+      })
+      .then(response=>{
+        console.log(response.data);
+      })
+      .catch(error=>{
+        console.error(error);
+      })
     }
-
+   }
   }
-  
 };
 </script>
 
