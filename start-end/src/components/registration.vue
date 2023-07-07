@@ -14,7 +14,7 @@
           <button @click="sendRequest" class="f">发送验证码</button>
         </div>
         <p v-if="showError" class="error">错误:输入必须为6位整数</p>
-        <button @click="checkInput,compareCode" >注册</button>
+        <button @click="checkInput(),compareCode()" >注册</button>
       </form>
   </div>
     </div>
