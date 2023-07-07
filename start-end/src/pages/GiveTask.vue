@@ -439,7 +439,7 @@ body {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #040303;
+  background-color: #000000;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;

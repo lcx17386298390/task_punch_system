@@ -1,6 +1,7 @@
 <template>
   <div class="send_msg">
       <h2>SendMsg</h2>
+    <a href="/adminHome" class="back">back</a>
 
     <div class="checkbox">
       <label v-for="person in people" :key="person.id">
@@ -57,11 +58,11 @@ export default {
 }
 </script>
 
-<style>
+<style scope>
 .send_msg {
   position:relative;
-  inline-size: 400px;
-  block-size: 530px;
+  inline-size: 550px;
+  block-size: 580px;
   border-radius: 20px;
   box-shadow: 0 0 30px #9cadb3a9;
   display: flex;

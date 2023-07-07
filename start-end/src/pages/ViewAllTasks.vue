@@ -1,3 +1,4 @@
+
 <template>
   <div class="viewtasks">
     <!-- <div>
@@ -17,7 +18,6 @@
           <i class="fa fa-search"> </i>
         </button>
       </div>
-
       <table>
         <thead>
           <tr>
@@ -78,7 +78,6 @@
           </tr>
         </tbody>
       </table>
-
       <div class="page">
         <ul>
           <li class="up"><a href="javascript:;">首页</a></li>
@@ -92,7 +91,6 @@
         </ul>
       </div>
     </div>
-
     <div class="box">
       <div class="mask" v-if="showModal" @click="showModal = false"></div>
       <div class="pop" v-if="showModal">
@@ -114,7 +112,6 @@
         </div>
       </div>
     </div>
-
     <div class="box">
       <div class="mask" v-if="showState" @click="showState = false"></div>
       <div class="scoreModel" v-if="showState">
@@ -126,10 +123,8 @@
     </div>
   </div>
 </template>
-
 <script>
 // import TopBanner from "@/components/general/TopBanner";
-
 export default {
   name: "ViewAllTasks",
   components: {
@@ -167,7 +162,6 @@ export default {
   //     this.submittedData[1] = value;
   //   },
   // },
-
   methods: {
     enterEdit(item) {
       if (item.hasOwnProperty("editState")) {
@@ -210,7 +204,6 @@ export default {
   },
 };
 </script>
-
  <style scoped>
 /* .viewtasks {
   width: 960px;
@@ -248,7 +241,6 @@ export default {
 table .line:hover {
   background-color: #f2f7feb0;
 }
-
 .container th,
 td {
   text-align: center;
@@ -277,7 +269,6 @@ button:hover {
 .plus:active {
   background-color: rgb(56, 147, 150);
 }
-
 .page {
   display: flex;
   justify-content: center;
@@ -307,11 +298,9 @@ a:active {
 .page .down:hover {
   transform: translateX(3px);
 }
-
 .desc {
   cursor: pointer;
 }
-
 /* 弹窗 */
 .box {
   display: flex;
@@ -327,7 +316,6 @@ a:active {
   height: 100%;
   z-index: 1;
 }
-
 .pop {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.788);
@@ -388,7 +376,6 @@ textarea {
 .main button:active {
   background-color: rgb(56, 147, 150);
 }
-
 .scoreModel button {
   width: 70px;
   margin-left: 80px;
@@ -397,7 +384,6 @@ textarea {
 .scoreModel button:active {
   background-color: #2c66e4;
 }
-
 .search input,
 .scoreModel input {
   border: none;
