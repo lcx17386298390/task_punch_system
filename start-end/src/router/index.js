@@ -28,11 +28,11 @@ const router = new VueRouter({
 
         { path: '/ViewAllTasks', component: ViewAllTasks },
         { path: '/GiveTask', component: GiveTask },
-        { path: '/', component: SendMsg },
+        { path: '/SendMsg', component: SendMsg },
         { path: '/PostTask', component: PostTask },
         { path: '/ViewYourTasks', component: ViewYourTasks },
         {
-            path: '/studentHome', component: studentHome, children: [
+            path: '/', component: studentHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/PostTask',component: PostTask},
             ]
