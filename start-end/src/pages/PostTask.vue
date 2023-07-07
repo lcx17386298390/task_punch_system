@@ -4,7 +4,7 @@
 
   <div class="post">
     <div class="main-container">
-      <a href="/adminHome" class="back_">back</a>
+      <a href="/studentHome" class="back_">back</a>
       <h3 class="h_container"><i class="fas fa-edit"></i>发布任务</h3>
       <hr />
       <div class="main">
