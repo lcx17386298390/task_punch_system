@@ -245,6 +245,7 @@ export default {
         this.showState=false
         this.tempName=""
         this.tempId=""
+        this.inputJudgeFinish=""
       })
     },
     transmitMarkInfo(name,id){
