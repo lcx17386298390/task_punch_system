@@ -49,7 +49,9 @@ export default {
       }
     },
    sendRequest(){
-    axios.get('/api/testEmail').then(response=>{
+    axios.post('/api/testEmail',{
+      email:this.email
+    }).then(response=>{
       this.code=response.data.code;
     })
     .catch(error=>{
