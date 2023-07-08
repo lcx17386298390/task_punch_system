@@ -147,7 +147,7 @@
       select <include refid="Base_Column_List" />
       from taskitem
       where publisher = #{publisher,jdbcType=VARCHAR}
-        limit #{offset},#{pagesize}
+        limit #{offset},#{pageSize}
     </select>
 
   <select id="calCountOfAllTaskItem" resultType="java.lang.Integer">

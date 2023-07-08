@@ -14,7 +14,7 @@
     <div class="container">
       <div class="search">
         管理员<input type="radio" name="aaa" @click="adminShow=true" checked>
-        学生<input type="radio" name="aaa" @click="adminShow=false">
+        学生<input type="radio" name="aaa" @click="initAllStuTaskItem(1,9)">
       </div>
       <table v-if="adminShow">
         <thead>
@@ -55,7 +55,7 @@
         </tr>
         </thead>
         <tbody>
-          <tr v-for="task of taskList" :key="task.id" class="line">
+          <tr v-for="task of allStuTaskList" :key="task.id" class="line">
           <td>{{ task.name }}</td>
           <td>
             <span class="desc">{{ task.title }}</span>
@@ -147,6 +147,12 @@ export default {
         pageNo: 1,
         totalRecord: "",
         totalPage: ""
+      }],
+      allStuTaskList:[{
+        id: "",
+        content: "",
+        title: "",
+        name: ""
       }]
       // submittedData: [],
     }
@@ -316,6 +322,29 @@ export default {
         this.updatePage(this.pageInfo.pageNo + 1);
       }
 
+    },
+    initAllStuTaskItem(pageNo,pageSize){
+      this.adminShow=false
+      console.log("更改为学生列表")
+      doGet('http://localhost:8001/tms/taskitem/viewStuTaskItem',{
+        pageNo:pageNo,pageSize:pageSize
+      }).then(resp=>{
+        if(resp){
+          this.allStuTaskList = resp.data;
+          //console.log(resp.data)
+        }
+      })
+      this.initAllStuTaskItemPageInfo(pageNo)
+    },
+    initAllStuTaskItemPageInfo(pageNo){
+      doGet('http://localhost:8001/tms/taskitem/calAllTaskItem',{
+        pageNo:this.pageInfo.pageNo,
+      }).then(resp => {
+        if(resp){
+          this.pageInfo = resp.data;
+          this.pageInfo.pageNo = pageNo
+        }
+      })
     }
   },
   mounted(){
