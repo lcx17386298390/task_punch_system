@@ -20,7 +20,7 @@ const router = new VueRouter({
             path: '/registration', component: registration
         },
         {
-            path: '/', component: self
+            path: '/self', component: self
         },
         {
             path: '/adminHome', component: adminHome, children: [

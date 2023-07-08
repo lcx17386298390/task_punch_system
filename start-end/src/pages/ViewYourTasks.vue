@@ -18,8 +18,7 @@
           <tr>
             <th>id</th>
             <th>标题</th>
-            <th>内容</th>
-            <th>增加任务点</th>
+            <th>查看</th>
             <th>删除</th>
           </tr>
         </thead>
@@ -41,7 +40,7 @@
                 @blur="updateDesc(item, $event)"
               />
             </td>
-            <td>
+            <!-- <td>
               <span
                 v-show="!item.editState1"
                 class="desc"
@@ -55,7 +54,7 @@
                 :value="item.content"
                 @blur="updateDesc1(item, $event)"
               />
-            </td>
+            </td> -->
             <td>
               <button class="plus" @click="showModal = true">
                 <i class="fa fa-plus"></i>
@@ -83,21 +82,23 @@
     </div>
 
     <div class="box">
-      <div class="mask" v-if="showModal" @click="showModal = false"></div>
+      <div class="mask" v-if="showModal" @click="showModal = false,ifShow=false"></div>
       <div class="pop" v-if="showModal">
         <!-- 关闭 -->
         <div class="main-container">
-          <h3><i class="fas fa-edit"></i>增加任务点</h3>
+          <h3><i class="fas fa-edit"></i>任务内容</h3>
           <hr />
           <div class="main">
-            <textarea
+            <span v-if="!ifShow">任务内容啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</span>
+            <textarea v-if="ifShow"
               name=""
               id=""
-              cols="30"
-              rows="10"
+              cols="10"
+              rows="8"
               placeholder="任务点内容"
             ></textarea>
-            <button @click="showModal = false">commit</button>
+            <button @click="ifShow=true">Edit</button>
+            <button @click="showModal = false,ifShow=false">commit</button>
           </div>
         </div>
       </div>
@@ -121,6 +122,7 @@ export default {
   data() {
     return {
       showModal: false,
+      ifShow:false,
       checkedItems: [],
       items: [
         { id: "001", title: "1asdfasdf", content: "Itemasdf asdf1" },
