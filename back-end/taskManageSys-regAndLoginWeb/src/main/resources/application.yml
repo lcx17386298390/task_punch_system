@@ -3,9 +3,9 @@ spring:
     name: taskManageSys-regAndLoginWeb
   datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/finishtasksys?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+      url: jdbc:mysql://localhost:3306/acm?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
       username: root
-      password: 040927
+      password: 123456
   mail:
       host: smtp.163.com
       username: acm1633@163.com
@@ -40,7 +40,7 @@ dubbo:
     port: 20882
 
 server:
-  port: 8002
+  port: 8000
   servlet:
     context-path:
     encoding:

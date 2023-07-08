@@ -14,21 +14,18 @@
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
         <module name="taskManageSys-api" />
-        <module name="taskManageSys-regAndLoginWeb (2)" />
         <module name="taskManageSys-regAndLoginWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ready-mybatisForSys" target="1.5" />
       <module name="taskManageSys-api" target="1.8" />
       <module name="taskManageSys-common" target="1.8" />
       <module name="taskManageSys-dataservice" target="1.8" />
       <module name="taskManageSys-giveTask" target="1.8" />
       <module name="taskManageSys-msgToMail" target="1.8" />
-      <module name="taskManageSys-parent" target="1.8" />
+      <module name="taskManageSys-msgToMail (1)" target="1.8" />
+      <module name="taskManageSys-msgToMail (2)" target="1.8" />
       <module name="taskManageSys-regAndLoginWeb" target="1.8" />
-      <module name="taskManageSys-regAndLoginWeb (1)" target="1.8" />
-      <module name="taskManageSys-regAndLoginWeb (2)" target="1.8" />
       <module name="taskManageSys-viewTask" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -39,10 +36,9 @@
       <module name="taskManageSys-dataservice" options="-parameters" />
       <module name="taskManageSys-giveTask" options="-parameters" />
       <module name="taskManageSys-msgToMail" options="-parameters" />
-      <module name="taskManageSys-parent" options="-parameters" />
+      <module name="taskManageSys-msgToMail (1)" options="-parameters" />
+      <module name="taskManageSys-msgToMail (2)" options="-parameters" />
       <module name="taskManageSys-regAndLoginWeb" options="-parameters" />
-      <module name="taskManageSys-regAndLoginWeb (1)" options="-parameters" />
-      <module name="taskManageSys-regAndLoginWeb (2)" options="-parameters" />
       <module name="taskManageSys-viewTask" options="-parameters" />
     </option>
   </component>
