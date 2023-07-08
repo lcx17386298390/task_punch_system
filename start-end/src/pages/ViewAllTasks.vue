@@ -88,6 +88,7 @@
             <hr>
             <!-- 在这里显示内容ee -->
               <span>{{this.tempContent}}</span>
+
         </div>
       </div>
     </div>
@@ -110,7 +111,7 @@
 // import TopBanner from "@/components/general/TopBanner";
 
 import {doGet} from "@/api/httpRequest";
-// import layx from "vue-layx";
+import layx from "vue-layx";
 
 export default {
   name: "ViewAllTasks",

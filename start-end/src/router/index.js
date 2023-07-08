@@ -23,7 +23,7 @@ const router = new VueRouter({
             path: '/self', component: self
         },
         {
-            path: '/', component: adminHome, children: [
+            path: '/adminHome', component: adminHome, children: [
                 // { path: '/ViewAllTasks',component: ViewAllTasks},
                 // {path: '/GiveTask',component: GiveTask},
                 // {path: '/SendMsg',component: SendMsg},
