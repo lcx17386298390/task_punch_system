@@ -6,16 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="suibiangaigai">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/service/TaskItemService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/TaskItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/taskItemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/TaskItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/mappers/TaskItemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-giveTask/src/main/java/com/acm/front/controller/taskItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-viewTask/src/main/java/com/acm/front/controller/ViewTaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/pages/ViewAllTasks.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/pages/ViewAllTasks.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +132,9 @@
       <workItem from="1688643523702" duration="1487000" />
       <workItem from="1688690956686" duration="3624000" />
       <workItem from="1688694790310" duration="28706000" />
-      <workItem from="1688736499819" duration="2943000" />
+      <workItem from="1688736499819" duration="4795000" />
+      <workItem from="1688784583741" duration="389000" />
+      <workItem from="1688785005144" duration="68000" />
     </task>
     <task id="LOCAL-00001" summary="跨域链接">
       <created>1688542871361</created>
@@ -200,7 +192,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688727828699</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="suibiangaigai">
+      <created>1688739770877</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688739770877</updated>
+    </task>
+    <task id="LOCAL-00010" summary="suibiangaigai">
+      <created>1688784807031</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688784807031</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
