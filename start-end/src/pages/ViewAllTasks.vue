@@ -16,7 +16,7 @@
         管理员<input type="radio" name="aaa" @click="adminShow=true" checked>
         学生<input type="radio" name="aaa" @click="initAllStuTaskItem(1,9)">
       </div>
-      <table v-if="adminShow">
+      <table v-if="adminShow" >
         <thead>
         <tr>
         <th>姓名</th>
@@ -24,6 +24,7 @@
         <th>删除</th>
         <th>评分</th>
         <th>查看</th>
+          <th>分数</th>
         </tr>
         </thead>
         <tbody>
@@ -31,7 +32,7 @@
           <td>{{ task.name }}</td>
           <td>
             <span v-show="!task.editState" class="desc" @click="enterEdit(task)">{{ task.title }}</span>
-            <input v-show="task.editState" ref="inputDesc" type="text" :value="task.title" @blur="updateDesc(task,$event)">
+            <input maxlength="15" v-show="task.editState" ref="inputDesc" type="text" :value="task.title" @blur="updateDesc(task,$event)">
           </td>
           
           <td><button class="delete" @click="deleteTaskItem(task.name,task.id)"><i class="fas fa-times"></i></button></td>
@@ -41,6 +42,7 @@
             <span v-show="!task.editState1" class="desc" @click="enterEdit1(task)" ref="getContent">{{ task.content }}</span>
             <input v-show="task.editState1" ref="inputDesc1" type="text" :value="task.content" @blur="updateDesc1(task,$event)">
           </td>
+            <td>{{task.judgefinish}}</td>
         </tr>
         </tbody>
         
@@ -80,15 +82,26 @@
     </div>
 
     <div class="box">
-    <div class="mask" v-if="showModal" @click="showModal=false"></div>
+    <div class="mask" v-if="showModal" @click="showModal=false,ifShow=false"></div>
       <div class="pop" v-if="showModal">
           <!-- 关闭 -->
           <div class="main-container">
             <h3><i class="fas fa-edit"></i>任务内容</h3>
             <hr>
-            <!-- 在这里显示内容ee -->
-              <span>{{this.tempContent}}</span>
-
+            <div class="main">
+              <span v-if="!ifShow" style="line-height: 24px">{{this.tempContent}}</span>
+              <textarea v-if="ifShow"
+                        name=""
+                        id=""
+                        cols="10"
+                        rows="8"
+                        placeholder="任务点内容"
+                        v-model="tempContent"
+              ></textarea>
+              <span v-if="inputError" style="color: crimson;padding-top:4px;">内容不能超过200字~~</span>
+                <button v-if="adminShow" @click="ifShow=true">Edit</button>
+                <button v-if="adminShow" @click="editTaskItemContent(tempContent)">commit</button>
+            </div>
         </div>
       </div>
     </div>
@@ -99,7 +112,7 @@
         
         <h3><i class="fa fa-smile"></i>评分</h3>
         <hr>
-        <input type="text" :placeholder="this.tempPlaceHolder" v-model="inputJudgeFinish">
+        <input type="number" :placeholder="this.tempPlaceHolder" v-model="inputJudgeFinish" max="100" min="0" oninput="if(value>100)value=100;if(value<0)value=0;">
         <button @click="markTaskItem()">commit</button>
       </div>
     </div>
@@ -123,7 +136,9 @@ export default {
     return {
       showModal:false,
       showState:false,
+      ifShow:false,
       adminShow:true,
+      inputError:false,
       checkedItems:[],
       inputTitle: "",
       inputContent: "",
@@ -141,7 +156,8 @@ export default {
         id: "",
         content: "",
         title: "",
-        name: ""
+        name: "",
+        judgefinish: ""
       }],
       pageInfo : [{
         pageNo: 1,
@@ -262,7 +278,7 @@ export default {
         name:this.tempName,id:this.tempId,judgefinish:this.inputJudgeFinish
       }).then(resp => {
         if(resp){
-          //location.reload()
+
           console.log(resp.data.message)
 
         }
@@ -270,6 +286,22 @@ export default {
         this.tempName=""
         this.tempId=""
         this.inputJudgeFinish=""
+        location.reload()
+      })
+    },
+    editTaskItemContent(content){
+      // /taskitem/editContent
+      if(content.length>200){this.inputError=true;return}
+      this.showModal = false
+      this.ifShow=false
+      doGet('http://localhost:8000/tms/taskitem/editContent',{
+        name:this.tempName,id:this.tempId,content:content
+      }).then(resp => {
+        if(resp){
+          //console.log(resp.data.message)
+          location.reload()
+        }
+
       })
     },
     transmitMarkInfo(name,id){
@@ -280,12 +312,15 @@ export default {
     },
     viewTaskItemContent(name,id){
       this.showModal=true
+
       doGet('http://localhost:8000/tms/taskitem/view',{
         name:name,id:id
       }).then(resp => {
         if(resp){
           //console.log(resp.data.message)
           this.tempContent = resp.data.retData.content
+          this.tempName=name
+          this.tempId=id
         }
       })
     },
@@ -376,15 +411,16 @@ export default {
             background-color:white;
             box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
             border-radius: 2%;
-            width: 700px;
+            width: 800px;
             height: 500px;
-            padding: 30px;
+            padding: 30px 20px;
+            top: 20%;
     }
     .container table{
       left: 0;
       right: 0;
       margin: 0 auto;
-      width: 90%;
+      width: 96%;
       border-collapse: collapse;
     }
     table .line:hover{
@@ -472,7 +508,7 @@ export default {
       background-color: rgba(255, 255, 255, 0.788);
       width: 520px;
       display: flex;
-      left: 50%;
+      left: 60%;
       top: 20%;
       bottom: 30%;
       z-index: 90;
@@ -487,9 +523,9 @@ export default {
       background-color: rgba(255, 255, 255, 0.788);
       width: 300px;
       display: flex;
-      left: 70%;
+      left: 60%;
       top: 20%;
-      bottom: 40%;
+      bottom: 50%;
       z-index: 91;
       margin-left: -20px;
       box-shadow: -20px 0 20px 0 rgb(0 0 0 / 10%);
@@ -497,35 +533,34 @@ export default {
       padding: 30px;
       border-radius: 6px;
     }
-        /* .main{
+        .main{
             display: flex;
             flex-direction: column;
             align-items: center;
-        } */
-        /* .main input,textarea{
+            padding: 20px;
+            white-space: break-spaces;
+            word-break: break-word;
+        }
+         .main textarea{
             outline: none;
             float: left;
-            margin-top: 10px;
+            margin-top: 30px;
             margin-left: 0;
             left: 0;
             width: 80%;
-        }
-        .main input{
-            border: none;
-            border-bottom: solid 1px ;
         }
         .main button{
           width: 100px;
           margin-top:10px;
           border-radius: 4px;
-        } */
-        /* .main button:hover, */
+        }
+        .main button:hover,
         .scoreModel button:hover{
           transform:none;
         }
-        /* .main button:active{
+        .main button:active{
           background-color:rgb(56, 147, 150);
-        } */
+        }
 
         .scoreModel button{
           width: 70px;

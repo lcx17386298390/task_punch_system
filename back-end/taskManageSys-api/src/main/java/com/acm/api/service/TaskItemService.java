@@ -37,4 +37,6 @@ public interface TaskItemService {
     int calAdminTaskItem(String publisher);
 
     int editAdminTaskItemTitleVal(String name, String id, String publisher,String title);
+
+    int editContent(String name, String id, String content);
 }

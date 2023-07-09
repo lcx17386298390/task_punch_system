@@ -132,8 +132,13 @@
     set title = #{title,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR} and publisher = #{publisher,jdbcType=VARCHAR}
   </update>
+    <update id="editContent">
+      update taskitem
+      set content = #{content,jdbcType=VARCHAR}
+      where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
+    </update>
 
-  <delete id="deleteByIdAndName">
+    <delete id="deleteByIdAndName">
     delete from taskitem
     where id = #{id,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
   </delete>

@@ -12,19 +12,23 @@
     <a href="/studentHome" class="back">back</a>
     <div class="container">
       <span style="letter-spacing: 2px">My Tasks</span>
+      <div class="search" style="margin: 6px">
+        我的<input type="radio" name="aaa" @click="initPage(1,6)" checked>
+        管理员<input type="radio" name="aaa" @click="initAllAdminTaskItem(1,6)">
+      </div>
       <hr />
-      <table>
+      <table  v-if="adminShow">
         <thead>
           <tr>
-            <th>id</th>
+            <th>序号</th>
             <th>标题</th>
             <th>查看</th>
             <th>删除</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in items" :key="index" class="line">
-            <td>{{ item.id }}</td>
+          <tr v-for="(item, index) in taskList" :key="item.id" class="line">
+            <td>{{ index + 1 }}</td>
             <td>
               <span
                 v-show="!item.editState"
@@ -33,6 +37,7 @@
                 >{{ item.title }}</span
               >
               <input
+                  maxlength="15"
                 v-show="item.editState"
                 ref="inputDesc"
                 type="text"
@@ -56,27 +61,72 @@
               />
             </td> -->
             <td>
-              <button class="plus" @click="showModal = true">
+              <button class="plus" @click="viewTaskItemContent(item.name,item.id)">
                 <i class="fa fa-plus"></i>
               </button>
             </td>
             <td>
-              <button class="delete"><i class="fas fa-times"></i></button>
+              <button class="delete" @click="deleteTaskItem(item.name,item.id)"><i class="fas fa-times"></i></button>
             </td>
           </tr>
         </tbody>
       </table>
 
+      <table  v-if="!adminShow">
+        <thead>
+        <tr>
+          <th>序号</th>
+          <th>标题</th>
+          <th>查看</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in allAdminTaskList" :key="item.id" class="line">
+          <td>{{ item.name }}</td>
+          <td>
+              <span
+                  v-show="!item.editState"
+                  class="desc"
+              >{{ item.title }}</span
+              >
+          </td>
+          <!-- <td>
+            <span
+              v-show="!item.editState1"
+              class="desc"
+              @click="enterEdit1(item)"
+              >{{ item.content }}</span
+            >
+            <input
+              v-show="item.editState1"
+              ref="inputDesc1"
+              type="text"
+              :value="item.content"
+              @blur="updateDesc1(item, $event)"
+            />
+          </td> -->
+          <td>
+            <button class="plus" @click="viewTaskItemContent(item.name,item.id)">
+              <i class="fa fa-plus"></i>
+            </button>
+          </td>
+<!--          <td>-->
+<!--            <button class="delete" @click="deleteTaskItem(item.name,item.id)"><i class="fas fa-times"></i></button>-->
+<!--          </td>-->
+        </tr>
+        </tbody>
+      </table>
+
       <div class="page">
         <ul>
-          <li class="up"><a href="javascript:;">首页</a></li>
-          <li class="up"><a href="javascript:;">上一页</a></li>
-          <li>1</li>
-          <li class="down"><a href="javascript:;">下一页</a></li>
-          <li class="down"><a href="javascript:;">尾页</a></li>
-          <br />
-          <li class="li1">共1页</li>
-          <li>共6个任务</li>
+          <li class="up"><a href="javascript:;" @click="first">首页</a></li>
+          <li class="up"><a href="javascript:;" @click="pre">上一页</a></li>
+          <li>{{this.pageInfo.pageNo}}</li>
+          <li class="down"><a href="javascript:;" @click="next">下一页</a></li>
+          <li class="down"><a href="javascript:;" @click="last">尾页</a></li>
+          <br>
+          <li class="li1">共{{this.pageInfo.totalPage}}页</li>
+          <li>共{{this.pageInfo.totalRecord}}个任务</li>
         </ul>
       </div>
     </div>
@@ -89,29 +139,35 @@
           <h3><i class="fas fa-edit"></i>任务内容</h3>
           <hr />
           <div class="main">
-            <span v-if="!ifShow">任务内容啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</span>
+            <span v-if="!ifShow" style="line-height: 24px;letter-spacing: 2px;">{{this.tempContent}}</span>
             <textarea v-if="ifShow"
               name=""
               id=""
               cols="10"
               rows="8"
               placeholder="任务点内容"
+              v-model="tempContent"
             ></textarea>
-            <button @click="ifShow=true">Edit</button>
-            <button @click="showModal = false,ifShow=false">commit</button>
+              <span v-if="inputError" style="color: crimson;padding-top:4px;">内容不能超过200字~~</span>
+              <button v-if="adminShow" @click="ifShow=true">Edit</button>
+              <button v-if="adminShow" @click="editTaskItemContent(tempContent),ifCommit(tempContent)">commit</button>
+
           </div>
         </div>
       </div>
     </div>
     <div class="score">
       <span>My Score:</span>
-      <div class="scoreShow">100</div>
+      <div class="scoreShow">{{ this.calScore }}</div>
     </div>
   </div>
 </template>
   
   <script>
 // import TopBanner from "@/components/general/TopBanner";
+
+import {doGet} from "@/api/httpRequest";
+import layx from "vue-layx";
 
 export default {
   name: "ViewYourTasks",
@@ -123,15 +179,31 @@ export default {
     return {
       showModal: false,
       ifShow:false,
+      adminShow:true,
+      inputError:false,
       checkedItems: [],
-      items: [
-        { id: "001", title: "1asdfasdf", content: "Itemasdf asdf1" },
-        { id: "002", title: "2asdfasdfa", content: "Item asdfas2" },
-        { id: "003", title: "asdf3sdf", content: "Itemadsf 3" },
-        { id: "003", title: "asdf3sdf", content: "Itemadsf 3" },
-        { id: "003", title: "asdf3sdf", content: "Itemadsf 3" },
-        { id: "003", title: "asdf3sdf", content: "Itemadsf 3" },
+      StuName: "chh",
+      tempContent:"",
+      calScore: "",
+      tempId: "",
+      tempName: "",
+      allAdminTaskList: [{
+        id: "",
+        title: "",
+        content: ""
+      }],
+      taskList: [
+        {
+          id: "",
+          title: "",
+          content: ""
+        }
       ],
+      pageInfo : [{
+          pageNo: 1,
+          totalRecord: "",
+          totalPage: ""
+      }],
       send_title: "",
       send_content: "",
       // submittedData: [],
@@ -153,18 +225,20 @@ export default {
 
   methods: {
     enterEdit(item) {
+      // eslint-disable-next-line no-prototype-builtins
       if (item.hasOwnProperty("editState")) {
         item.editState = true;
       } else {
         this.$set(item, "editState", true);
       }
       this.$nextTick(() => {
-        this.items.forEach((item, index) => {
+        this.taskList.forEach((item, index) => {
           this.$refs.inputDesc[index].focus();
         });
       });
     },
     enterEdit1(item) {
+      // eslint-disable-next-line no-prototype-builtins
       if (item.hasOwnProperty("editState1")) {
         item.editState1 = true;
       } else {
@@ -181,8 +255,20 @@ export default {
       else {
         item.title = e.target.value;
         item.editState = false;
+        doGet('http://localhost:8000/tms/taskitem/editStuTaskItemTitleVal', {
+          name: item.name,
+          id: item.id,
+          title: item.title
+        })
+            .then(resp => {
+              if (resp) {
+                console.log(resp.data.message);
+                //console.log(resp.data)
+              }
+            });
       }
-    },
+    }
+    ,
     updateDesc1(item, e) {
       if (e.target.value == "") return;
       else {
@@ -190,7 +276,144 @@ export default {
         item.editState1 = false;
       }
     },
+    /*/taskitem/viewSelfTask*/
+    initPage(pageNo, pageSize) {
+      this.adminShow=true
+      doGet('http://localhost:8001/tms/taskitem/viewSelfTask', {
+        pageNo: pageNo, pageSize: pageSize, name: this.StuName
+      })
+          .then(resp => {
+            if (resp) {
+              //console.log(resp.data.retData);
+              this.taskList = resp.data;
+              //console.log(resp.data)
+            }
+          });
+      this.updatePage(pageNo);
+    },
+    calculateScore() {
+      doGet('http://localhost:8001/tms/taskitem/score', {
+        name: this.StuName
+      }).then(resp => {
+        if (resp) {
+          console.log(Object.values(resp.data)[0]);
+          this.calScore = Object.values(resp.data)[0]
+          //this.calScore = resp.data
+        }
+      })
+    },
+    updatePage(pageNo) {
+      doGet('http://localhost:8000/tms/taskitem/cal', {
+        pageNo: this.pageInfo.pageNo, name: this.StuName
+      }).then(resp => {
+        if (resp) {
+          this.pageInfo = resp.data;
+          this.pageInfo.pageNo = pageNo
+        }
+      })
+    },
+    first() {
+      if (this.pageInfo.pageNo === 1) {
+        layx.msg('已经是第一页数据.', {dialogIcon: 'warn', position: 'ct'});
+      } else {
+        this.initPage(1, 6);
+        this.updatePage(1);
+      }
+    },
+    last() {
+      if (this.pageInfo.pageNo === this.pageInfo.totalPage) {
+        layx.msg('已经是最后一页数据.', {dialogIcon: 'warn', position: 'ct'});
+      } else {
+        this.initPage(this.pageInfo.totalPage, 6);
+        this.updatePage(this.pageInfo.totalPage);
+      }
+    },
+    pre() {
+      if (this.pageInfo.pageNo <= 1) {
+        layx.msg('已经是第一页数据.', {dialogIcon: 'warn', position: 'ct'});
+      } else {
+        this.initPage(this.pageInfo.pageNo - 1, 6);
+        this.updatePage(this.pageInfo.pageNo - 1);
+      }
+
+    },
+    next() {
+      if (this.pageInfo.pageNo >= this.pageInfo.totalPage) {
+        layx.msg('已经是最后一页数据.', {dialogIcon: 'warn', position: 'ct'});
+      } else {
+        this.initPage(this.pageInfo.pageNo + 1, 6);
+        this.updatePage(this.pageInfo.pageNo + 1);
+      }
+
+    },
+    // showModal = true
+    viewTaskItemContent(name, id) {
+      this.showModal = true
+      doGet('http://localhost:8000/tms/taskitem/view', {
+        name: name, id: id
+      }).then(resp => {
+        if (resp) {
+          //console.log(resp.data.message)
+          this.tempContent = resp.data.retData.content
+          this.tempName=name
+          this.tempId=id
+        }
+      })
+    },
+    deleteTaskItem(name, id) {
+      doGet('http://localhost:8000/tms/taskitem/delete', {
+        name: name, id: id
+      }).then(resp => {
+        if (resp) {
+          location.reload()
+          //console.log(resp.data.message)
+        }
+      })
+    },
+    initAllAdminTaskItem(pageNo, pageSize) {
+      this.adminShow = false
+      console.log("更改为学生列表")
+      doGet('http://localhost:8000/tms/taskitem/viewAdminTaskItem', {
+        pageNo: pageNo, pageSize: pageSize
+      }).then(resp => {
+        if (resp) {
+          this.allAdminTaskList = resp.data.retData;
+          //console.log(resp.data)
+        }
+      })
+      this.initAllAdminTaskItemPageInfo(pageNo)
+    },
+    initAllAdminTaskItemPageInfo(pageNo) {
+      doGet('http://localhost:8000/tms/taskitem/calAdminTaskItem', {
+        pageNo: this.pageInfo.pageNo,
+      }).then(resp => {
+        if (resp) {
+          this.pageInfo = resp.data;
+          this.pageInfo.pageNo = pageNo
+        }
+      })
+    },
+    editTaskItemContent(content) {
+      // /taskitem/editContent
+      if(content.length>200){this.inputError=true;return}
+      this.showModal = false
+      this.ifShow = false
+      doGet('http://localhost:8000/tms/taskitem/editContent', {
+        name: this.tempName, id: this.tempId, content: content
+      }).then(resp => {
+        if (resp) {
+          //console.log(resp.data.message)
+          location.reload()
+        }
+
+      })
+    }
   },
+  mounted(){
+    this.initPage(1,6);
+    this.updatePage(1)
+    this.calculateScore()
+  }
 };
 </script>
   
@@ -334,7 +557,7 @@ a:active {
   background-color: rgba(255, 255, 255, 0.788);
   width: 520px;
   display: flex;
-  left: 50%;
+  left: 60%;
   top: 20%;
   bottom: 30%;
   z-index: 90;
@@ -363,6 +586,9 @@ a:active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+  white-space: break-spaces;
+  word-break: break-word;
 }
 .main textarea {
   outline: none;

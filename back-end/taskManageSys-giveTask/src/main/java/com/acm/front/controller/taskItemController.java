@@ -268,4 +268,32 @@ public class taskItemController extends BaseController{
           return returnObject;
     }
 
+    @RequestMapping("/taskitem/editStuTaskItemTitleVal")
+    public @ResponseBody Object editStuTaskItemVal(String name,String id,String title){
+        String publisher = Contants.SESSION_STUDENT;
+        ReturnObject returnObject = new ReturnObject();
+        int cnt = taskItemService.editAdminTaskItemTitleVal(name,id,publisher,title);
+        if(cnt > 0){
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("修改成功");
+            return returnObject;
+        }
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        returnObject.setMessage("修改失败！请稍后再试");
+        return returnObject;
+    }
+
+    @RequestMapping("/taskitem/editContent")
+    public @ResponseBody Object editContent(String name,String id,String content){
+        ReturnObject returnObject = new ReturnObject();
+        int cnt = taskItemService.editContent(name,id,content);
+        if(cnt > 0){
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("修改成功");
+            return returnObject;
+        }
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        returnObject.setMessage("修改失败！请稍后再试");
+        return returnObject;
+    }
 }

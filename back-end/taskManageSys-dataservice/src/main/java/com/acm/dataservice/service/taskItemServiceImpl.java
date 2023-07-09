@@ -89,4 +89,9 @@ public class taskItemServiceImpl implements TaskItemService {
     public int editAdminTaskItemTitleVal(String name, String id, String publisher,String title) {
         return taskItemMapper.editAdminTaskItemTitleVal(name,id,publisher,title);
     }
+
+    @Override
+    public int editContent(String name, String id, String content) {
+        return taskItemMapper.editContent(name,id,content);
+    }
 }

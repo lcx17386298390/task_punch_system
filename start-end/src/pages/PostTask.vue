@@ -10,6 +10,7 @@
       <div class="main">
         <input type="text" placeholder="准备做点啥~" v-model="taskTitle" />
         <p v-if="titleError" class="error">你小子标题呢</p>
+        <p v-if="ifError" class="error">最多15，塞不下了！</p>
         <textarea
           name=""
           id=""
@@ -19,6 +20,7 @@
           v-model="taskDescription"
         ></textarea>
         <p v-if="contentError" class="error">你小子内容呢</p>
+        <p v-if="ifErrorToo" class="error">最多200，塞不下了！</p>
         <br />
         <button @click="confirmPost">发布</button>
       </div>
@@ -46,6 +48,8 @@ export default {
       titleError: false,
       contentError: false,
       showOverlay: false,
+      ifError:false,
+      ifErrorToo:false,
       StuName: "chh"
     };
   },
@@ -60,6 +64,13 @@ export default {
         }, 2000);
       } else {
         this.showOverlay = true;
+      }
+      if(this.taskTitle.length<=15) this.ifError=false;
+      if(this.taskDescription.length<=200) this.ifErrorToo=false;
+      if(this.taskTitle.length>15) this.ifError=true;
+      if(this.taskDescription.length>200) this.ifErrorToo=true;
+      if(this.ifError==true||this.ifErrorToo==true){
+        this.showOverlay=false;return;
       }
     },
     cancelPost() {

@@ -3,6 +3,7 @@
   <div class="give_task">
     <a href="/adminHome" class="back">back</a>
     <p v-if="titleError" class="error">Title cannot be empty</p>
+    <p v-if="ifError" class="error">标题不能超过15字哦~~</p>
     <p class="t">Title</p>
     <input
       type="text"
@@ -11,6 +12,7 @@
       placeholder="text your task-title..."
     /><br />
     <p v-if="contentError" class="error">Content cannot be empty</p>
+    <p v-if="ifErrorToo" class="error">内容不能超过200字哦~~</p>
     <label>Content</label>
     <textarea
       class="inp2"
@@ -83,6 +85,8 @@ export default {
       titleError: false,
       contentError: false,
       showModal: false,
+      ifError:false,
+      ifErrorToo:false,
       names: [{
           id: 1,
           name: "chh",
@@ -143,6 +147,7 @@ export default {
     //   this.data = response.data;
     //   this.showModal = false;
     // },
+
     checkInputs() {
       if (this.send_title.trim() === "" || this.send_content.trim() === "") {
         this.titleError = this.send_title.trim() === "";
@@ -153,6 +158,13 @@ export default {
         }, 2000);
       } else {
         this.showModal = true;
+      }
+      if(this.send_title.length<=15) this.ifError=false;
+      if(this.send_content.length<=200) this.ifErrorToo=false;
+      if(this.send_title.length>15) this.ifError=true;
+      if(this.send_content.length>200) this.ifErrorToo=true;
+      if(this.ifError==true||this.ifErrorToo==true){
+        this.showModal=false;return;
       }
     },
     async confirmSend() {
