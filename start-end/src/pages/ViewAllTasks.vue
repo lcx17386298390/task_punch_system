@@ -13,8 +13,8 @@
 
     <div class="container">
       <div class="search">
-        管理员<input type="radio" name="aaa" @click="adminShow=true" checked>
-        学生<input type="radio" name="aaa" @click="initAllStuTaskItem(1,9)">
+        管理员<input type="radio" name="aaa" @click="initPage(1,6)" checked>
+        学生<input type="radio" name="aaa" @click="initAllStuTaskItem(1,6)">
       </div>
       <table v-if="adminShow" >
         <thead>
@@ -242,6 +242,7 @@ export default {
       }
     },
     initPage(pageNo,pageSize) {
+      this.adminShow=true
       doGet('http://localhost:8000/tms/taskitem/viewAdminTaskItem', {
         pageNo: pageNo,pageSize:pageSize})
           .then(resp => {
