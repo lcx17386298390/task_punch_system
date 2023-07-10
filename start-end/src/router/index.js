@@ -14,7 +14,7 @@ import self from '../components/self.vue'
 const router = new VueRouter({
     routes: [
         {
-            path: '/login', component: login
+            path: '/', component: login
         },
         {
             path: '/registration', component: registration
