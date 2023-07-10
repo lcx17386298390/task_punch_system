@@ -31,7 +31,8 @@ export default {
       password:'',
       email:'',
       code: '',
-      showError: false
+      showError: false,
+      receivedCode: '',  // 新增接受code值变量
     };
   },
   methods:{
@@ -55,14 +56,15 @@ export default {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }).then(response=>{
-      this.code=response.data.code;
+      this.receivedCode=response.data.code;
+      alert('发送验证码成功');
     })
     .catch(error=>{
       console.error(error);
     })
    },
    compareCode(){
-    if(this.code===this.$data.code){
+    if(this.receivedCode===this.code){
       axios.post('/api/register',{
         name:this.name,
         password:this.password,
