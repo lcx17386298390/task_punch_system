@@ -1,21 +1,19 @@
 <template>
     <div class="login-container">
-      <div >
+      <div>
         <span>欢迎来到注册页面</span>
-    </div>
+      </div>
       <div class="card-inner">
       <a href="/login" class="back_">back</a>
-      <form>
-        <input v-model="name" type="text" placeholder="用户名" />
+        <input v-model="username" type="text" placeholder="用户名" />
         <input v-model="password" type="password" placeholder="密码" />
         <input v-model="email" type="email" placeholder="注册邮箱">
         <div   style="display: flex;">
           <input  v-model="code" placeholder="验证码">
-          <button @click="sendRequest" class="f">发送验证码</button>
+          <button @click="sendRequest"   class="f">发送验证码</button>
         </div>
         <p v-if="showError" class="error">错误:输入必须为6位整数</p>
         <button @click="checkInput(),compareCode()" >注册</button>
-      </form>
   </div>
     </div>
 </template>
@@ -23,12 +21,13 @@
 <script>
 import axios from 'axios'
 
+
 export default {
-  name:'registration',
+  //name:'registration',
   data() {
     return {
       selectedColor: "red",
-      name:'',
+      username:'',
       password:'',
       email:'',
       code: '',
@@ -51,6 +50,10 @@ export default {
    sendRequest(){
     axios.post('/api/testEmail',{
       email:this.email
+    },{
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
     }).then(response=>{
       this.code=response.data.code;
     })

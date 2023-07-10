@@ -3,10 +3,7 @@ package com.acm.front.controller;
 import com.acm.front.entity.Result;
 import com.acm.front.service.AuthService;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -19,8 +16,10 @@ public class AuthController {
     @Resource
     AuthService authService;
     @PostMapping("/testEmail")
-    public Result<String> testEmail(@Pattern (regexp = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$") @RequestParam("email")String email,
+    public Result<String> testEmail(@Pattern (regexp = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
+                                        @RequestParam String email,
                                     HttpSession httpSession){
+        System.out.println(email);
         if(authService.sendEmail(email,httpSession.getId())==null) {
             return Result.success("邮件发送成功");
         } else {
