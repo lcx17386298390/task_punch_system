@@ -19,13 +19,14 @@
     <!-- 呈现消息 -->
     <div class="content">
       <!-- 查找 -->
-      &nbsp;&nbsp;&nbsp;sender:<input type="text">recipient:<input type="text">
-      <button class="_btn_">search</button>
+      &nbsp;&nbsp;&nbsp;sender:<input type="text" v-model="inputSearchSender">
+      recipient:<input type="text" v-model="inputSearchRecipient">
+      <button class="_btn_" @click="queryMsg">search</button>
       <hr>
       <ul>
         <li v-for="msg in sentMessages" :key="msg.id">
-          <span>{{ msg.sender }}</span> send a message to <span>{{ msg.recipient }}</span> :
-          <p>{{ msg.content }}</p>
+          <span>{{ msg.fromuser }}</span> send a message to <span>{{ msg.touser }}</span> :
+          <p>{{ msg.msg }}</p>
           <!-- {{currentDate}} -->
           <hr>
         </li>
@@ -37,21 +38,25 @@
 </template>
 
 <script>
+import {doGet} from "@/api/httpRequest";
+
 export default {
   name:'SendMsg',
   data(){
     return{
         text:'',
+      inputSearchSender: "",
+      inputSearchRecipient:"",
         people: [
-        { id: 1, name: '张三二' },
-        { id: 2, name: '李四颐' },
-        { id: 3, name: '王五' },
-        { id: 4, name: '李四我' },
-        { id: 5, name: '反倒是' },
-        { id: 6, name: '附件是' },
-        { id: 7, name: '十分恼' },
-        { id: 8, name: '十分' },
-        { id: 9, name: '返回' }
+        { id: 1, name: 'chh' },
+        { id: 2, name: 'dc' },
+        { id: 3, name: 'yq' },
+        { id: 4, name: 'cyj' },
+        { id: 5, name: 'gt' },
+        { id: 6, name: 'xxj' },
+        { id: 7, name: 'wqw' },
+        { id: 8, name: 'wy' },
+        { id: 9, name: 'lcx' }
       ],
       selectedPeople:[],
       sentMessages: [],
@@ -72,18 +77,40 @@ export default {
 
       if (this.selectedPeople.length > 0 && this.message !== '') {
         for (let person of this.selectedPeople) {
-          this.sentMessages.push({
-            id: Date.now(),
-            sender: 'You',
-            recipient:this.selectedPeople[0],
-            content: this.message
+          // this.sentMessages.push({
+          //   id: Date.now(),
+          //   sender: 'You',
+          //   recipient:this.selectedPeople[0],
+          //   content: this.message
+          // });
+          doGet("http://localhost:8002/tms/sendmessage", {
+            fromuser: 'You',
+            toname: this.selectedPeople[0],
+            msg:this.message,
+            id:Date.now()
+          }).then((resp) => {
+            // eslint-disable-next-line no-empty
+            if (resp) {
+
+            }
           });
         }
         this.selectedPeople = [];
         this.message = '';
       }
       
-  }
+  },
+    queryMsg(){
+      doGet("http://localhost:8002/tms/querymsg", {
+        fromuser: this.inputSearchSender,
+        touser: this.inputSearchRecipient,
+      }).then((resp) => {
+        if (resp) {
+          this.sentMessages=resp.data;
+          //location.reload()
+        }
+      });
+    }
   }
   
 }

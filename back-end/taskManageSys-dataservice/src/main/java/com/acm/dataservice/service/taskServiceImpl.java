@@ -42,4 +42,9 @@ public class taskServiceImpl implements TaskService {
     public int calCountOfTask() {
         return taskMapper.calCountOfTask();
     }
+
+    @Override
+    public int editAdminTaskItemTitleVal(String id,String title) {
+        return taskMapper.editAdminTaskItemTitleVal(id, title);
+    }
 }

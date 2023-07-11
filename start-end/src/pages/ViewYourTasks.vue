@@ -13,7 +13,7 @@
     <div class="container">
       <span style="letter-spacing: 2px">My Tasks</span>
       <div class="search" style="margin: 6px">
-        我的<input type="radio" name="aaa" @click="initPage(1,6)" checked>
+        我的<input type="radio" name="aaa" @click="initPage(1,6)" :checked="isMineChecked">
         管理员<input type="radio" name="aaa" @click="initAllAdminTaskItem(1,6)">
       </div>
       <hr />
@@ -76,7 +76,7 @@
         <thead>
         <tr>
           <th>序号</th>
-          <th>标题</th>
+          <th>内容</th>
           <th>查看</th>
         </tr>
         </thead>
@@ -87,7 +87,7 @@
               <span
                   v-show="!item.editState"
                   class="desc"
-              >{{ item.title }}</span
+              >{{ item.content }}</span
               >
           </td>
           <!-- <td>
@@ -181,6 +181,7 @@ export default {
       ifShow:false,
       adminShow:true,
       inputError:false,
+      isMineChecked: true,
       checkedItems: [],
       StuName: "chh",
       tempContent:"",
@@ -279,6 +280,7 @@ export default {
     /*/taskitem/viewSelfTask*/
     initPage(pageNo, pageSize) {
       this.adminShow=true
+      this.isMineChecked=true
       doGet('http://localhost:8001/tms/taskitem/viewSelfTask', {
         pageNo: pageNo, pageSize: pageSize, name: this.StuName
       })
@@ -292,7 +294,7 @@ export default {
       this.updatePage(pageNo);
     },
     calculateScore() {
-      doGet('http://localhost:8001/tms/taskitem/score', {
+      doGet('http://localhost:8001/tms/taskitem/scoreForStu', {
         name: this.StuName
       }).then(resp => {
         if (resp) {
@@ -315,34 +317,46 @@ export default {
     first() {
       if (this.pageInfo.pageNo === 1) {
         layx.msg('已经是第一页数据.', {dialogIcon: 'warn', position: 'ct'});
-      } else {
+      } else if(this.isMineChecked){
         this.initPage(1, 6);
         this.updatePage(1);
+      }else{
+        this.initAllAdminTaskItem(1,6);
+        this.initAllAdminTaskItemPageInfo(1);
       }
     },
     last() {
       if (this.pageInfo.pageNo === this.pageInfo.totalPage) {
         layx.msg('已经是最后一页数据.', {dialogIcon: 'warn', position: 'ct'});
-      } else {
+      } else if(this.isMineChecked){
         this.initPage(this.pageInfo.totalPage, 6);
         this.updatePage(this.pageInfo.totalPage);
+      }else{
+        this.initAllAdminTaskItem(this.pageInfo.totalPage,6);
+        this.initAllAdminTaskItemPageInfo(this.pageInfo.totalPage);
       }
     },
     pre() {
       if (this.pageInfo.pageNo <= 1) {
         layx.msg('已经是第一页数据.', {dialogIcon: 'warn', position: 'ct'});
-      } else {
+      } else if(this.isMineChecked){
         this.initPage(this.pageInfo.pageNo - 1, 6);
         this.updatePage(this.pageInfo.pageNo - 1);
+      }else{
+        this.initAllAdminTaskItem(this.pageInfo.pageNo - 1, 6);
+        this.initAllAdminTaskItemPageInfo(this.pageInfo.pageNo - 1);
       }
 
     },
     next() {
       if (this.pageInfo.pageNo >= this.pageInfo.totalPage) {
         layx.msg('已经是最后一页数据.', {dialogIcon: 'warn', position: 'ct'});
-      } else {
+      } else if(this.isMineChecked){
         this.initPage(this.pageInfo.pageNo + 1, 6);
         this.updatePage(this.pageInfo.pageNo + 1);
+      }else{
+        this.initAllAdminTaskItem(this.pageInfo.pageNo + 1, 6);
+        this.initAllAdminTaskItemPageInfo(this.pageInfo.pageNo + 1);
       }
 
     },
@@ -372,8 +386,9 @@ export default {
     },
     initAllAdminTaskItem(pageNo, pageSize) {
       this.adminShow = false
-      console.log("更改为学生列表")
-      doGet('http://localhost:8000/tms/taskitem/viewAdminTaskItem', {
+      this.isMineChecked=false
+      //console.log("更改为学生列表")
+      doGet('http://localhost:8000/tms/taskitem/viewAdminTaskItemByPage', {
         pageNo: pageNo, pageSize: pageSize
       }).then(resp => {
         if (resp) {

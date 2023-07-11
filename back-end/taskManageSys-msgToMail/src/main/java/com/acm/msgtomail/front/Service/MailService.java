@@ -8,9 +8,6 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
-import java.io.File;
-
-import static java.awt.SystemColor.text;
 
 @Service
 public class MailService {

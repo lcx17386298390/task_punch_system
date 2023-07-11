@@ -28,7 +28,7 @@ public interface TaskItemMapper {
     List<TaskItem> viewTaskItemFromStu(@Param("offset") Integer offset,
                                        @Param("pagesize") Integer pageSize,String name,String publisher);
 
-    List<TaskItem> viewTaskItemForCal(String name,String publisher);
+    List<TaskItem> viewTaskItemForCal(String name,String publisher,String pid);
 
     Integer calCountOfTaskItem(String name, String publisher);
 
@@ -38,11 +38,18 @@ public interface TaskItemMapper {
 
     int giveMark(String name, BigDecimal judgefinish, String id);
 
-    List<TaskItem> viewAdminTaskItem(String publisher,Integer offset, Integer pageSize);
+    List<TaskItem> viewAdminTaskItem(String publisher,String pid);
 
     int calAdminTaskItem(String publisher);
 
     int editAdminTaskItemTitleVal(String name, String id, String publisher,String title);
 
     int editContent(String name, String id, String content);
+
+    List<TaskItem> viewTaskItemByPidAndName(String pid, String name);
+
+    List<TaskItem> viewAdminTaskItemByPage(String publisher, Integer offset,Integer pageSize);
+
+
+    List<TaskItem> viewTaskItemForCalToStu(String name, String publisher);
 }

@@ -21,4 +21,6 @@ public interface TaskMapper {
                              @Param("pagesize") Integer pageSize);
 
     int calCountOfTask();
+
+    int editAdminTaskItemTitleVal(String id,String title);
 }

@@ -50,7 +50,7 @@ public class taskController extends BaseController{
      */
     @RequestMapping("/task")
     public @ResponseBody Object queryTaskList(@RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
-                                    @RequestParam(value = "pageSize",required = false,defaultValue = "9") Integer pageSize){
+                                    @RequestParam(value = "pageSize",required = false,defaultValue = "6") Integer pageSize){
         pageNo = CommonUtil.defaultPageNo(pageNo);
         pageSize = CommonUtil.defaultPageSize(pageSize);
         Integer offset = (pageNo - 1) * pageSize;
@@ -130,4 +130,17 @@ public class taskController extends BaseController{
     }
 
 
+    @RequestMapping("/task/editAdminTaskItemVal")
+    public @ResponseBody Object editAdminTaskItemVal(String id,String title){
+        ReturnObject returnObject = new ReturnObject();
+        int cnt = taskService.editAdminTaskItemTitleVal(id,title);
+        if(cnt > 0){
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("修改成功");
+            return returnObject;
+        }
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        returnObject.setMessage("修改失败！请稍后再试");
+        return returnObject;
+    }
 }

@@ -8,9 +8,10 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="publisher" jdbcType="VARCHAR" property="publisher" />
     <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="pid" jdbcType="VARCHAR" property="pid" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, content, judgefinish, name, publisher,title
+    id, content, judgefinish, name, publisher,title,pid
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -86,9 +87,9 @@
 
   <insert id="insert" parameterType="com.acm.api.model.TaskItem">
     insert into taskitem (id, content, judgefinish,
-                          name,publisher,title)
+                          name,publisher,title,pid)
     values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{judgefinish,jdbcType=DECIMAL},
-            #{name,jdbcType=VARCHAR},#{publisher,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR})
+            #{name,jdbcType=VARCHAR},#{publisher,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{pid,jdbcType=VARCHAR})
   </insert>
 
 
@@ -110,7 +111,7 @@
     select
     <include refid="Base_Column_List" />
     from taskitem
-    where publisher = #{publisher,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR}
+    where publisher = #{publisher,jdbcType=VARCHAR} and name = #{name,jdbcType=VARCHAR} and pid = #{pid,jdbcType=VARCHAR}
   </select>
 
 
@@ -162,11 +163,26 @@
   <select id="viewAdminTaskItem" resultType="com.acm.api.model.TaskItem">
     select <include refid="Base_Column_List" />
     from taskitem
-    where publisher = #{publisher,jdbcType=VARCHAR}
-    limit #{offset},#{pageSize}
+    where publisher = #{publisher,jdbcType=VARCHAR} and pid = #{pid,jdbcType=VARCHAR}
   </select>
   <select id="calAdminTaskItem" resultType="java.lang.Integer">
     select count(id) from taskitem
     where publisher = #{publisher,jdbcType=VARCHAR}
+  </select>
+  <select id="viewTaskItemByPidAndName" resultType="com.acm.api.model.TaskItem">
+    select <include refid="Base_Column_List" />
+    from taskitem
+    where name = #{name,jdbcType=VARCHAR} and pid = #{pid,jdbcType=VARCHAR}
+  </select>
+  <select id="viewAdminTaskItemByPage" resultType="com.acm.api.model.TaskItem">
+    select <include refid="Base_Column_List" />
+    from taskitem
+    where publisher=#{publisher,jdbcType=VARCHAR}
+    limit #{offset},#{pageSize}
+  </select>
+  <select id="viewTaskItemForCalToStu" resultType="com.acm.api.model.TaskItem">
+    select <include refid="Base_Column_List" />
+    from taskitem
+    where publisher=#{publisher,jdbcType=VARCHAR} and name=#{name,jdbcType=VARCHAR}
   </select>
 </mapper>

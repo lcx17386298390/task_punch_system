@@ -38,8 +38,8 @@ public class ViewTaskController extends BaseController{
      * @return
      */
     @RequestMapping("/taskitem/score")
-    public TaskItemDTO score(@RequestParam("name") String name){
-        List<TaskItem> taskItems=taskItemService.viewTaskItemForCal(name,Contants.SESSION_ADMIN);
+    public TaskItemDTO score(@RequestParam("name") String name,String pid){
+        List<TaskItem> taskItems=taskItemService.viewTaskItemForCal(name,Contants.SESSION_ADMIN,pid);
         TaskItemDTO taskItemDTO=new TaskItemDTO();
         BigDecimal totalJudgeFinish = BigDecimal.valueOf(0.0);
         if(taskItems!=null&&!taskItems.isEmpty()){
@@ -56,6 +56,26 @@ public class ViewTaskController extends BaseController{
         }
         return taskItemDTO;
 }
+
+    @RequestMapping("/taskitem/scoreForStu")
+    public TaskItemDTO scoreForStu(@RequestParam("name") String name){
+        List<TaskItem> taskItems=taskItemService.viewTaskItemForCalToStu(name,Contants.SESSION_ADMIN);
+        TaskItemDTO taskItemDTO=new TaskItemDTO();
+        BigDecimal totalJudgeFinish = BigDecimal.valueOf(0.0);
+        if(taskItems!=null&&!taskItems.isEmpty()){
+            for(TaskItem t:taskItems){
+                //System.out.println(t.getJudgefinish());
+                totalJudgeFinish = totalJudgeFinish.add(t.getJudgefinish());
+            }
+            //System.out.println(totalJudgeFinish);
+            //System.out.println(BigDecimal.valueOf(taskItems.size()));
+            BigDecimal temp = taskItemDTO.setAverageJudgeFinish((totalJudgeFinish.divide(BigDecimal.valueOf(taskItems.size()),2)));
+            //System.out.println(temp);
+        }else {
+            System.out.println("统计错误！！");
+        }
+        return taskItemDTO;
+    }
 
     /**
      * 管理者查看所有学生布置给学生自己的任务点

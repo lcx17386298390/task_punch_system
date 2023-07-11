@@ -20,7 +20,6 @@ public class taskItemServiceImpl implements TaskItemService {
     }*/
 
 
-
     @Override
     public int insert(TaskItem record) {
         return taskItemMapper.insert(record);
@@ -28,40 +27,45 @@ public class taskItemServiceImpl implements TaskItemService {
 
     @Override
     public int deleteByIdAndName(String id, String name) {
-        return taskItemMapper.deleteByIdAndName(id,name);
+        return taskItemMapper.deleteByIdAndName(id, name);
     }
 
     @Override
-    public int editTaskItemById(String id, String name, String content, BigDecimal judgefinish,String title) {
-        return taskItemMapper.editTaskItemById(id, name, content, judgefinish,title);
+    public int editTaskItemById(String id, String name, String content, BigDecimal judgefinish, String title) {
+        return taskItemMapper.editTaskItemById(id, name, content, judgefinish, title);
     }
 
     @Override
     public TaskItem viewTaskItemByIdAndName(String id, String name) {
-        return taskItemMapper.viewTaskItemByIdAndName(id,name);
+        return taskItemMapper.viewTaskItemByIdAndName(id, name);
     }
 
 
     @Override
     public List<TaskItem> viewTaskItemFromStu(Integer offset,
-                                              Integer pageSize,String name, String publisher) {
+                                              Integer pageSize, String name, String publisher) {
         return taskItemMapper.viewTaskItemFromStu(
-                offset,pageSize,name,publisher);
+                offset, pageSize, name, publisher);
     }
 
     @Override
-    public List<TaskItem> viewTaskItemForCal(String name, String publisher) {
-        return taskItemMapper.viewTaskItemForCal(name, publisher);
+    public List<TaskItem> viewTaskItemForCal(String name, String publisher, String pid) {
+        return taskItemMapper.viewTaskItemForCal(name, publisher, pid);
     }
 
     @Override
-    public Integer calCountOfTaskItem(String name,String publisher) {
-        return taskItemMapper.calCountOfTaskItem(name,publisher);
+    public List<TaskItem> viewAdminTaskItemByPage(String publisher, Integer offset, Integer pageSize) {
+        return taskItemMapper.viewAdminTaskItemByPage(publisher, offset, pageSize);
+    }
+
+    @Override
+    public Integer calCountOfTaskItem(String name, String publisher) {
+        return taskItemMapper.calCountOfTaskItem(name, publisher);
     }
 
     @Override
     public List<TaskItem> viewAllTaskItemFromStu(Integer offset, Integer pageSize, String publisher) {
-        return taskItemMapper.viewAllTaskItemFromStu(offset,pageSize,publisher);
+        return taskItemMapper.viewAllTaskItemFromStu(offset, pageSize, publisher);
     }
 
     @Override
@@ -71,13 +75,13 @@ public class taskItemServiceImpl implements TaskItemService {
 
     @Override
     public int giveMark(String name, BigDecimal judgefinish, String id) {
-        return taskItemMapper.giveMark(name,judgefinish,id);
+        return taskItemMapper.giveMark(name, judgefinish, id);
     }
 
 
     @Override
-    public List<TaskItem> viewAdminTaskItem(String publisher,Integer offset, Integer pageSize) {
-        return taskItemMapper.viewAdminTaskItem(publisher,offset,pageSize);
+    public List<TaskItem> viewAdminTaskItem(String publisher, String pid) {
+        return taskItemMapper.viewAdminTaskItem(publisher, pid);
     }
 
     @Override
@@ -86,12 +90,24 @@ public class taskItemServiceImpl implements TaskItemService {
     }
 
     @Override
-    public int editAdminTaskItemTitleVal(String name, String id, String publisher,String title) {
-        return taskItemMapper.editAdminTaskItemTitleVal(name,id,publisher,title);
+    public int editAdminTaskItemTitleVal(String name, String id, String publisher, String title) {
+        return taskItemMapper.editAdminTaskItemTitleVal(name, id, publisher, title);
     }
 
     @Override
     public int editContent(String name, String id, String content) {
-        return taskItemMapper.editContent(name,id,content);
+        return taskItemMapper.editContent(name, id, content);
+    }
+
+    @Override
+    public List<TaskItem> viewTaskItemByPidAndName(String pid, String name) {
+        return taskItemMapper.viewTaskItemByPidAndName(pid, name);
+    }
+
+    @Override
+    public List<TaskItem> viewTaskItemForCalToStu(String name, String publisher) {
+        return taskItemMapper.viewTaskItemForCalToStu(name,publisher);
     }
 }
+
+
