@@ -32,7 +32,8 @@ export default {
       email:'',
       code: '',
       showError: false,
-      receivedCode: '',  // 新增接受code值变量
+      receivedCode: '',  // 查找验证码发送状态
+      result:'',   //接受验证码验证状态
     };
   },
   methods:{
@@ -57,16 +58,16 @@ export default {
       }
     }).then(response=>{
       console.log(response.data);
-      //this.receivedCode=response.data.code;
-      //alert(this.receivedCode);
-      alert('发送验证码成功');
+      this.receivedCode=response.data.code;
+      if (this.receivedCode === 200) {
+    alert('发送验证码成功');
+  }
     })
     .catch(error=>{
       console.error(error);
     })
    },
    compareCode(){
-    //if(this.receivedCode===this.code){
       axios.post('/api/register',{
         username:this.username,
         password:this.password,
@@ -79,11 +80,16 @@ export default {
       })
       .then(response=>{
         console.log(response.data);
+        this.result=response.data.code;
+        if(this.result===200){
+          //注册成功
+          this.$router.push("/");
+          //这里是因为login页面已经被设置为默认路径/，如果修改了login路径请修改此处
+        }
       })
       .catch(error=>{
         console.error(error);
       })
-   // }
    }
   }
 };
