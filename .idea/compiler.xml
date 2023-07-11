@@ -9,8 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="taskManageSys-regAndLoginWeb (1)" />
         <module name="taskManageSys-giveTask" />
-        <module name="taskManageSys-viewTask" />
         <module name="taskManageSys-msgToMail" />
+        <module name="taskManageSys-viewTask" />
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
         <module name="taskManageSys-api" />

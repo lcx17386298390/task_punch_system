@@ -9,6 +9,6 @@ import org.apache.ibatis.annotations.Select;
 public interface AdminMapper {
     @Select("select * from admin where username=#{username}")
     Admin findAuthByName(String username);
-    @Insert("insert into admin (mail,username,password) values(#{email},#{username},#{password})")
+    @Insert("insert into admin (email,username,password) values(#{email},#{username},#{password})")
     int addAdmin(String email,String username,String password);
 }

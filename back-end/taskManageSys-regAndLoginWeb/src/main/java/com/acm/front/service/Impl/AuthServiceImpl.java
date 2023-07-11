@@ -48,6 +48,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String sendEmail(String email,String sessionId) {
         String key="email:"+sessionId+":"+email;
+        System.out.println(email);
         if(Boolean.TRUE.equals(stringRedisTemplate.hasKey(key))){
             Long expire= Optional.ofNullable(stringRedisTemplate.getExpire(key,TimeUnit.SECONDS)).orElse(0L);
             if(expire>120) {
