@@ -56,7 +56,9 @@ export default {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     }).then(response=>{
-      this.receivedCode=response.data.code;
+      console.log(response.data);
+      //this.receivedCode=response.data.code;
+      //alert(this.receivedCode);
       alert('发送验证码成功');
     })
     .catch(error=>{
@@ -64,11 +66,16 @@ export default {
     })
    },
    compareCode(){
-    if(this.receivedCode===this.code){
+    //if(this.receivedCode===this.code){
       axios.post('/api/register',{
-        name:this.name,
+        username:this.username,
         password:this.password,
-        email:this.email
+        email:this.email,
+        code:this.code
+      },{
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
       })
       .then(response=>{
         console.log(response.data);
@@ -76,7 +83,7 @@ export default {
       .catch(error=>{
         console.error(error);
       })
-    }
+   // }
    }
   }
 };

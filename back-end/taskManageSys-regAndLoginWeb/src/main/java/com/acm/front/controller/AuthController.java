@@ -19,7 +19,6 @@ public class AuthController {
     public Result<String> testEmail(@Pattern (regexp = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")
                                         @RequestParam String email,
                                     HttpSession httpSession){
-        System.out.println(email);
         if(authService.sendEmail(email,httpSession.getId())==null) {
             return Result.success("邮件发送成功");
         } else {

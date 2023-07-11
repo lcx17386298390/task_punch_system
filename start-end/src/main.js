@@ -5,6 +5,8 @@ Vue.config.productionTip = false
 import store from './vuex/store'
 import VueRouter from 'vue-router'
 import router from './router'
+import axios from "axios";
+axios.defaults.withCredentials = true;
 
 Vue.use(VueRouter)
 
