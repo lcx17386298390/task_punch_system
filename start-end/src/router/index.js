@@ -9,12 +9,16 @@ import PostTask from '../pages/PostTask'
 import registration from '../components/registration'
 import ViewYourTasks from '../pages/ViewYourTasks'
 import self from '../components/self.vue'
+import index from '../pages/index'
 // import { component } from 'vue/types/umd's
 
 const router = new VueRouter({
     routes: [
         {
-            path: '/', component: login
+            path: '/', component: index
+        },
+        {
+            path: 'login', component: login
         },
         {
             path: '/registration', component: registration
