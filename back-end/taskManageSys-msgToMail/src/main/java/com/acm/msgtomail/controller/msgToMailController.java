@@ -1,4 +1,4 @@
-package com.acm.msgtomail.front.controller;
+package com.acm.msgtomail.controller;
 
 import com.acm.api.model.SendMsg;
 import com.acm.common.view.ReturnObject;

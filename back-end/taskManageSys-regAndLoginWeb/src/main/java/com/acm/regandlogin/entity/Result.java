@@ -1,4 +1,4 @@
-package com.acm.front.entity;
+package com.acm.regandlogin.entity;
 
 import lombok.Data;
 

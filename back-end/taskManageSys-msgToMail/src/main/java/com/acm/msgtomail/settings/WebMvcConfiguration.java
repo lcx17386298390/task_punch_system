@@ -1,4 +1,4 @@
- package com.acm.msgtomail.front.settings;
+ package com.acm.msgtomail.settings;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

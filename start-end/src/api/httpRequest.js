@@ -1,6 +1,5 @@
 import axios from "axios"
 
-axios.defaults.baseURL="http://localhost:8004";
 axios.defaults.timeout=50000
 
 function doGet(url,params){

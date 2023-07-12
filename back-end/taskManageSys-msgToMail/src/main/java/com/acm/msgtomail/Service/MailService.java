@@ -1,14 +1,15 @@
-package com.acm.msgtomail.front.Service;
+package com.acm.msgtomail.Service;
 
-import com.acm.msgtomail.front.entity.Mail;
+import com.acm.msgtomail.entity.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
-
+@Component
 @Service
 public class MailService {
     @Autowired

@@ -1,7 +1,7 @@
-package com.acm.msgtomail.front.controller;
+package com.acm.msgtomail.controller;
 
-import com.acm.msgtomail.front.Service.MailService;
-import com.acm.msgtomail.front.entity.Mail;
+import com.acm.msgtomail.Service.MailService;
+import com.acm.msgtomail.entity.Mail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.acm.msgtomail.front.entity;
+package com.acm.msgtomail.entity;
 
 import java.io.Serializable;
 

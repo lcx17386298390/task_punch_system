@@ -53,7 +53,7 @@ export default {
       }
     },
    sendRequest(){
-    axios.post('/api/testEmail',{
+    axios.post('http://localhost:8004/api/testEmail',{
       email:this.email
     },{
       headers: {
@@ -88,7 +88,7 @@ export default {
       },1000)
     },
    compareCode(){
-      axios.post('/api/register',{
+      axios.post('http://localhost:8004/api/register',{
         username:this.username,
         password:this.password,
         email:this.email,

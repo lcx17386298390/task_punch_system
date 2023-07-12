@@ -14,7 +14,6 @@
         <module name="taskManageSys-common" />
         <module name="taskManageSys-dataservice" />
         <module name="taskManageSys-api" />
-        <module name="taskManageSys-sendMsg" />
         <module name="taskManageSys-regAndLoginWeb" />
       </profile>
     </annotationProcessing>

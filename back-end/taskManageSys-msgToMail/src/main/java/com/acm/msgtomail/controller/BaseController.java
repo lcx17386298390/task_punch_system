@@ -1,4 +1,4 @@
-package com.acm.msgtomail.front.controller;
+package com.acm.msgtomail.controller;
 
 import com.acm.api.service.sendMsgService;
 import org.apache.dubbo.config.annotation.DubboReference;

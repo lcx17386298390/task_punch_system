@@ -2,8 +2,8 @@ package com.acm.dataservice.config;
 
 import com.acm.api.model.Admin;
 import com.acm.dataservice.mapper.AdminMapper;
-import com.acm.front.entity.Result;
 import com.acm.dataservice.service.AuthService;
+import com.acm.regandlogin.entity.Result;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,8 +1,7 @@
-package com.acm.front.controller;
+package com.acm.givetask.controller;
 
 import com.acm.api.service.TaskItemService;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 public class BaseController {
