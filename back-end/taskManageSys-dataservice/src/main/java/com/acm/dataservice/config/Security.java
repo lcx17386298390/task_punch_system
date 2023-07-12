@@ -1,16 +1,15 @@
-package com.acm.front.config;
+package com.acm.dataservice.config;
 
 import com.acm.api.model.Admin;
 import com.acm.dataservice.mapper.AdminMapper;
 import com.acm.front.entity.Result;
-import com.acm.front.service.AuthService;
+import com.acm.dataservice.service.AuthService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.Authentication;
@@ -38,7 +37,7 @@ public class Security {
     @Resource
     AdminMapper adminMapper;
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity,PersistentTokenRepository persistentTokenRepository) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests()
                 .antMatchers("/api/**").permitAll()
@@ -54,11 +53,11 @@ public class Security {
                 .logout()
                 .logoutUrl("/api/logout")
                 .logoutSuccessHandler(this::onAuthenticationSuccess)
-                .and()
-                .rememberMe()
-                .rememberMeParameter("remember")
-                .tokenRepository(persistentTokenRepository)
-                .tokenValiditySeconds(3600*24*7)
+//                .and()
+//                .rememberMe()
+//                .rememberMeParameter("remember")
+//                .tokenRepository(persistentTokenRepository)
+//                .tokenValiditySeconds(3600*24*7)
                 .and()
                 .csrf()
                 .disable()

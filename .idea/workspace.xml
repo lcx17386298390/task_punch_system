@@ -4,9 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="yq-前后端登录连接完成">
+    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="yq-注册发送验证码倒计时及禁用">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_2_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/components/registration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/components/registration.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-common/taskManageSys-common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-msgToMail/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/TaskManageSysRegAndLoginWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/TaskManageSysRegAndLoginWebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/config/Security.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/service/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start-end/src/api/httpRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/api/httpRequest.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,31 +59,31 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;5550d80a00e9371c79c6db0e7a014dbe&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;E:\\text\\IntelliJ IDEA 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.3643678",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "5550d80a00e9371c79c6db0e7a014dbe",
+    "ts.external.directory.path": "E:\\text\\IntelliJ IDEA 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -150,6 +166,14 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.serve" />
+      <item itemvalue="Spring Boot.TaskManageSysViewTaskApplication" />
+      <item itemvalue="Spring Boot.TaskManageSysRegAndLoginWebApplication" />
+      <item itemvalue="Spring Boot.TaskManageSysDataserviceApplication" />
+      <item itemvalue="Spring Boot.TaskManageSysGiveTaskApplication" />
+      <item itemvalue="Spring Boot.TaskManageSysMsgToMailApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.serve" />
@@ -185,7 +209,7 @@
       <workItem from="1688957009986" duration="270000" />
       <workItem from="1688957291851" duration="20548000" />
       <workItem from="1689038345737" duration="21330000" />
-      <workItem from="1689122103947" duration="6347000" />
+      <workItem from="1689122103947" duration="14535000" />
     </task>
     <task id="LOCAL-00001" summary="跨域链接">
       <created>1688542871361</created>
@@ -292,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689125015907</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="yq-注册发送验证码倒计时及禁用">
+      <created>1689128805570</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689128805570</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,6 +362,7 @@
     <MESSAGE value="yq-前后端验证码发送连接完成" />
     <MESSAGE value="yq-前后端注册连接完成" />
     <MESSAGE value="yq-前后端登录连接完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="yq-前后端登录连接完成" />
+    <MESSAGE value="yq-注册发送验证码倒计时及禁用" />
+    <option name="LAST_COMMIT_MESSAGE" value="yq-注册发送验证码倒计时及禁用" />
   </component>
 </project>

@@ -32,7 +32,7 @@ dubbo:
     retries: 0
 
 server:
-  port: 8000
+  port: 8003
   servlet:
     context-path: /tms
     encoding:

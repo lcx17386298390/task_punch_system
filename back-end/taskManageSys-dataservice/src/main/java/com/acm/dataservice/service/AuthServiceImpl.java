@@ -1,8 +1,7 @@
-package com.acm.front.service.Impl;
+package com.acm.dataservice.service;
 
 import com.acm.api.model.Admin;
 import com.acm.dataservice.mapper.AdminMapper;
-import com.acm.front.service.AuthService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.mail.MailException;

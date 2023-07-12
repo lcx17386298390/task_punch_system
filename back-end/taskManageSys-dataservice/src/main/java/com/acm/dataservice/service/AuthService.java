@@ -1,4 +1,4 @@
-package com.acm.front.service;
+package com.acm.dataservice.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
