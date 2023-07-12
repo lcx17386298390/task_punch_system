@@ -10,7 +10,9 @@
         <input v-model="email" type="email" placeholder="注册邮箱">
         <div   style="display: flex;">
           <input  v-model="code" placeholder="验证码">
-          <button @click="sendRequest"   class="f">发送验证码</button>
+          <button @click="sendRequest(),handleSend()" v-if="!disabled" class="f">{{content}}</button>
+          <button v-if="disabled" class="f">{{content}}</button>
+
         </div>
         <p v-if="showError" class="error">错误:输入必须为6位整数</p>
         <button @click="checkInput(),compareCode()" >注册</button>
@@ -20,7 +22,6 @@
 
 <script>
 import axios from 'axios'
-
 
 export default {
   //name:'registration',
@@ -32,8 +33,10 @@ export default {
       email:'',
       code: '',
       showError: false,
-      receivedCode: '',  // 查找验证码发送状态
-      result:'',   //接受验证码验证状态
+      content: '发送验证码',
+      totalTime: 60,
+      canClick: true,
+      disabled: false
     };
   },
   methods:{
@@ -60,13 +63,30 @@ export default {
       console.log(response.data);
       this.receivedCode=response.data.code;
       if (this.receivedCode === 200) {
-    alert('发送验证码成功');
-  }
+        alert('发送验证码成功');
+      }
     })
     .catch(error=>{
       console.error(error);
     })
    },
+    handleSend() {
+      if (!this.canClick) return
+      this.canClick = false
+      this.content = this.totalTime + 's后重新发送'
+      let clock = window.setInterval(() => {
+        this.disabled=true
+        this.totalTime--
+        this.content = this.totalTime + 's后重新发送'
+        if (this.totalTime < 0) {
+          window.clearInterval(clock)
+          this.disabled=false
+          this.content = '重新发送验证码'
+          this.totalTime = 60
+          this.canClick = true
+        }
+      },1000)
+    },
    compareCode(){
       axios.post('/api/register',{
         username:this.username,
@@ -90,7 +110,7 @@ export default {
       .catch(error=>{
         console.error(error);
       })
-   }
+   },
   }
 };
 </script>

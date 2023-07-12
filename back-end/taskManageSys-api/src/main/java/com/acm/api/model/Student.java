@@ -13,9 +13,4 @@ public class Student implements Serializable {
 
     private String password;
 
-    private Double grade;
-
-    private String pos;
-
-    private String mail;
 }
