@@ -25,7 +25,7 @@ public class taskItemController extends BaseController{
      * @return
      */
     @RequestMapping("/taskitem/create")
-    public @ResponseBody Object createTaskItem(String content,@RequestParam("name") String name, String title){
+    public @ResponseBody Object createTaskItem(@RequestParam("content") String content,@RequestParam("name") String name,@RequestParam("pid") String pid){
 
         int cnt  = 0;
         name = name.replace("name=","");
@@ -37,9 +37,10 @@ public class taskItemController extends BaseController{
             taskItem.setContent(content);
             taskItem.setId(UUIDUtils.getUUID());
             taskItem.setName(n);
-            taskItem.setTitle(title);
+            taskItem.setTitle("TaskItem");
             taskItem.setPublisher(Contants.SESSION_ADMIN);
             taskItem.setJudgefinish(BigDecimal.valueOf(0.0));
+            taskItem.setPid(pid);
             cnt += taskItemService.insert(taskItem);
             taskItemList.add(taskItem);
         }
@@ -204,14 +205,29 @@ public class taskItemController extends BaseController{
      * @return
      */
     @RequestMapping("/taskitem/viewAdminTaskItem")
-    public @ResponseBody Object viewAdminTaskItem(@RequestParam(value = "pageNo",required = false,defaultValue = "1") Integer pageNo,
-                                                  @RequestParam(value = "pageSize",required = false,defaultValue = "6") Integer pageSize){
+    public @ResponseBody Object viewAdminTaskItem(String pid){
         ReturnObject returnObject = new ReturnObject();
+        String publisher = Contants.SESSION_ADMIN;
+        List<TaskItem> taskItemList = taskItemService.viewAdminTaskItem(publisher,pid);
+        if(taskItemList!= null){
+            returnObject.setRetData(taskItemList);
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("查找成功");
+            return returnObject;
+        }
+        returnObject.setMessage("查找失败！请稍后再试");
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+        return returnObject;
+    }
+
+    @RequestMapping("/taskitem/viewAdminTaskItemByPage")
+    public @ResponseBody Object viewAdminTaskItemByPage(Integer pageNo,Integer pageSize){
+        ReturnObject returnObject = new ReturnObject();
+        String publisher = Contants.SESSION_ADMIN;
         pageNo = CommonUtil.defaultPageNo(pageNo);
         pageSize = CommonUtil.defaultPageSize(pageSize);
         Integer offset = (pageNo - 1) * pageSize;
-        String publisher = Contants.SESSION_ADMIN;
-        List<TaskItem> taskItemList = taskItemService.viewAdminTaskItem(publisher,offset,pageSize);
+        List<TaskItem> taskItemList = taskItemService.viewAdminTaskItemByPage(publisher,offset,pageSize);
         if(taskItemList!= null){
             returnObject.setRetData(taskItemList);
             returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
@@ -294,6 +310,21 @@ public class taskItemController extends BaseController{
         }
         returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
         returnObject.setMessage("修改失败！请稍后再试");
+        return returnObject;
+    }
+
+    @RequestMapping("/taskitem/viewTaskItemByPidAndName")
+    public @ResponseBody Object viewTaskItemByPidAndName(String pid,String name){
+        ReturnObject returnObject = new ReturnObject();
+        List<TaskItem> taskItemList = taskItemService.viewTaskItemByPidAndName(pid,name);
+        if(taskItemList!= null){
+            returnObject.setRetData(taskItemList);
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            returnObject.setMessage("查找成功");
+            return returnObject;
+        }
+        returnObject.setMessage("查找失败！请稍后再试");
+        returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
         return returnObject;
     }
 }

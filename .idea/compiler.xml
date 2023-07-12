@@ -26,6 +26,7 @@
       <module name="taskManageSys-msgToMail (1)" target="1.8" />
       <module name="taskManageSys-msgToMail (2)" target="1.8" />
       <module name="taskManageSys-regAndLoginWeb" target="1.8" />
+      <module name="taskManageSys-sendMsg" target="1.8" />
       <module name="taskManageSys-viewTask" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -39,6 +40,7 @@
       <module name="taskManageSys-msgToMail (1)" options="-parameters" />
       <module name="taskManageSys-msgToMail (2)" options="-parameters" />
       <module name="taskManageSys-regAndLoginWeb" options="-parameters" />
+      <module name="taskManageSys-sendMsg" options="-parameters" />
       <module name="taskManageSys-viewTask" options="-parameters" />
     </option>
   </component>

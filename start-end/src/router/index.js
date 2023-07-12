@@ -10,6 +10,7 @@ import registration from '../components/registration'
 import ViewYourTasks from '../pages/ViewYourTasks'
 import self from '../components/self.vue'
 import index from '../pages/index'
+import Check from '../pages/Check'
 // import { component } from 'vue/types/umd's
 
 const router = new VueRouter({
@@ -45,6 +46,9 @@ const router = new VueRouter({
                 // {path: '/PostTask',component: PostTask},
             ]
         },
+        {
+            path: '/check', component: Check
+        }
 
     ]
 })

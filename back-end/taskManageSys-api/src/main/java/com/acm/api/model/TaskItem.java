@@ -14,6 +14,16 @@ public class TaskItem implements Serializable {
 
     private String title;
 
+    private String pid;
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
+
     public String getTitle() {
         return title;
     }

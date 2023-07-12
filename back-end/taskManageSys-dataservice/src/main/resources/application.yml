@@ -6,6 +6,17 @@ spring:
     url: jdbc:mysql://localhost:3306/finishtasksys?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 040927
+  mail:
+      host: smtp.163.com
+      username: acm1633@163.com
+      password: AZSFJYJMHPKKIXWA
+      port: 465
+      properties:
+        from: acm1633@163.com
+        mail:
+          smtp:
+            socketFactory:
+              class: javax.net.ssl.SSLSocketFactory
 
 mybatis:
   mapper-locations: classpath:/mappers/**/*.xml
@@ -21,3 +32,13 @@ dubbo:
   provider:
     timeout: 50000
     retries: 0
+
+server:
+  port: 8004
+  servlet:
+    context-path:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+

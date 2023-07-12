@@ -1,11 +1,11 @@
 spring:
   application:
     name: taskManageSys-regAndLoginWeb
-  datasource:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/acm?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-      username: root
-      password: 123456
+#  datasource:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/finishtasksys?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+#      username: root
+#      password: 040927
   mail:
       host: smtp.163.com
       username: acm1633@163.com
@@ -17,6 +17,12 @@ spring:
           smtp:
             socketFactory:
               class: javax.net.ssl.SSLSocketFactory
+#  datasource:
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+#      url: jdbc:mysql://localhost:3306/acm?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+#      username: root
+#      password: 123456
+
   redis:
        database: 0
        host: localhost
@@ -30,7 +36,7 @@ dubbo:
   registry:
     address: zookeeper://localhost:2181
   scan:
-    base-packages: com.acm.front
+    base-packages: com.acm.regandlogin
   consumer:
     check: false
     timeout: 50000
@@ -40,7 +46,7 @@ dubbo:
     port: 20882
 
 server:
-  port: 8000
+  port: 8003
   servlet:
     context-path:
     encoding:

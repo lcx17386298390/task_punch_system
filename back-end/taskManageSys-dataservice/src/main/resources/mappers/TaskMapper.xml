@@ -76,7 +76,12 @@
       content = #{content,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <select id="calCountOfTask" resultType="java.lang.Integer">
+    <update id="editAdminTaskItemTitleVal">
+      update task
+      set title = #{title,jdbcType=VARCHAR}
+      where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <select id="calCountOfTask" resultType="java.lang.Integer">
     select count(id) from task
   </select>
 </mapper>

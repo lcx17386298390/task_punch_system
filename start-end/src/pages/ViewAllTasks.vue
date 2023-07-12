@@ -13,36 +13,37 @@
 
     <div class="container">
       <div class="search">
-        管理员<input type="radio" name="aaa" @click="adminShow=true" checked>
-        学生<input type="radio" name="aaa" @click="initAllStuTaskItem(1,9)">
+        管理员<input type="radio" name="aaa" @click="initPage(1,6)" checked>
+        学生<input type="radio" name="aaa" @click="initAllStuTaskItem(1,6)">
       </div>
       <table v-if="adminShow" >
         <thead>
         <tr>
-        <th>姓名</th>
+        <th>序号</th>
         <th>标题</th>
         <th>删除</th>
-        <th>评分</th>
+<!--        <th>评分</th>-->
         <th>查看</th>
-          <th>分数</th>
+<!--          <th>分数</th>-->
         </tr>
         </thead>
         <tbody>
-          <tr v-for="task of taskList" :key="task.id" class="line">
-          <td>{{ task.name }}</td>
+          <tr v-for="(task,index) of taskList" :key="task.id" class="line">
+          <td>{{ index + 1 }}</td>
           <td>
             <span v-show="!task.editState" class="desc" @click="enterEdit(task)">{{ task.title }}</span>
             <input maxlength="15" v-show="task.editState" ref="inputDesc" type="text" :value="task.title" @blur="updateDesc(task,$event)">
           </td>
           
-          <td><button class="delete" @click="deleteTaskItem(task.name,task.id)"><i class="fas fa-times"></i></button></td>
-          <td><button class="edit" @click="transmitMarkInfo(task.name,task.id)"><i class="fas fa-pencil-alt fa-fw"></i></button></td>
-          <td><button class="plus" @click="viewTaskItemContent(task.name,task.id)"><i class="fa fa-plus"></i></button></td>
+          <td><button class="delete" @click="deleteTask(task.name,task.id)"><i class="fas fa-times"></i></button></td>
+<!--          <td><button class="edit" @click="transmitMarkInfo(task.name,task.id)"><i class="fas fa-pencil-alt fa-fw"></i></button></td>-->
+<!--          <td><button class="plus" @click="viewTaskItemContent(task.name,task.id)"><i class="fa fa-plus"></i></button></td>-->
+            <td><button class="plus" @click="goCheck(task.id,task.content)"><i class="fa fa-plus"></i></button></td>
           <td v-show="false">
             <span v-show="!task.editState1" class="desc" @click="enterEdit1(task)" ref="getContent">{{ task.content }}</span>
             <input v-show="task.editState1" ref="inputDesc1" type="text" :value="task.content" @blur="updateDesc1(task,$event)">
           </td>
-            <td>{{task.judgefinish}}</td>
+<!--            <td>{{task.judgefinish}}</td>-->
         </tr>
         </tbody>
         
@@ -126,6 +127,7 @@
 import {doGet} from "@/api/httpRequest";
 import layx from "vue-layx";
 
+
 export default {
   name: "ViewAllTasks",
   components: {
@@ -190,6 +192,16 @@ export default {
   // },
 
   methods:{
+    goCheck(taskId,taskContent){
+      //console.log(this)
+      this.$router.push({
+        path:'/check',
+        query:{
+          taskId:taskId,
+          taskContent:taskContent
+        }
+      })
+    },
     enterEdit(item){
       // eslint-disable-next-line no-prototype-builtins
       if(item.hasOwnProperty('editState')){
@@ -221,8 +233,7 @@ export default {
       else{
         item.title=e.target.value
         item.editState=false
-        doGet('http://localhost:8000/tms/taskitem/editAdminTaskItemTitleVal', {
-          name: item.name,
+        doGet('http://localhost:8000/tms/task/editAdminTaskItemVal', {
           id:item.id,
           title:item.title})
             .then(resp => {
@@ -242,19 +253,20 @@ export default {
       }
     },
     initPage(pageNo,pageSize) {
-      doGet('http://localhost:8000/tms/taskitem/viewAdminTaskItem', {
+      this.adminShow=true
+      doGet('http://localhost:8000/tms/task', {
         pageNo: pageNo,pageSize:pageSize})
           .then(resp => {
             if (resp) {
               //console.log(resp.data.retData);
-              this.taskList = resp.data.retData;
+              this.taskList = resp.data;
               //console.log(resp.data)
             }
           });
       this.updatePage(pageNo);
     },
     updatePage(pageNo){
-      doGet('http://localhost:8000/tms/taskitem/calAdminTaskItem',{
+      doGet('http://localhost:8000/tms/task/cal',{
         pageNo:this.pageInfo.pageNo,
       }).then(resp => {
         if(resp){
@@ -263,8 +275,8 @@ export default {
         }
       })
     },
-    deleteTaskItem(name,id){
-      doGet('http://localhost:8000/tms/taskitem/delete',{
+    deleteTask(name,id){
+      doGet('http://localhost:8000/tms/task/delete',{
         name:name,id:id
       }).then(resp => {
         if(resp){
@@ -272,7 +284,7 @@ export default {
           //console.log(resp.data.message)
         }
       })
-    },
+    },/*,
     markTaskItem(){
       doGet('http://localhost:8000/tms/taskitem/givemark',{
         name:this.tempName,id:this.tempId,judgefinish:this.inputJudgeFinish
@@ -288,8 +300,8 @@ export default {
         this.inputJudgeFinish=""
         location.reload()
       })
-    },
-    editTaskItemContent(content){
+    }*/
+    /*editTaskItemContent(content){
       // /taskitem/editContent
       if(content.length>200){this.inputError=true;return}
       this.showModal = false
@@ -309,7 +321,7 @@ export default {
       this.tempName=name
       this.tempId=id
       this.tempPlaceHolder = "给" + name + "同学打分吧~"
-    },
+    },*/
     viewTaskItemContent(name,id){
       this.showModal=true
 

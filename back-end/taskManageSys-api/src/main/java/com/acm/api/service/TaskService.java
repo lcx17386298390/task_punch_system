@@ -15,4 +15,6 @@ public interface TaskService {
     int updateByPrimaryKey(Task record);
 
     int calCountOfTask();
+
+    int editAdminTaskItemTitleVal(String id, String title);
 }
