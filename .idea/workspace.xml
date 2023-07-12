@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="yq-前后端验证码发送连接完成">
+    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="yq-前后端注册连接完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/api/httpRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/api/httpRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/components/registration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/components/registration.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/AdminMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/entity/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/entity/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start-end/src/components/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/components/login.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +23,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -45,31 +50,31 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/test",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "5550d80a00e9371c79c6db0e7a014dbe",
-    "ts.external.directory.path": "E:\\text\\IntelliJ IDEA 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/test&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5550d80a00e9371c79c6db0e7a014dbe&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;E:\\text\\IntelliJ IDEA 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -186,7 +191,8 @@
       <workItem from="1688864699693" duration="18302000" />
       <workItem from="1688957009986" duration="270000" />
       <workItem from="1688957291851" duration="20548000" />
-      <workItem from="1689038345737" duration="2346000" />
+      <workItem from="1689038345737" duration="21330000" />
+      <workItem from="1689122103947" duration="2593000" />
     </task>
     <task id="LOCAL-00001" summary="跨域链接">
       <created>1688542871361</created>
@@ -279,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688991770727</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="yq-前后端注册连接完成">
+      <created>1689040732704</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689040732704</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +317,7 @@
     <MESSAGE value="chh-发布任务页面评分" />
     <MESSAGE value="chh-管理者查看任务页面完成" />
     <MESSAGE value="yq-前后端验证码发送连接完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="yq-前后端验证码发送连接完成" />
+    <MESSAGE value="yq-前后端注册连接完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="yq-前后端注册连接完成" />
   </component>
 </project>

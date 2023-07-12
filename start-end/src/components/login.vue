@@ -24,22 +24,12 @@
       <div v-if="selectedColor === 'red'" class="red card-inner">
         <h1>普通登录</h1>
         <form>
-          <input
-            type="text"
-            class="inp"
-            v-model="username"
-            placeholder="用户名"
-          />
-          <p v-if="usernameError" class="error">username cannot be empty</p>
-          <input
-            type="password"
-            class="inp"
-            v-model="userpassword"
-            placeholder="密码"
-          />
-          <p v-if="passwordError" class="error">password cannot be empty</p>
-          <button @click="checkInputsulogin" type="submit">登录</button>
-          <p>{{ uresult }}</p>
+          <input type="text" class="inp" v-model="username" placeholder="用户名"/>
+
+          <input type="password" class="inp" v-model="password" placeholder="密码"/>
+
+          <button @click="login2" type="submit">登录</button>
+
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
           </button>
@@ -48,22 +38,12 @@
       <div v-else class="blue card-inner">
         <h1>管理员</h1>
         <form>
-          <input
-            type="text"
-            class="inp"
-            v-model="aname"
-            placeholder="管理员用户名"
-          />
-          <p v-if="ausernameError" class="error">username cannot be empty</p>
-          <input
-            type="password"
-            class="inp"
-            v-model="apassword"
-            placeholder="管理员密码"
-          />
-          <p v-if="apasswordError" class="error">password cannot be empty</p>
-          <button @click="acheckInputsalogin" type="submit">登录</button>
-          <p>{{ aresult }}</p>
+          <input type="text" class="inp" v-model="username" placeholder="管理员用户名"/>
+
+          <input type="password" class="inp" v-model="password" placeholder="管理员密码"/>
+
+          <button @click="login1" type="submit">登录</button>
+
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
           </button>
@@ -79,17 +59,20 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      username: "",
-      userpassword: "",
-      aname:"",
-      apassword:"",
-      usernameError: false,
-      passwordError: false,
-      ausernameError: false,
-      apasswordError: false,
-      selectedColor: "red",
-      uresult: '',
-      aresult: ''
+      username:'',
+      password:'',
+      role:'',
+      adminUsername:'',
+      // userpassword: "",
+      // aname:"",
+      // apassword:"",
+      // usernameError: false,
+      // passwordError: false,
+      // ausernameError: false,
+      // apasswordError: false,
+       selectedColor: "red",
+      // uresult: '',
+      // aresult: ''
     };
   },
   methods: {
@@ -99,83 +82,122 @@ export default {
     goToRegistration() {
       this.$router.push("/registration");
     },
-    checkInputs() {
-      if (this.username.trim() === "" || this.userpassword.trim() === "") {
-        this.usernameError = this.username.trim() === "";
-        this.passwordError = this.userpassword.trim() === "";
-        setTimeout(() => {
-          this.usernameError = false;
-          this.passwordError = false;
-        }, 2000);
-      }
-    },
-    acheckInputs() {
-      if (this.aname.trim() === "" || this.apassword.trim() === "") {
-        this.ausernameError = this.aname.trim() === "";
-        this.apasswordError = this.apassword.trim() === "";
-        setTimeout(() => {
-          this.ausernameError = false;
-          this.apasswordError = false;
-        }, 2000);
-      }
-    },
-    // 普通登录 username 和 userpassword
-    async ulogin(){
-      try {
-        const response = await axios.get('/api/login');
-        const { username, userpassword } = response.data;
-        
-        if (this.username === username && this.userpassword === userpassword) {
-          // 登录成功
-          this.uresult = '登录成功';
-          // 这里少了登录完成后的跳转
-        } else if (this.username !== username && this.userpassword !== userpassword) {
-          // 用户名和密码都不正确
-          this.uresult = '用户名和密码均不正确';
-        } else if (this.username !== username) {
-          // 用户名不正确
-          this.uresult = '用户名不正确';
-        } else {
-          // 密码不正确
-          this.uresult = '密码不正确';
+    login1(){
+      axios.post('/api/login',{
+        username:this.username,
+        password:this.password
+      },{
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    // 算是一个补丁，确保调用的两个函数都能运行
-    checkInputsulogin(){
-      this.checkInputs();
-    this.ulogin();
-    },
-    acheckInputsalogin(){
-      this.acheckInputs();
-      this.alogin();
-    },
-    // 管理员登录 aname和apassword
-    async alogin(){
-      try {
-        const response = await axios.get('/api/login');
-        const { aname, apassword } = response.data;
-        
-        if (this.aname === aname && this.apassword === apassword) {
-          // 登录成功
-          this.aresult = '登录成功';
-          // 这里差登录完成后的跳转
-        } else if (this.aname !== aname && this.apassword !== apassword) {
-          // 用户名和密码都不正确
-          this.aresult = '用户名和密码均不正确';
-        } else if (this.aname !== aname) {
-          // 用户名不正确
-          this.aresult = '用户名不正确';
-        } else {
-          // 密码不正确
-          this.aresult = '密码不正确';
+      }).then(response=>{
+        if(response.data.role==='admin'){
+          console.log(response.data);
+          this.$router.push("/adminHome");
+        }else{
+          alert('用户名或密码错误')
         }
-      } catch (error) {
-        console.error(error);
-      }
+      })
+    },
+    login2(){
+      axios.post('/api/login',{
+        username:this.username,
+        password:this.password
+      },{
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }).then(response=>{
+        if(response.data.role==='user'){
+          console.log(response.data);
+          this.$router.push("/studentHome");
+        }else{
+          alert('用户名或密码错误')
+        }
+      })
     }
+    // checkInputs() {
+    //   if (this.username.trim() === "" || this.userpassword.trim() === "") {
+    //     this.usernameError = this.username.trim() === "";
+    //     this.passwordError = this.userpassword.trim() === "";
+    //     setTimeout(() => {
+    //       this.usernameError = false;
+    //       this.passwordError = false;
+    //     }, 2000);
+    //   }
+    // },
+    // acheckInputs() {
+    //   if (this.aname.trim() === "" || this.apassword.trim() === "") {
+    //     this.ausernameError = this.aname.trim() === "";
+    //     this.apasswordError = this.apassword.trim() === "";
+    //     setTimeout(() => {
+    //       this.ausernameError = false;
+    //       this.apasswordError = false;
+    //     }, 2000);
+    //   }
+    // },
+    // 普通登录 username 和 userpassword
+    // async ulogin(){
+    //   try {
+    //     const response = await
+    //         axios.post('/api/login',{
+    //           username: this.username,
+    //           password: this.password,
+    //           role: this.role
+    //         });
+    //     const { username, userpassword } = response.data;
+    //
+    //     if (this.username === username && this.userpassword === userpassword) {
+    //       // 登录成功
+    //       this.uresult = '登录成功';
+    //       // 这里少了登录完成后的跳转
+    //     } else if (this.username !== username && this.userpassword !== userpassword) {
+    //       // 用户名和密码都不正确
+    //       this.uresult = '用户名和密码均不正确';
+    //     } else if (this.username !== username) {
+    //       // 用户名不正确
+    //       this.uresult = '用户名不正确';
+    //     } else {
+    //       // 密码不正确
+    //       this.uresult = '密码不正确';
+    //     }
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // },
+    // 算是一个补丁，确保调用的两个函数都能运行
+    // checkInputsulogin(){
+    //   this.checkInputs();
+    // this.ulogin();
+    // },
+    // acheckInputsalogin(){
+    //   this.acheckInputs();
+    //   this.alogin();
+    // },
+    // 管理员登录 aname和apassword
+    // async alogin(){
+    //   try {
+    //     const response = await axios.get('/api/login');
+    //     const { aname, apassword } = response.data;
+    //
+    //     if (this.aname === aname && this.apassword === apassword) {
+    //       // 登录成功
+    //       this.aresult = '登录成功';
+    //       // 这里差登录完成后的跳转
+    //     } else if (this.aname !== aname && this.apassword !== apassword) {
+    //       // 用户名和密码都不正确
+    //       this.aresult = '用户名和密码均不正确';
+    //     } else if (this.aname !== aname) {
+    //       // 用户名不正确
+    //       this.aresult = '用户名不正确';
+    //     } else {
+    //       // 密码不正确
+    //       this.aresult = '密码不正确';
+    //     }
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // }
   },
 };
 </script>

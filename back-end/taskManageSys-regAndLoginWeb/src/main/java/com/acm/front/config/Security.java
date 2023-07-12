@@ -1,11 +1,15 @@
 package com.acm.front.config;
 
+import com.acm.api.model.Admin;
+import com.acm.dataservice.mapper.AdminMapper;
 import com.acm.front.entity.Result;
 import com.acm.front.service.AuthService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,11 +35,15 @@ public class Security {
     AuthService authService;
     @Resource
     DataSource dataSource;
+    @Resource
+    AdminMapper adminMapper;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity,PersistentTokenRepository persistentTokenRepository) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests()
                 .antMatchers("/api/**").permitAll()
+//                .antMatchers("/api1/**").hasRole("admin")
+//                .antMatchers("/api2/**").hasRole("user")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -81,12 +89,10 @@ public class Security {
         return jdbcTokenRepository;
     }
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity
-                .getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(authService)
-                .and()
-                .build();
+    public AuthenticationManager authenticationManager()  {
+        DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
+        provider.setUserDetailsService(authService);
+        return new ProviderManager(provider);
     }
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
@@ -94,8 +100,9 @@ public class Security {
     }
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
         response.setCharacterEncoding("utf-8");
+        Admin admin=adminMapper.findAuthByName(authentication.getName());
         if(request.getRequestURI().endsWith("/login")) {
-            response.getWriter().write(JSONObject.toJSONString(Result.success("登录成功")));
+            response.getWriter().write(JSONObject.toJSONString(Result.success("登录成功",admin.getRole())));
         } else if (request.getRequestURI().endsWith("/logout")) {
             response.getWriter().write(JSONObject.toJSONString(Result.success("退出登录成功")));
         }

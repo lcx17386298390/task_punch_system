@@ -42,7 +42,7 @@ public class AuthServiceImpl implements AuthService {
         return User
                 .withUsername(admin.getUsername())
                 .password(admin.getPassword())
-                .roles("user")
+                .roles(admin.getRole())
                 .build();
     }
     @Override
@@ -78,7 +78,7 @@ public class AuthServiceImpl implements AuthService {
             String s = stringRedisTemplate.opsForValue().get(key);
             if (s.equals(code)) {
                 password = bCryptPasswordEncoder.encode(password);
-                if (adminMapper.addAdmin(email, username, password) > 0) {
+                if (adminMapper.addAdmin(email, username, password,"user") > 0) {
                     return null;
                 } else {
                     return "内部错误";
