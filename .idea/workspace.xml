@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="yq-前后端注册连接完成">
+    <list default="true" id="f6279ca6-0363-4b2a-87c4-ea160597cb1e" name="Changes" comment="yq-前后端登录连接完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-api/src/main/java/com/acm/api/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/AdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/AdminMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-dataservice/src/main/java/com/acm/dataservice/mapper/StudentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/config/Security.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/entity/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/entity/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/taskManageSys-regAndLoginWeb/src/main/java/com/acm/front/service/Impl/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-end/src/components/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/components/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start-end/src/components/registration.vue" beforeDir="false" afterPath="$PROJECT_DIR$/start-end/src/components/registration.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +185,7 @@
       <workItem from="1688957009986" duration="270000" />
       <workItem from="1688957291851" duration="20548000" />
       <workItem from="1689038345737" duration="21330000" />
-      <workItem from="1689122103947" duration="2593000" />
+      <workItem from="1689122103947" duration="6347000" />
     </task>
     <task id="LOCAL-00001" summary="跨域链接">
       <created>1688542871361</created>
@@ -292,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689040732704</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="yq-前后端登录连接完成">
+      <created>1689125015907</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689125015907</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +303,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -318,6 +330,7 @@
     <MESSAGE value="chh-管理者查看任务页面完成" />
     <MESSAGE value="yq-前后端验证码发送连接完成" />
     <MESSAGE value="yq-前后端注册连接完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="yq-前后端注册连接完成" />
+    <MESSAGE value="yq-前后端登录连接完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="yq-前后端登录连接完成" />
   </component>
 </project>
