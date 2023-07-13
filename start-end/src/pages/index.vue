@@ -3,11 +3,13 @@
     <nav>
     <div class="navbox">
       <p>介绍页面</p>
-      <p>更多功能体验</p>
+      <p @click="showAlert">开始工作</p>
     </div>
     <div class="nava">
-      <a href="">登录</a>
-      <a href="">注册</a>
+      <!-- <a href="/#/login">登录</a> -->
+      <router-link to="/login">登录</router-link>
+      <router-link to="/registration">注册</router-link>
+      <!-- <a href="/registration">注册</a> -->
     </div>
   </nav>
 
@@ -55,9 +57,12 @@
   <!-- 中转 -->
   <div class="zzz">
     <img src="../assets/tearm.jpg" />
-    <div class="zz" style="background-image: url(../assets/us); ">
-      <h2>使用任务打卡系统</h2>
-      <p>一个用于记录和管理工作任务的网站，帮助用户高效完成任务并追踪进度，提供便捷的任务管理和统计功能。</p>
+    <div class="zz">
+      <img src="../assets/us.jpg" />
+      <div class="zbox">
+        <h2>使用任务打卡系统</h2>
+        <p>一个用于记录和管理工作任务的网站，帮助用户高效完成任务并追踪进度，提供便捷的任务管理和统计功能。</p>
+      </div>
     </div>
   </div>
 
@@ -165,10 +170,15 @@
 <script>
 export default{
   name:'index',
+  methods:{
+    showAlert(){
+      alert('请先登录');
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
 nav {
   display: flex;
   background-color: #ffffff;
@@ -278,52 +288,67 @@ nav a {
 .div-box img {
   width: 30%;
   height: 80px;
-  padding-right: 70px;
+  padding-right: 80px;
 }
+
 .div-box hr {
   width: 60%;
   margin-right: 100px;
+  margin-bottom: 10px;
 }
 
 .div-box p {
   width: 80%;
   font-size: 18px;
   letter-spacing: 0.3em;
+  line-height: 30px;
 }
 
 .div-box .top {
+  margin-top: 20px;
   font-weight: 600;
   font-size: 20px;
   letter-spacing: 0.5em;
 }
 
+/* 中转 */
 .zzz {
   margin-top: 50px;
   display: flex;
 }
 
 .zzz img {
+  float: left;
   width: 800px;
   height: 450px;
 }
 
 .zzz .zz {
-  /* background-image: url(../assets/us); */
-  color: white;
-  padding-left: 20px;
+  position: relative;
 }
 
 .zzz .zz h2 {
+  position: absolute;
+  top: 10%;
   font-size: 50px;
   margin-top: 100px;
   letter-spacing: 0.2em;
   font-family: inherit;
+  color: wheat;
 }
 
 .zzz .zz p {
+  position: absolute;
+  top: 49%;
   font-size: 20px;
   letter-spacing: 0.3em;
   font-family: serif;
+  color: wheat;
+}
+
+.zzz .zz img {
+  object-fit: cover;
+  z-index: -999;
 }
 
 /* 开发人员介绍 */
@@ -365,7 +390,7 @@ nav a {
 .team .come p {
   color: #000;
   font-size: 34px;
-  line-height: 200px;
+  line-height: 260px;
   letter-spacing: 0.2em;
   margin-left: 40px;
   font-weight: 600;
@@ -407,7 +432,7 @@ nav a {
   transform: skewX(-20deg);
   transform-origin: 0;
   margin-top: 70px;
-  margin-left: -30px;
+  margin-left: -40px;
   padding-left: 60px;
 }
 
@@ -417,6 +442,7 @@ nav a {
   font-size: 25px;
   font-family: inherit;
   font-weight: 600px;
+  margin-top: 20px;
 }
 
 .miaoshi .jieshao {
