@@ -3,31 +3,28 @@
     <br>
     <a href="/adminHome" class="back">back</a>
       <h2>SendMsg</h2>
-      <!-- 多选选人 -->
-    <div class="checkbox">
-      <label v-for="person in people" :key="person.id">
-      <input type="checkbox" :value="person.name" v-model="selectedPeople"> {{ person.name }}
-    </label>
-    </div>
+      <!-- 搜索选人 -->
+    <div class="selected">
+  <input type="text" v-model="searchText" @input="filterData" class="search-input" placeholder="请输入姓名...">
+  <ul v-show="showDropdown" class="dropdown">
+    <li v-for="item in filteredData" :key="item.id" @click="selectItem(item)">&nbsp;&nbsp;{{ item.name }}</li>
+  </ul>
+</div>
 
     <!-- 编写消息 发送 -->
     <div>
-      <textarea v-model="message" class="text" cols="29" rows="8" placeholder="Edit your message..."></textarea>
-    <button  @click="sendMsg" class="_btn">send</button>
+      <textarea v-model="message" class="text" cols="29" rows="8" placeholder="请编辑信息..."></textarea>
+    <button  @click="sendMsg" class="_btn">发送</button>
     </div>
 
     <!-- 呈现消息 -->
     <div class="content">
-      <!-- 查找 -->
-      &nbsp;&nbsp;&nbsp;sender:<input type="text" v-model="inputSearchSender">
-      recipient:<input type="text" v-model="inputSearchRecipient">
-      <button class="_btn_" @click="queryMsg">search</button>
-      <hr>
+      
       <ul>
         <li v-for="msg in sentMessages" :key="msg.id">
-          <span>{{ msg.fromuser }}</span> send a message to <span>{{ msg.touser }}</span> :
+          <span>{{ msg.fromuser }}</span> 发了一个消息给 <span>{{ msg.touser }}</span> :
           <p>{{ msg.msg }}</p>
-          <!-- {{currentDate}} -->
+          {{currentDate}}
           <hr>
         </li>
       </ul>
@@ -44,10 +41,10 @@ export default {
   name:'SendMsg',
   data(){
     return{
-        text:'',
+      searchText: '',
       inputSearchSender: "",
       inputSearchRecipient:"",
-        people: [
+        data: [
         { id: 1, name: 'chh' },
         { id: 2, name: 'dc' },
         { id: 3, name: 'yq' },
@@ -61,9 +58,12 @@ export default {
       selectedPeople:[],
       sentMessages: [],
       message: '',
-      // currentDate: new Date()
+      showDropdown: false,
+      filteredData: [],
+      currentDate: new Date()
     }
   },
+  
   methods:{
     sendMsg() {
       
@@ -75,17 +75,18 @@ export default {
       //     console.error('发送消息时出错', error);
       //   });
 
-      if (this.selectedPeople.length > 0 && this.message !== '') {
-        for (let person of this.selectedPeople) {
+      if (this.filteredData.length > 0 && this.message !== '') {
+        for (let item of this.filteredData) {
           // this.sentMessages.push({
           //   id: Date.now(),
           //   sender: 'You',
           //   recipient:this.selectedPeople[0],
           //   content: this.message
           // });
+          if (item.isSelected) {
           doGet("http://localhost:8002/tms/sendmessage", {
             fromuser: 'You',
-            toname: this.selectedPeople[0],
+            toname: item.name,
             msg:this.message,
             id:Date.now()
           }).then((resp) => {
@@ -94,8 +95,9 @@ export default {
 
             }
           });
+          }
         }
-        this.selectedPeople = [];
+        this.searchText = '';
         this.message = '';
       }
       
@@ -110,13 +112,24 @@ export default {
           //location.reload()
         }
       });
-    }
+    },
+    filterData() {
+      this.filteredData = this.data.filter(item => item.name.includes(this.searchText));
+      this.showDropdown = this.filteredData.length > 0;
+    },
+    selectItem(item) {
+      this.searchText = item.name;
+      this.showDropdown = false;
+      for (let dataItem of this.data) {
+        dataItem.isSelected = (dataItem.name === item.name);
+  }
+    },
   }
   
 }
 </script>
 
-<style>
+<style scoped>
 .send_msg {
   position:relative;
   inline-size: 400px;
@@ -134,7 +147,7 @@ export default {
   background-color: #d4ddec00;
   border: 1px solid #c7c6c6;
   display: flex;
-  margin: 0px 0px 10px;
+  margin: 40px 0px 10px;
   padding:10px;
 }
 ._btn {
@@ -152,17 +165,11 @@ export default {
   background-color: #6abddca9;
   transform: scale(1.035);
 }
-.checkbox {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 35px 35px 35px;
-  margin: 0px 0px 0px 640px;
-}
+
 .send_msg h2 {
-  margin: 0 0px 40px;
+  margin: 10px 0px 20px;
   color: #181a1ebf;
-  font-size: 2em;
+  font-size: 40px;
   font-weight:bold;
 
 }
@@ -176,28 +183,36 @@ export default {
   overflow: auto;
   overflow-wrap: break-word; 
   line-height: 1.5;
+  z-index: 2;
 }
 .content ul li {
   margin: 30px 30px 0 30px;
 }
 .content input {
+  background-color: rgb(235, 233, 233);
   border-radius: 4px;
   margin-inline-end: 4px;
   padding: 6px;
   margin: 30px 30px 0 30px;
 }
-._btn_ {
- background-color: rgb(210, 210, 210);
-  margin-block-start: 10px;
-  font-weight: 700;
-  border: 5px;
+
+.search-input {
+  background-color: rgb(235, 233, 233);
   border-radius: 4px;
-  padding: 7px 20px;
-  transform: scale(1.035);
-  transition: transform 0.3s ease;
+  margin-inline-end: 4px;
+  padding: 6px;
+  margin: 20px 0 0 0 ;
+   
 }
-._btn_:hover {
-  background-color: #6abddca9;
-  transform: scale(1.035);
+
+.dropdown {
+  position: absolute;
+  z-index: 1;
+  border-radius: 4px;
+  border: 2px solid #737373;
+  max-block-size: 200px;
+  inline-size: 174px;
+  overflow-y: auto;
+  background-color: #f3f3f3;
 }
 </style>
