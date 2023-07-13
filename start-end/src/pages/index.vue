@@ -81,7 +81,7 @@
         <img src="../assets/lcx.jpg" />
         <div class="miaoshi">
           <p>开心超人</p>
-          <p class="jieshao">领导者</p>
+          <p class="jieshao">天子临宣赐侯印，将军佩出明光</p>
         </div>
       </div>
       <div class="cy">
@@ -90,7 +90,7 @@
             <img src="../assets/chy.jpg" />
             <div class="miaoshi">
               <p>Vio1et27</p>
-              <p class="jieshao">原神，启动！</p>
+              <p class="jieshao">springboot，启动！</p>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@
             <img src="../assets/xxj.jpg" />
             <div class="miaoshi">
               <p>alpacanosleep</p>
-              <p class="jieshao">请务必要千万次救自己于水火之中</p>
+              <p class="jieshao">拿着最差的牌也要有一往无前的勇气</p>
             </div>
           </div>
         </div>
