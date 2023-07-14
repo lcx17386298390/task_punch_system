@@ -25,6 +25,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import java.io.IOException;
 @Configuration
@@ -36,6 +37,7 @@ public class Security {
     DataSource dataSource;
     @Resource
     AdminMapper adminMapper;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
@@ -101,7 +103,7 @@ public class Security {
         response.setCharacterEncoding("utf-8");
         Admin admin=adminMapper.findAuthByName(authentication.getName());
         if(request.getRequestURI().endsWith("/login")) {
-            response.getWriter().write(JSONObject.toJSONString(Result.success("登录成功",admin.getRole())));
+            response.getWriter().write(JSONObject.toJSONString(Result.success("登录成功",admin.getRole(),admin)));
         } else if (request.getRequestURI().endsWith("/logout")) {
             response.getWriter().write(JSONObject.toJSONString(Result.success("退出登录成功")));
         }

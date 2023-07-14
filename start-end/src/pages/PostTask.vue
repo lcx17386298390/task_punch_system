@@ -50,7 +50,7 @@ export default {
       showOverlay: false,
       ifError:false,
       ifErrorToo:false,
-      StuName: "chh"
+      StuName: sessionStorage.getItem("user")
     };
   },
   methods: {

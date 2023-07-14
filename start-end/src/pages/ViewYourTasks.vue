@@ -183,7 +183,7 @@ export default {
       inputError:false,
       isMineChecked: true,
       checkedItems: [],
-      StuName: "chh",
+      StuName: sessionStorage.getItem("user"),
       tempContent:"",
       calScore: "",
       tempId: "",

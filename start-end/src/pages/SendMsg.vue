@@ -22,7 +22,7 @@
       <h3>发送信息</h3>
       <hr>
       <ul>
-        <li v-for="msg in sentMessages" :key="msg.id">
+        <li v-for="msg in sentMessages1" :key="msg.id">
           <span>{{ msg.fromuser }}</span> 发了一个消息给 <span>{{ msg.touser }}</span> :
           <p>{{ msg.msg }}</p>
           {{currentDate}}
@@ -35,14 +35,14 @@
       <h3>接收信息</h3>
       <hr>
       <ul>
-        <li v-for="msg in sentMessages" :key="msg.id">
+        <li v-for="msg in sentMessages2" :key="msg.id">
           <span>{{ msg.touser }}</span> 发了一个消息给 <span>{{ msg.fromuser }}</span> :
           <p>{{ msg.msg }}</p>
           {{currentDate}}
           <hr>
         </li>
       </ul>
-      
+
     </div>
     </div>
 </template>
@@ -51,35 +51,37 @@
 import {doGet} from "@/api/httpRequest";
 
 export default {
-  name:'SendMsg',
-  data(){
-    return{
-      searchText: '',
+  name: 'SendMsg',
+  data() {
+    return {
+      searchText: "",
       inputSearchSender: "",
-      inputSearchRecipient:"",
-        data: [
-        { id: 1, name: 'chh' },
-        { id: 2, name: 'dc' },
-        { id: 3, name: 'yq' },
-        { id: 4, name: 'cyj' },
-        { id: 5, name: 'gt' },
-        { id: 6, name: 'xxj' },
-        { id: 7, name: 'wqw' },
-        { id: 8, name: 'wy' },
-        { id: 9, name: 'lcx' }
+      inputSearchRecipient: "",
+      fromuser: sessionStorage.getItem("user"),
+      data: [
+        {id: 1, name: 'chh'},
+        {id: 2, name: 'dc'},
+        {id: 3, name: 'yq'},
+        {id: 4, name: 'cyj'},
+        {id: 5, name: 'gt'},
+        {id: 6, name: 'xxj'},
+        {id: 7, name: 'wqw'},
+        {id: 8, name: 'wy'},
+        {id: 9, name: 'lcx'}
       ],
-      selectedPeople:[],
-      sentMessages: [],
-      message: '',
+      selectedPeople: [],
+      sentMessages1: [],
+      sentMessages2: [],
+      message: "",
       showDropdown: false,
       filteredData: [],
       currentDate: new Date()
     }
   },
-  
-  methods:{
+
+  methods: {
     sendMsg() {
-      
+
       // axios.post('/api/send_msg', { selectedPeople, message })
       //   .then(response => {
       //     console.log('消息已发送');
@@ -88,40 +90,51 @@ export default {
       //     console.error('发送消息时出错', error);
       //   });
 
-      if (this.filteredData.length > 0 && this.message !== '') {
-        for (let item of this.filteredData) {
-          // this.sentMessages.push({
-          //   id: Date.now(),
-          //   sender: 'You',
-          //   recipient:this.selectedPeople[0],
-          //   content: this.message
-          // });
-          if (item.isSelected) {
-          doGet("http://localh ost:8002/tms/sendmessage", {
-            fromuser: '你',
-            toname: item.name,
-            msg:this.message,
-            id:Date.now()
-          }).then((resp) => {
-            // eslint-disable-next-line no-empty
-            if (resp) {
+      //if (this.filteredData.length > 0 && this.message !== '') {
+      // (let item of this.filteredData) {
+      // this.sentMessages.push({
+      //   id: Date.now(),
+      //   sender: 'You',
+      //   recipient:this.selectedPeople[0],
+      //   content: this.message
+      // });
+      //if (item.isSelected) {
+      doGet("http://localhost:8002/tms/sendmessage", {
+        fromuser: this.fromuser,
+        touser: this.searchText,
+        msg: this.message,
+        id: Date.now()
+      }).then((resp) => {
+        // eslint-disable-next-line no-empty
+        if (resp) {
 
-            }
-          });
-          }
         }
-        this.searchText = '';
-        this.message = '';
-      }
-      
-  },
-    queryMsg(){
+      });
+      this.searchText = '';
+      this.message = '';
+    }
+
+
+    ,
+    queryMsg1() {
       doGet("http://localhost:8002/tms/querymsg", {
-        fromuser: this.inputSearchSender,
-        touser: this.inputSearchRecipient,
+        fromuser: this.fromuser,
+        touser: ""
       }).then((resp) => {
         if (resp) {
-          this.sentMessages=resp.data;
+          this.sentMessages1 = resp.data;
+
+        }
+      });
+      //location.reload()
+    },
+    queryMsg2() {
+      doGet("http://localhost:8002/tms/querymsg", {
+        touser: this.fromuser,
+        fromuser: ""
+      }).then((resp) => {
+        if (resp) {
+          this.sentMessages2 = resp.data;
           //location.reload()
         }
       });
@@ -135,11 +148,18 @@ export default {
       this.showDropdown = false;
       for (let dataItem of this.data) {
         dataItem.isSelected = (dataItem.name === item.name);
-  }
+      }
     },
+  },
+  mounted() {
+    this.queryMsg1();
+    this.queryMsg2();
+    console.log(sessionStorage.getItem("user"))
   }
-  
 }
+
+  
+
 </script>
 
 <style scoped>
@@ -194,7 +214,7 @@ export default {
   box-shadow: 0 0 30px #9cadb3a9;
   margin: 0 0 0 860px;
   overflow: auto;
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
   line-height: 1.5;
   z-index: 2;
 }

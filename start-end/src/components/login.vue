@@ -28,7 +28,7 @@
 
           <input type="password" class="inp" v-model="password" placeholder="密码"/>
 
-          <button @click="login2" type="submit">登录</button>
+          <button @click.prevent="login2" type="submit">登录</button>
 
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
@@ -42,7 +42,7 @@
 
           <input type="password" class="inp" v-model="password" placeholder="管理员密码"/>
 
-          <button @click="login1" type="submit">登录</button>
+          <button @click.prevent="login1" type="submit">登录</button>
 
           <button @click="goToRegistration" class="re">
             or &nbsp;&nbsp;注册
@@ -83,7 +83,7 @@ export default {
       this.$router.push("/registration");
     },
     login1(){
-      axios.post('/api/login',{
+      axios.post('http://localhost:8004/api/login',{
         username:this.username,
         password:this.password
       },{
@@ -100,7 +100,7 @@ export default {
       })
     },
     login2(){
-      axios.post('/api/login',{
+      axios.post('http://localhost:8004/api/login',{
         username:this.username,
         password:this.password
       },{
@@ -111,6 +111,7 @@ export default {
         if(response.data.role==='user'){
           console.log(response.data);
           this.$router.push("/studentHome");
+          sessionStorage.setItem("user",response.data.admin.username)
         }else{
           alert('用户名或密码错误')
         }

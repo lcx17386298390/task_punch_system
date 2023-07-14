@@ -21,39 +21,38 @@
       placeholder="text your task-content..."
     ></textarea>
     <br />
-    <button @click="checkInputs" class="btn">create</button>
-    <div
-      class="modal"
-      v-if="showModal"
-      @click.self="showModal = false"
-      @keydown.ESC="closeModal"
-    >
-      <div class="modal-content">
-        <div slot="header">
-          <h3>Select students</h3>
-        </div>
-        <div slot="body">
-          <ul>
-            <li
-              v-for="name in names"
-              :key="name.id"
-              @click="toggleNames(name.name)"
-            >
-              <input
-                type="checkbox"
-                :checked="selectedNames.includes(name.name)"
-              />
-              {{ name.name }}
-            </li>
-          </ul>
-        </div>
-        <div slot="footer" class="button-container">
-          <button @click="confirmSend">Confirm</button>
-          <button @click="cancelSend">Cancel</button>
-        </div>
+    <button @click="confirmSend" class="btn">create</button>
+<!--    <div-->
+<!--      class="modal"-->
+<!--      v-if="showModal"-->
+<!--      @click.self="showModal = false"-->
+<!--      @keydown.ESC="closeModal"-->
+<!--    >-->
+<!--      <div class="modal-content">-->
+<!--        <div slot="header">-->
+<!--          <h3>Select students</h3>-->
+<!--        </div>-->
+<!--        <div slot="body">-->
+<!--          <ul>-->
+<!--            <li-->
+<!--              v-for="name in names"-->
+<!--              :key="name.id"-->
+<!--              @click="toggleNames(name.name)"-->
+<!--            >-->
+<!--              <input-->
+<!--                type="checkbox"-->
+<!--                :checked="selectedNames.includes(name.name)"-->
+<!--              />-->
+<!--              {{ name.name }}-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--        <div slot="footer" class="button-container">-->
+<!--          <button @click="confirmSend">Confirm</button>-->
+<!--          <button @click="cancelSend">Cancel</button>-->
+<!--        </div>-->
       </div>
     </div>
-  </div>
   <!-- <div class="modal-container">
       <div v-for="name in names" :key="name">
         <input
@@ -178,11 +177,10 @@ export default {
         });
         console.log(data);
         return axios({
-          url: 'http://localhost:8000/tms/taskitem/create',
+          url: 'http://localhost:8000/tms/task/create',
           method: 'post',
           params: {
             title:this.send_title,content:this.send_content,
-            name:data
           },
         }).then(resp => {
           if(resp){

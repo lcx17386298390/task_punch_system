@@ -15,7 +15,9 @@ dubbo:
     check: false
     timeout: 50000
     retries: 0
-
+  protocol:
+    name: dubbo
+    port: 20884
 server:
   port: 8000
   servlet:

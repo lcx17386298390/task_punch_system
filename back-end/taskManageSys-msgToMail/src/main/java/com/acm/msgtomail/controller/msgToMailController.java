@@ -14,13 +14,13 @@ public class msgToMailController extends BaseController{
     @RequestMapping("/sendmessage")
     public SendMsg intsendMsg(@RequestParam("id") String id,
                               @RequestParam("fromuser") String fromuser,
-                              @RequestParam("toname") String  toname,
+                              @RequestParam("touser") String  touser,
                               @RequestParam("msg")String msg){
         SendMsg sendMsg=new SendMsg();
         ReturnObject returnObject = new ReturnObject();
         sendMsg.setId(id);
         sendMsg.setFromuser(fromuser);
-        sendMsg.setTouser(toname);
+        sendMsg.setTouser(touser);
         sendMsg.setMsg(msg);
         int ak = sendMsgService.insert(sendMsg);
         if(ak > 0){

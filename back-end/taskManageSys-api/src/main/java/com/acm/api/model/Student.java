@@ -13,4 +13,6 @@ public class Student implements Serializable {
 
     private String password;
 
+    private String role;
+
 }
